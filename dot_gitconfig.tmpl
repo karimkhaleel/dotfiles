@@ -7,7 +7,7 @@
 	editor = nvim
 [init]
 	defaultBranch = main
-{{- if eq .chezmoi.hostname "DESKTOP-LR9MA04"}}
+{{- if and (eq .chezmoi.hostname "DESKTOP-LR9MA04") (eq .chezmoi.os "windows") }}
 [safe]
-        directory = C:/Users/Khaleel/.local/share/chezmoi
+    directory = C:/Users/Khaleel/.local/share/chezmoi
 {{- end}}
