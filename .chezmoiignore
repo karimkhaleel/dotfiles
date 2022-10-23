@@ -1,6 +1,6 @@
-{{ if eq .chezmoi.os "windows" }}
-AppData/Roaming/Code/User/settings.json
+{{ if ne .chezmoi.os "windows" }}
+AppData
 {{ end }}
-{{ if eq .chezmoi.os "linux" }}
+{{ if ne .chezmoi.os "linux" }}
 ~/.config/Code/User/settings.json
 {{ end }}
