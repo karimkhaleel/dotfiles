@@ -30,10 +30,10 @@ opt.splitbelow = true             -- bool: Place new window below the current on
 
 -- [[ Python ]]
 
--- acmd('FileType', {
---   pattern = { "*.py" },
---   callback = function(args)
---     local ft = vim.bo[args.buf].filetype
---     opt.colorcolumn = "88" 
---   end 
--- })
+acmd('FileType', {
+  pattern = { "*.py" },
+  callback = function(args)
+    local ft = vim.bo[args.buf].filetype
+    opt.colorcolumn = "88" 
+  end 
+})
