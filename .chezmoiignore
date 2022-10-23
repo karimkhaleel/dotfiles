@@ -1,6 +1,6 @@
-{{ if ne .chezmoi.os "windows" }}
+{{- if ne .chezmoi.os "windows" }}
 AppData
-{{ end }}
-{{ if ne .chezmoi.os "linux" }}
-~/.config/Code/User/settings.json
-{{ end }}
+{{- end }}
+{{- if ne .chezmoi.os "linux" }}
+~/.config
+{{- end }}
