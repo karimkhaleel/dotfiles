@@ -1,0 +1,144 @@
+{
+  "workbench.colorTheme": "Material Theme High Contrast",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorCustomizations": {
+    "[Material Theme Darker]": {}
+  },
+  "telemetry.telemetryLevel": "off",
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "python.terminal.launchArgs": [
+    "-m",
+    "IPython",
+    "--no-autoindent"
+  ],
+  "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.flake8Args": [
+    "--max-line-length=88",
+    "--max-complexity=10",
+    "--select=C,E,F,W,B,B950",
+    "--extend-ignore=E203,W503",
+    "--extend-exclude=*pyi"
+  ],
+  "python.sortImports.args": [
+    "--profile=black"
+  ],
+  "python.formatting.blackArgs": [
+    "--experimental-string-processing"
+  ],
+  "djlint.formatJs": true,
+  "djlint.ignore": [
+    "H030,H031"
+  ],
+  "[django-html]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[handlebars]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[hbs]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[mustache]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[jinja]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[jinja-html]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[nj]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[njk]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[nunjucks]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[twig]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "jupyter.askForKernelRestart": false,
+  "git.confirmSync": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.rulers": [
+    88
+  ],
+  "git.enableSmartCommit": true,
+  "aws.profile": "profile:makane",
+  "workbench.editorAssociations": {
+    "git-rebase-todo": "default"
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "explorer.confirmDelete": false,
+  "files.associations": {
+    "/templates//*.htm": "django-html",
+    "/templates//*.html": "django-html",
+    "/requirements{/,*}.{txt,in}": "pip-requirements",
+    "*.html": "html"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "search.exclude": {
+    "/__pycache__": true,
+    "/.mypy_cache": true,
+    "/.venv": true
+  },
+  "files.exclude": {
+    "/pycache": true,
+    "/.mypy_cache": true,
+    "/.pytest_cache": true,
+    "/*.egg-info": true,
+    "/.eggs": true
+  },
+  "emmet.optimizeStylesheetParsing": false,
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.userWords": [
+    "autoindent",
+    "boto",
+    "cpptools",
+    "djangorestframework",
+    "djlint",
+    "esbenp",
+    "karim",
+    "loguru",
+    "monosans",
+    "mypy",
+    "psycopg",
+    "pycache",
+    "pyjwt",
+    "pytest",
+    "Redrive",
+    "Releans",
+    "samclisourcebucket",
+    "setuptools",
+    "simplejwt",
+    "sourcery",
+    "Stylesheet",
+    "venv",
+    "vetrina",
+    "viewsets"
+  ],
+  "window.zoomLevel": 1
+}

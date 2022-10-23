@@ -1,0 +1,6 @@
+{{ if eq .chezmoi.hostname "DESKTOP-LR9MA04" }}
+/mnt/c/Users/khaleel/AppData/Roaming/Code/User/settings.json
+{{ end }}
+{{ if eq .chezmoi.hostname "makane-ThinkPad-E15-Gen-2" }}
+~/.config/Code/User/settings.json
+{{ end }}

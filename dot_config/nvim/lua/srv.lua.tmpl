@@ -22,7 +22,8 @@ local init_keybinds = function(client, bufnr)
 end
 
 local servers = {
-    pylsp = {
+    {{if eq .chezmoi.hostname "makane-ThinkPad-E15-Gen-2"}}
+	pylsp = {
         cmd = {"pylsp"},
         on_attach = init_keybinds,
         settings = {
@@ -37,6 +38,7 @@ local servers = {
             }
         }
     }
+	{{end}}
 }
 
 return servers
