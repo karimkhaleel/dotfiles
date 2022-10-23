@@ -7,3 +7,7 @@
 	editor = nvim
 [init]
 	defaultBranch = main
+{{- if eq .chezmoi.hostname "DESKTOP-LR9MA04"}}
+[safe]
+        directory = C:/Users/Khaleel/.local/share/chezmoi
+{{- end}}
