@@ -2,5 +2,5 @@
 AppData
 {{- end }}
 {{- if ne .chezmoi.os "linux" }}
-~/.config
+.config
 {{- end }}
