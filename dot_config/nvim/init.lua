@@ -98,3 +98,5 @@ require'nvim-treesitter.configs'.setup{
     },
 }
 
+require"hop".setup{}
+require"trouble".setup{}

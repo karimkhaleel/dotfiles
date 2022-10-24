@@ -26,14 +26,3 @@ opt.tabstop = 4                   -- num:  Number of spaces tabs count for
 -- [[ Splits ]]
 opt.splitright = true             -- bool: NPlace new window to the right of current one
 opt.splitbelow = true             -- bool: Place new window below the current one
-
-
--- [[ Python ]]
-
-acmd('FileType', {
-  pattern = { "*.py" },
-  callback = function(args)
-    local ft = vim.bo[args.buf].filetype
-    opt.colorcolumn = "88" 
-  end 
-})

@@ -38,22 +38,32 @@ return require('packer').startup(function(use)
     }
     use { "gennaro-tedesco/nvim-jqx" }              -- json prettifier
 
-    -- [[ Perf ]]
-    use { "lewis6991/impatient.nvim" }              -- speed up load time
-
-    -- [[ COQ ]]
+    use {
+        "phaazon/hop.nvim",                         -- code navigation
+        branch = "v2"
+    }
+    
     use { 
-        "ms-jpq/coq_nvim",
+        "ms-jpq/coq_nvim",                          -- autocomplete
         branch = "coq"
     }
     use { 
-        "ms-jpq/coq.artifacts",
+        "ms-jpq/coq.artifacts",                     -- autocomplete snippets
         branch = "artifacts",
         requires = { "ms-jpg/coq_nvim" }
     }
     use { 
-        "ms-jpq/coq.thirdparty",
+        "ms-jpq/coq.thirdparty",                    -- autocomplete thirdparty tools
         branch = "3p",
         requires = { "ms-jpg/coq_nvim" }
+
     }
+
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons"
+    }
+    -- [[ Perf ]]
+    use { "lewis6991/impatient.nvim" }              -- speed up load time
+
 end)
