@@ -101,7 +101,7 @@
     "**/.venv": true
   },
   "files.exclude": {
-    "**/pycache": true,
+    "**/__pycache__": true,
     "**/.mypy_cache": true,
     "**/.pytest_cache": true,
     "**/*.egg-info": true,
