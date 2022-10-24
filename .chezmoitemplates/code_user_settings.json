@@ -96,16 +96,16 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "search.exclude": {
-    "/__pycache__": true,
-    "/.mypy_cache": true,
-    "/.venv": true
+    "**/__pycache__": true,
+    "**/.mypy_cache": true,
+    "**/.venv": true
   },
   "files.exclude": {
-    "/pycache": true,
-    "/.mypy_cache": true,
-    "/.pytest_cache": true,
-    "/*.egg-info": true,
-    "/.eggs": true
+    "**/pycache": true,
+    "**/.mypy_cache": true,
+    "**/.pytest_cache": true,
+    "**/*.egg-info": true,
+    "**/.eggs": true
   },
   "emmet.optimizeStylesheetParsing": false,
   "emmet.includeLanguages": {
