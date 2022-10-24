@@ -3,4 +3,6 @@ AppData
 {{- end }}
 {{- if ne .chezmoi.os "linux" }}
 .config
+.zshrc
+secrets
 {{- end }}
