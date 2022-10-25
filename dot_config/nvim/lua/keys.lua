@@ -21,6 +21,7 @@ cmd("command HopWordACLine lua require'hop'.hint_char1({direction = require'hop.
 cmd("command HopWordBCLine lua require'hop'.hint_char1({direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true})")
 cmd("command HopWordBackACLine lua require'hop'.hint_char1({direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = 1})")
 cmd("command HopWordBackBCLine lua require'hop'.hint_char1({direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1})")
+map("n", "<leader>hw", [[:HopWord<CR>]], {})
 map("n", "<leader>hc1", [[:HopChar1<CR>]], {})
 map("n", "<leader>hc2", [[:HopChar2<CR>]], {})
 map("n", "<leader>hl", [[:HopLine<CR>]], {})
