@@ -1,6 +1,6 @@
 -- LEADER
 -- Need to be defined first in order not to defaul tot "\"
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 vim.g.localleader = "\\"
 
 -- IMPORTS
