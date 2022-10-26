@@ -90,7 +90,8 @@
     "/templates//*.htm": "django-html",
     "/templates//*.html": "django-html",
     "/requirements{/,*}.{txt,in}": "pip-requirements",
-    "*.html": "html"
+    "*.html": "html",
+    "*.lua.tmpl": "lua"
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -138,7 +139,8 @@
     "Stylesheet",
     "venv",
     "vetrina",
-    "viewsets"
+    "viewsets",
+    "tmpl"
   ],
   "window.zoomLevel": 1,
   "yaml.customTags": [
