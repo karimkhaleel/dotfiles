@@ -48,11 +48,8 @@ end
 -- Other
 
 require("nvim-tree").setup{}
-require("lualine").setup {
-    options = {
-        theme = "dracula-nvim"
-    }
-}
+require"palenightfall".setup{}
+require("lualine").setup{}
 require("nvim-autopairs").setup{}
 require("impatient")
 

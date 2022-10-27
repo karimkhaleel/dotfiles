@@ -9,8 +9,7 @@ return require('packer').startup(function(use)
         requires = {"kyazdani42/nvim-web-devicons",
         opt = true}
     }
-    use { "Mofiqul/dracula.nvim" }
-    
+    use { "JoosepAlviste/palenightfall.nvim" }
     -- [[ Dev ]]
     use {"neovim/nvim-lspconfig"}                   -- language servers
     use {                                           -- file explorer tab
