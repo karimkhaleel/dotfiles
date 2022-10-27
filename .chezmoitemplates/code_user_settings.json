@@ -122,6 +122,7 @@
     "djangorestframework",
     "djlint",
     "esbenp",
+    "Fira",
     "karim",
     "loguru",
     "monosans",
@@ -137,10 +138,10 @@
     "simplejwt",
     "sourcery",
     "Stylesheet",
+    "tmpl",
     "venv",
     "vetrina",
-    "viewsets",
-    "tmpl"
+    "viewsets"
   ],
   "window.zoomLevel": 1,
   "yaml.customTags": [
@@ -172,5 +173,6 @@
     "!Split",
     "!Split sequence"
   ],
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "editor.fontFamily": "'FiraMono NFM'"
 }
