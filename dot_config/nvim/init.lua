@@ -49,7 +49,11 @@ end
 
 require("nvim-tree").setup{}
 require"palenightfall".setup{}
-require("lualine").setup{}
+require("lualine").setup{
+    options = {
+        theme=require"lualine.themes.palenight"
+    }
+}
 require("nvim-autopairs").setup{}
 require("impatient")
 
