@@ -174,5 +174,10 @@
     "!Split sequence"
   ],
   "redhat.telemetry.enabled": false,
+  {{- if eq .chezmoi.os "linux" }}
+  "editor.fontFamily": "'SauceCodePro NFM'"
+  {{- end }}
+  {{- if eq .chezmoi.os "windows"}}
   "editor.fontFamily": "'FiraMono NFM'"
+  {{- end }}
 }
