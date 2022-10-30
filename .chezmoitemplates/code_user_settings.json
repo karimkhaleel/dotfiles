@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Material Theme High Contrast",
+  "workbench.colorTheme": "Material Theme Palenight High Contrast",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
     "[Material Theme Darker]": {}
@@ -116,6 +116,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.userWords": [
+    "aramex",
     "autoindent",
     "boto",
     "cpptools",
@@ -126,7 +127,10 @@
     "karim",
     "loguru",
     "monosans",
+    "multitenancy",
     "mypy",
+    "Palenight",
+    "paymennt",
     "psycopg",
     "pycache",
     "pyjwt",
@@ -141,7 +145,8 @@
     "tmpl",
     "venv",
     "vetrina",
-    "viewsets"
+    "viewsets",
+    "zain"
   ],
   "window.zoomLevel": 1,
   "yaml.customTags": [
