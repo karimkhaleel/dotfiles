@@ -12,6 +12,9 @@ autoload -U promptinit; promptinit
 
 # optionally define some options
 PURE_CMD_MAX_EXEC_TIME=10
+{{- if eq .chezmoi.os "linux" }}
+PURE_PROMPT_SYMBOL=">"
+{{- end }}
 
 # change the path color
 zstyle :prompt:pure:path color white
