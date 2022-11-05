@@ -108,6 +108,7 @@
     "autoindent",
     "boto",
     "chezmoi",
+    "chezmoitemplates",
     "cpptools",
     "djangorestframework",
     "djlint",
