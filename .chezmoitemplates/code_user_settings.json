@@ -74,8 +74,7 @@
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
   "files.associations": {
-    "/templates//*.htm": "django-html",
-    "/templates//*.html": "django-html",
+    "**/templates/**/*.{html,htm}": "django-html",
     "/requirements{/,*}.{txt,in}": "pip-requirements",
     "*.html": "html",
     "*.lua.tmpl": "lua"
