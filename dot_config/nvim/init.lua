@@ -4,23 +4,23 @@ vim.g.mapleader = " "
 vim.g.localleader = "\\"
 
 -- IMPORTS
-require('vars')                    -- Variables
-require('opts')                    -- Options
-require('keys')                    -- Keymaps
-require('plug')                    -- Plugins
-local servers = require('srv')     -- LSP servers
+require('vars') -- Variables
+require('opts') -- Options
+require('keys') -- Keymaps
+require('plug') -- Plugins
+local servers = require('srv') -- LSP servers
 -- PLUGINS
 
 -- Completion
 
 vim.g.coq_settings = {
-  auto_start = 'shut-up',
-  clients = {
-    tmux = { enabled = false },
-  },
+    auto_start = 'shut-up',
+    clients = {
+        tmux = { enabled = false },
+    },
 }
 
-coq = require"coq"
+coq = require "coq"
 
 require("coq_3p") {
     src = "nvimlua",
@@ -28,48 +28,66 @@ require("coq_3p") {
 }
 
 -- LSP
+local lspconfig = require "lspconfig"
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = { "sumneko_lua", "tsserver", "pylsp", "html", "jsonls", "marksman", "sqlls", "taplo", "volar" }
+})
 
-local lsp = require"lspconfig"
+require "mason-lspconfig".setup_handlers {
+    function(server_name)
+        lspconfig[server_name].setup {}
+        lspconfig[server_name].setup { coq.lsp_ensure_capabilities {} }
+    end,
+    ["pylsp"] = function() end
+}
+
 local null_ls = require("null-ls")
+
+-- code action sources
+local code_actions = null_ls.builtins.code_actions
+
+-- diagnostic sources
+local diagnostics = null_ls.builtins.diagnostics
+
+-- formatting sources
+local formatting = null_ls.builtins.formatting
+
+-- hover sources
+local hover = null_ls.builtins.hover
+
+-- completion sources
+local completion = null_ls.builtins.completion
+
 null_ls.setup({
     sources = {
+        -- Python
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.isort,
         null_ls.builtins.diagnostics.flake8,
-        null_ls.builtins.diagnostics.mypy
+        null_ls.builtins.diagnostics.mypy,
+        -- JavaScript
+        null_ls.builtins.code_actions.eslint
     }
 })
-
-for server, config in pairs(servers) do
-    if type(config) == 'function' then
-        config = config()
-    end
-    config.capabilities = vim.tbl_deep_extend(
-        'keep',
-        config.capabilities or {},
-        client_capabilities or {}
-    )
-    lsp[server].setup(config)
-    lsp[server].setup(coq.lsp_ensure_capabilities(config))
-end
 
 
 -- Other
 
-require("nvim-tree").setup{}
-require"palenightfall".setup{}
-require("lualine").setup{
+require("nvim-tree").setup {}
+require "palenightfall".setup {}
+require("lualine").setup {
     options = {
-        theme=require"lualine.themes.palenight"
+        theme = require "lualine.themes.palenight"
     }
 }
-require("nvim-autopairs").setup{}
+require("nvim-autopairs").setup {}
 require("impatient")
 
 -- Syntax highlight
-require'nvim-treesitter.configs'.setup{
+require 'nvim-treesitter.configs'.setup {
     -- A list of parser names
-    ensure_installed = {"c", "python", "lua", "javascript"},
+    ensure_installed = { "c", "python", "lua", "javascript" },
 
     sync_install = false,
 
@@ -108,5 +126,5 @@ require'nvim-treesitter.configs'.setup{
     },
 }
 
-require"hop".setup{}
-require"trouble".setup{}
+require "hop".setup {}
+require "trouble".setup {}

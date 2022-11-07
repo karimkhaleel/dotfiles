@@ -15,7 +15,11 @@ return require('packer').startup(function(use)
         requires = { "nvim-lua/plenary.nvim" }
     }
     -- [[ Dev ]]
-    use { "neovim/nvim-lspconfig" }                 -- language servers
+    use {
+        "williamboman/mason.nvim",                  -- lsp
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig"
+    }
     use { "jose-elias-alvarez/null-ls.nvim" }       -- language server abstractions
     use {                                           -- file explorer tab
         "kyazdani42/nvim-tree.lua",
