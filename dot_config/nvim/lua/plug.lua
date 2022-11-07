@@ -4,14 +4,19 @@ return require('packer').startup(function(use)
     -- [[ Theme ]]
     use { "mhinz/vim-startify" }
     use { "DanilaMihailov/beacon.nvim" }
+    use { "kyazdani42/nvim-web-devicons" }
     use {
         "nvim-lualine/lualine.nvim",
         requires = {"kyazdani42/nvim-web-devicons",
         opt = true}
     }
-    use { "JoosepAlviste/palenightfall.nvim" }
+    use {
+        "JoosepAlviste/palenightfall.nvim",
+        requires = { "nvim-lua/plenary.nvim" }
+    }
     -- [[ Dev ]]
-    use {"neovim/nvim-lspconfig"}                   -- language servers
+    use { "neovim/nvim-lspconfig" }                 -- language servers
+    use { "jose-elias-alvarez/null-ls.nvim" }       -- language server abstractions
     use {                                           -- file explorer tab
         "kyazdani42/nvim-tree.lua",
         requires = "kyazdani42/nvim-web-devicons"
@@ -23,6 +28,8 @@ return require('packer').startup(function(use)
     use { "majutsushi/tagbar" }                     -- code structure
     use { "Yggdroot/indentLine" }                   -- see indentation
     use { "tpope/vim-fugitive" }                    -- git integration
+    use { "tpope/vim-rhubarb" }                     -- git browse integration
+    use { "LinuxSuRen/fugitive-bitbucket.vim" }     -- bitbucket integration
     use { "tpope/vim-surround" }                    -- surround with
     use { "junegunn/gv.vim" }                       -- commit history
     use { "windwp/nvim-autopairs" }                 -- auto close brackets, etc.
