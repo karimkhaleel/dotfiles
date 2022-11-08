@@ -1,6 +1,6 @@
 if (( $+commands[exa] )) {
-  alias lss="exa --binary --octal-permissions --no-permissions --git --time-style iso"
-  alias recent="exa --binary --octal-permissions --no-permissions --git --time-style iso -snew"
+  alias lss="exa --binary --git --time-style iso"
+  alias recent="exa --binary --git --time-style iso -snew"
 } else {
   alias ls="ls --color=auto"
   alias recent="ls -rt"
@@ -27,7 +27,7 @@ tree () {  # [-L <depth>] [-d] [<arg>...]
       if [[ $1 == -L ]] { depth=(-L $2); shift 2 }
       if [[ $1 == -d ]] { dirsonly=-D; shift }
     }
-    cmd=(exa -T -l --git --no-time --no-user --no-filesize --no-permissions $depth $dirsonly)
+    cmd=(exa -T -l --git $depth $dirsonly)
   } elif (( $+commands[tree] )) {
     cmd=(=tree -C)
   } else {
