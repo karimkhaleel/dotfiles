@@ -1,5 +1,5 @@
 # PATH
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/scripts:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/scripts:$HOME/.nimble/bin:$PATH
 
 # Package Manager
 . ~/.znap.zshrc
