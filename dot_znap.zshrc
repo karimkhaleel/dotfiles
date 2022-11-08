@@ -6,9 +6,14 @@
 source ~/Git/zsh-snap/znap.zsh
 
 # `znap source` automatically downloads and starts your plugins.
-znap source marlonrichert/zsh-autocomplete
+# znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
+znap source andydecleyre/zpy
+
+# Completions
+znap fpath _poetry 'poetry completions zsh'
+
 
 ##
 # Defer initilization code with lazily loaded functions created by
@@ -19,10 +24,11 @@ znap source zsh-users/zsh-syntax-highlighting
 # executed until you try to execute the associated command or try to use
 # completion on it.
 
-#Pyenv
+# Python
+# Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-znap function _pyenv pyenv              'eval "$( pyenv init - --no-rehash )"'
+znap function _pyenv pyenv 'eval "$( pyenv init - --no-rehash )"'
 compctl -K    _pyenv pyenv
 
 znap function _pip_completion pip       'eval "$( pip completion --zsh )"'

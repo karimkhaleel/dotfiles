@@ -12,11 +12,6 @@ SAVEHIST=1000000            # history size in the file
 setopt inc_append_history   # save the command to history when running
 setopt share_history        # share history with other session 
 
-# Enable Autocompletion
-# autoload -Uz compinit && compinitzstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}'
-# zstyle ':completion:*' format '%B%F{blue}%d%f%b'
-# zstyle ':completion:*' group-name ''zstyle ':completion:*:default' menu select=2
-
 # automatically change directory when dir name is typed
 setopt auto_cd
 
@@ -24,33 +19,12 @@ setopt auto_cd
 setopt no_flow_control
 
 # Imports
+. ~/.ls.zshrc
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Theme
-fpath+=($HOME/.zsh/pure)
-ZSH_THEME=""
-
-autoload -U promptinit; promptinit
-
-# optionally define some options
-PURE_CMD_MAX_EXEC_TIME=10
-
-# change the path color
-zstyle :prompt:pure:path color white
-
-# change the color for both `prompt:success` and `prompt:error`
-zstyle ':prompt:pure:prompt:*' color cyan
-
-# turn on git stash status
-zstyle :prompt:pure:git:stash show yes
-
 znap prompt sindresorhus/pure
-
-plugins=(git poetry)
-
-source $ZSH/oh-my-zsh.sh
 
 alias v="nvim"
 alias pshl="source ./.venv/bin/activate"
