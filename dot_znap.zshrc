@@ -6,7 +6,7 @@
 source ~/Git/zsh-snap/znap.zsh
 
 # `znap source` automatically downloads and starts your plugins.
-# znap source marlonrichert/zsh-autocomplete
+znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 znap source andydecleyre/zpy
