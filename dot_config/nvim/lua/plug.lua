@@ -14,6 +14,11 @@ return require('packer').startup(function(use)
         "JoosepAlviste/palenightfall.nvim",
         requires = { "nvim-lua/plenary.nvim" }
     }
+    use {
+        "akinsho/bufferline.nvim",
+        requires = { "kyazdani42/nvim-web-devicons" }
+    }
+
     -- [[ Dev ]]
     use {
         "williamboman/mason.nvim", -- lsp
@@ -52,6 +57,7 @@ return require('packer').startup(function(use)
     use { "Yggdroot/indentLine" } -- see indentation
     use { "tpope/vim-fugitive" } -- git integration
     use { "tpope/vim-rhubarb" } -- git browse integration
+    use { "airblade/vim-gitgutter" } -- git changes inline
     use { "LinuxSuRen/fugitive-bitbucket.vim" } -- bitbucket integration
     use { "tpope/vim-surround" } -- surround with
     use { "junegunn/gv.vim" } -- commit history

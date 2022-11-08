@@ -40,6 +40,10 @@ map("n", "F", [[:HopWordBCLine<CR>]], {})
 map("n", "t", [[:HopWordPreACLine<CR>]], {})
 map("n", "T", [[:HopWordPreBCLine<CR>]], {})
 
+-- [[ Buffers ]]
+map("n", "gbp", [[:BufferLinePick<CR>]], {})
+map("n", "gbc", [[:BufferLinePickClose<CR>]], {})
+
 
 -- [[ LSP ]]
 map("n", "K", [[:lua vim.lsp.buf.hover()<CR>]], {})

@@ -100,6 +100,7 @@ require("lualine").setup {
         theme = require "lualine.themes.palenight"
     }
 }
+require("bufferline").setup{}
 require("nvim-autopairs").setup {}
 require("impatient")
 
