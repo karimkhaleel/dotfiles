@@ -46,6 +46,5 @@ map("n", "gbc", [[:BufferLinePickClose<CR>]], {})
 
 
 -- [[ LSP ]]
-map("n", "K", [[:lua vim.lsp.buf.hover()<CR>]], {})
 map("n", "<F2>", [[:lua vim.lsp.buf.rename()<CR>]], {})
 map("n", "<leader>for", [[:lua vim.lsp.buf.format{ async = true }<CR>]], {})
