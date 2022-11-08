@@ -12,16 +12,8 @@ local servers = require('srv') -- LSP servers
 -- PLUGINS
 
 -- Completion
-
-vim.g.coq_settings = {
-    auto_start = 'shut-up',
-    clients = {
-        tmux = { enabled = false },
-    },
-}
-
-coq = require "coq"
-
+require "config.coq_config"
+local coq = require "coq"
 require("coq_3p") {
     src = "nvimlua",
     short_name = "nLUA",
@@ -31,7 +23,8 @@ require("coq_3p") {
 local lspconfig = require "lspconfig"
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "sumneko_lua", "tsserver", "pylsp", "html", "jsonls", "marksman", "sqlls", "taplo", "volar" }
+    ensure_installed = { "sumneko_lua", "tsserver", "pylsp", "html", "jsonls", "marksman", "sqlls", "taplo",
+        "volar" }
 })
 
 require "mason-lspconfig".setup_handlers {
@@ -39,7 +32,33 @@ require "mason-lspconfig".setup_handlers {
         lspconfig[server_name].setup {}
         lspconfig[server_name].setup { coq.lsp_ensure_capabilities {} }
     end,
-    ["pylsp"] = function() end
+    ["pylsp"] = function()
+        -- local configuration = {
+        --     settings = {
+        --         pylsp = {
+        --             plugins = {
+        --                 autopep8 = { enabled = false },
+        --                 pycodestyle = { enabled = false },
+        --                 pyflakes = { enabled = false },
+        --                 yapf = { enabled = false }
+        --             }
+        --         }
+        --     }
+        -- }
+        lspconfig.pylsp.setup {
+            settings = {
+                pylsp = {
+                    plugins = {
+                        autopep8 = { enabled = false },
+                        pycodestyle = { enabled = false },
+                        pyflakes = { enabled = false },
+                        yapf = { enabled = false }
+                    }
+                }
+            }
+        }
+        -- lspconfig.pylsp.setup { coq.lsp_ensure_capabilities(configuration) }
+    end
 }
 
 local null_ls = require("null-ls")

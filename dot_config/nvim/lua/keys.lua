@@ -13,12 +13,12 @@ map("n", "<leader>ut", [[:UndotreeToggle<CR>]], {})
 map("n", "<leader>tr", [[:TroubleToggle<CR>]], {})
 
 -- [[ Telescope ]]
+map("n", "<leader>ff", [[:Telescope live_grep<CR>]], {})
 map("n", "<leader>fif", [[:Telescope find_files<CR>]], {})
-map("n", "<leader>fi", [[:Telescope live_grep<CR>]], {})
 map("n", "<leader>fgb", [[:Telescope git_branches<CR>]], {})
 map("n", "<leader>fbn", [[:Telescope builtin<CR>]], {})
 map("n", "<leader>fch", [[:Telescope commands<CR>]], {})
-map("n", "<leader>fman", [[:Telescope manpages<CR>]], {})
+map("n", "<leader>fman", [[:Telescope man_pages<CR>]], {})
 map("n", "<leader>flr", [[:Telescope lsp_references<CR>]], {})
 map("n", "<leader>fld", [[:Telescope lsp_definitions<CR>]], {})
 
