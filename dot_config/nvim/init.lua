@@ -94,10 +94,9 @@ null_ls.setup({
 -- Other
 
 require("nvim-tree").setup {}
-require "palenightfall".setup {}
 require("lualine").setup {
     options = {
-        theme = require "lualine.themes.palenight"
+        theme = require "lualine.themes.tokyonight"
     }
 }
 require("bufferline").setup{}

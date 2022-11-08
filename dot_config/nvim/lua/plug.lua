@@ -11,8 +11,7 @@ return require('packer').startup(function(use)
             opt = true }
     }
     use {
-        "JoosepAlviste/palenightfall.nvim",
-        requires = { "nvim-lua/plenary.nvim" }
+        "folke/tokyonight.nvim"
     }
     use {
         "akinsho/bufferline.nvim",
