@@ -5,15 +5,15 @@
         "command": "-python.execSelectionInTerminal",
         "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
     },
-    { 
-        "key": "ctrl+shift+alt+j", 
-        "command": "editor.action.copyLinesDownAction",                            
-        "when": "editorTextFocus && !editorReadonly" 
+    {
+        "key": "ctrl+shift+alt+j",
+        "command": "editor.action.copyLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
     },
-    { 
-        "key": "ctrl+shift+alt+k", 
-        "command": "editor.action.copyLinesUpAction",                                
-        "when": "editorTextFocus && !editorReadonly" 
+    {
+        "key": "ctrl+shift+alt+k",
+        "command": "editor.action.copyLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
     },
     {
         "key": "alt+left",
@@ -32,5 +32,9 @@
     {
         "key": "alt+right",
         "command": "workbench.action.navigateForwardInNavigationLocations"
+    },
+    {
+        "key": "ctrl+shift+r",
+        "command": "-workbench.view.extension.thunder-client"
     }
 ]
