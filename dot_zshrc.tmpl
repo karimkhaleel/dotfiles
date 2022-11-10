@@ -33,7 +33,9 @@ setopt appendhistory
 
 # Env Variables
 # lesspipe
-LESSOPEN="|/usr/local/bin/lesspipe.sh %s"; export LESSOPEN  #(sh like shells)
+LESSOPEN="|lesspipe.sh %s"; export LESSOPEN
+
+EDITOR="nvim"; export EDITOR 
 
 # Theme
 zinit ice pick'async.zsh' src'pure.zsh'
@@ -50,7 +52,12 @@ zinit light andydecleyre/zpy
 
 # Aliases
 alias v="nvim"
+{{- if eq .chezmoi.osRelease.id "fedora" }}
 alias cat="bat"
+{{- else if eq .chezmoi.osRelease.id "debian"}}
+alias cat="batcat"
+{{-  end}}
+
 
 # Environment Managers
 # NVM

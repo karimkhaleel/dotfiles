@@ -1,13 +1,13 @@
 if (( $+commands[exa] )) {
-  alias lss="exa --binary --git --time-style iso"
+  alias ls="exa --binary --git --time-style iso"
   alias recent="exa --binary --git --time-style iso -snew"
 } else {
   alias ls="ls --color=auto"
   alias recent="ls -rt"
 }
 
-alias lsa="lss -a"
-alias lsl="lss -la"
+alias lsa="ls -a"
+alias lsl="ls -la"
 
 # use -d to only show folders
 # broot backend ignores the depth option
