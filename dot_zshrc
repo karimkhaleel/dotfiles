@@ -31,6 +31,10 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
+# Env Variables
+# lesspipe
+LESSOPEN="|/usr/local/bin/lesspipe.sh %s"; export LESSOPEN  #(sh like shells)
+
 # Theme
 zinit ice pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
@@ -46,6 +50,7 @@ zinit light andydecleyre/zpy
 
 # Aliases
 alias v="nvim"
+alias cat="bat"
 
 # Environment Managers
 # NVM
