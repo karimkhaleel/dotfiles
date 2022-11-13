@@ -4,7 +4,16 @@
 	email = {{ .email | quote }}
 	name = Karim Khaleel
 [core]
+    pager = delta
 	editor = nvim
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
 [init]
 	defaultBranch = main
 {{- if and (eq .chezmoi.hostname "DESKTOP-LR9MA04") (eq .chezmoi.os "windows") }}
