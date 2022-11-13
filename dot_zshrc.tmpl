@@ -42,10 +42,19 @@ zinit ice pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
 
 # Zinit Plugins
-zinit light zsh-users/zsh-completions
-zinit light unixorn/fzf-zsh-plugin
 zinit light andydecleyre/zpy
+zinit light unixorn/fzf-zsh-plugin
 
+# Zinit syntax highlighting + autosuggestions
+zinit wait lucid light-mode for \
+    atinit"zicompinit; zicdreplay" \
+        zdharma-continuum/fast-syntax-highlighting \
+    atload"_zsh_autosuggest_start" \
+        zsh-users/zsh-autosuggestions \
+    blockf atpull"zinit creinstall -q ." \
+        zsh-users/zsh-completions
+
+        
 # Imports
 . ~/.dot_zsh/.ls.zshrc
 
