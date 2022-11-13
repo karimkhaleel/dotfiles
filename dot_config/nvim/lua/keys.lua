@@ -49,6 +49,7 @@ map("n", "<leader>tk", [[:BufferLinePickClose<CR>]], {})
 
 -- [[ LSP ]]
 map("n", "<F2>", [[:lua vim.lsp.buf.rename()<CR>]], {})
-map("n", "<F12>", [[:lua vim.lsp.buf.rename()<CR>]], {})
+map("n", "<F12>", [[:lua vim.lsp.buf.definition()<CR>]], {})
+map("n", "<leader><F12>", [[:lua vim.lsp.buf.references()<CR>]], {})
 map("n", "<leader>for", [[:lua vim.lsp.buf.format{ async = true }<CR>]], {})
 map("n", "<leader>dia", [[:lua vim.diagnostic.open_float()<CR>]], {})
