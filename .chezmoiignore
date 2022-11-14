@@ -6,4 +6,5 @@ AppData
 .zshrc
 secrets
 scripts
+.tmux.conf
 {{- end }}
