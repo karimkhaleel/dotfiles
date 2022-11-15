@@ -1,5 +1,5 @@
 # PATH
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/scripts:$HOME/.nimble/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/scripts:$HOME/.nimble/bin:/usr/local/go/bin:$HOME/go/bin:$PATH
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -34,6 +34,7 @@ setopt appendhistory
 # Env Variables
 # lesspipe
 LESSOPEN="|lesspipe.sh %s"; export LESSOPEN
+lessc () {/usr/share/vim/vim90/macros/less.sh "$@"}
 
 EDITOR="nvim"; export EDITOR 
 
@@ -42,8 +43,11 @@ zinit ice pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
 
 # Zinit Plugins
-zinit light andydecleyre/zpy
-zinit light unixorn/fzf-zsh-plugin
+zinit light-mode for \
+    andydecleyre/zpy \
+    unixorn/fzf-zsh-plugin \
+    Aloxaf/fzf-tab
+
 
 # Zinit syntax highlighting + autosuggestions
 zinit wait lucid light-mode for \
