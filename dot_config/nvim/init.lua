@@ -33,18 +33,6 @@ require "mason-lspconfig".setup_handlers {
         lspconfig[server_name].setup { coq.lsp_ensure_capabilities {} }
     end,
     ["pylsp"] = function()
-        -- local configuration = {
-        --     settings = {
-        --         pylsp = {
-        --             plugins = {
-        --                 autopep8 = { enabled = false },
-        --                 pycodestyle = { enabled = false },
-        --                 pyflakes = { enabled = false },
-        --                 yapf = { enabled = false }
-        --             }
-        --         }
-        --     }
-        -- }
         lspconfig.pylsp.setup {
             settings = {
                 pylsp = {
@@ -57,7 +45,7 @@ require "mason-lspconfig".setup_handlers {
                 }
             }
         }
-        -- lspconfig.pylsp.setup { coq.lsp_ensure_capabilities(configuration) }
+        -- lspconfig.pylsp.setup { coq.lsp_ensure_capabilities {} }
     end
 }
 
@@ -84,7 +72,9 @@ null_ls.setup({
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.isort,
         null_ls.builtins.diagnostics.flake8,
-        null_ls.builtins.diagnostics.mypy,
+        null_ls.builtins.diagnostics.mypy.with({
+            prefer_local = "$VIRTUAL_ENV/bin"
+        }),
         -- JavaScript
         null_ls.builtins.code_actions.eslint
     }
@@ -99,7 +89,7 @@ require("lualine").setup {
         theme = require "lualine.themes.tokyonight"
     }
 }
-require("bufferline").setup{}
+require("bufferline").setup {}
 require("nvim-autopairs").setup {}
 require("impatient")
 
