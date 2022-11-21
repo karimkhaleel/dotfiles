@@ -1,6 +1,3 @@
-# PATH
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/scripts:$HOME/.nimble/bin:/usr/local/go/bin:$HOME/go/bin:$PATH
-
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -23,6 +20,16 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
+
+# PATH
+export PATH=$HOME/bin:$PATH              # Home bin Path
+export PATH=/usr/local/bin:$PATH         # User local Path
+export PATH=$HOME/.local/bin:$PATH       # Home .local Path
+export PATH=$HOME/scripts:$PATH          # Home custom scripts Path
+export PATH=$HOME/.nimble/bin:$PATH      # Nimble (Nim Package Manager) Path
+export PATH=/usr/local/go/bin:$PATH      # Go user Local Path
+export PATH=$HOME/go/bin:$PATH           # Go local path
+export PATH=$HOME.emacs.d/bin:$PATH      # Emacs local path
 
 # Zsh settings
 # History Settings
