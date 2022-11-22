@@ -183,7 +183,7 @@
   ],
   "redhat.telemetry.enabled": false,
   {{- if eq .chezmoi.os "linux" }}
-  "editor.fontFamily": "'SauceCodePro NFM'"
+  "editor.fontFamily": "'FuraMono Nerd Font Mono'"
   {{- end }}
   {{- if eq .chezmoi.os "windows"}}
   "editor.fontFamily": "'FiraMono NFM'"
