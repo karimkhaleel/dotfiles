@@ -102,8 +102,11 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.userWords": [
+    "anyio",
     "appmap",
     "aramex",
+    "asyncer",
+    "asyncify",
     "autoindent",
     "boto",
     "chezmoi",
@@ -146,6 +149,7 @@
     "Stylesheet",
     "tlds",
     "tmpl",
+    "treebeard",
     "venv",
     "vetrina",
     "viewsets",
@@ -190,5 +194,19 @@
   {{- end }},
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "yaml.schemas": {
+    "file:///home/karim/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "atlascode.jira.jqlList": [
+    {
+      "id": "4b46ffc3-9ef9-4977-a8df-a0b91d705a95",
+      "enabled": true,
+      "name": "My makanetech Issues",
+      "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
+      "siteId": "39367c2c-e1f7-445d-af5c-64891df70824",
+      "monitor": true
+    }
+  ],
+  "atlascode.bitbucket.enabled": true
 }
