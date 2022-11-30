@@ -61,6 +61,11 @@ function M.setup()
             end,
         }
 
+				-- Code Navigation + Editing
+				use {
+						"tpope/vim-surround"
+				}
+
         if packer_bootstrap then
             print "Restart Neovim required after installation!"
             require("packer").sync()
