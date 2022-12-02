@@ -190,7 +190,7 @@
   "editor.fontFamily": "'FuraMono Nerd Font Mono'"
   {{- end }}
   {{- if eq .chezmoi.os "windows"}}
-  "editor.fontFamily": "'FiraMono NFM'"
+  "editor.fontFamily": "'FuraMono NFM'"
   {{- end }},
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
