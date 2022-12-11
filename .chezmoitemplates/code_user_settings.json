@@ -5,6 +5,7 @@
     "[Material Theme Darker]": {}
   },
   "telemetry.telemetryLevel": "off",
+  "editor.lineNumbers": "relative",
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
