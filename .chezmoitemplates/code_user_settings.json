@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Material Theme Palenight High Contrast",
+  "workbench.colorTheme": "Tokyo Night",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
     "[Material Theme Darker]": {}
@@ -133,6 +133,7 @@
     "mypy",
     "Palenight",
     "paymennt",
+    "prelogin",
     "psycopg",
     "pycache",
     "pyjwt",
@@ -143,6 +144,7 @@
     "samclisourcebucket",
     "scipy",
     "setuptools",
+    "signin",
     "simplejwt",
     "sklearn",
     "sourcery",
@@ -208,5 +210,7 @@
       "monitor": true
     }
   ],
-  "atlascode.bitbucket.enabled": true
+  "atlascode.bitbucket.enabled": true,
+  "workbench.activityBar.visible": false,
+  "window.menuBarVisibility": "toggle"
 }
