@@ -1,0 +1,5 @@
+theme = "everforest_dark_hc"
+
+[editor]
+line-number = "relative"
+rulers = [88]
