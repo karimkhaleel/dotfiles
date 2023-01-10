@@ -60,8 +60,10 @@ zinit wait lucid light-mode for \
     OMZ::plugins/gitignore/gitignore.plugin.zsh \
     OMZ::plugins/sudo/sudo.plugin.zsh \
     OMZ::plugins/aws/aws.plugin.zsh \
+    {{- if not .is_wsl }}
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
         zdharma-continuum/fast-syntax-highlighting \
+    {{- end }}
     blockf atpull"zinit creinstall -q ." \
         zsh-users/zsh-completions \
     atload"_zsh_autosuggest_start" \
