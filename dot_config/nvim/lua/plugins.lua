@@ -70,6 +70,10 @@ function M.setup()
 			      "godlygeek/tabular"
 				}
 
+				use {
+				    "gorkunov/smartpairs.vim"
+				}
+
         if packer_bootstrap then
             print "Restart Neovim required after installation!"
             require("packer").sync()
