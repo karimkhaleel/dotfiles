@@ -36,5 +36,13 @@
     {
         "key": "ctrl+shift+r",
         "command": "-workbench.view.extension.thunder-client"
+    },
+    {
+        "key": "ctrl+shift+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
     }
 ]
