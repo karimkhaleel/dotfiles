@@ -23,8 +23,9 @@
     "--extend-ignore=E203,W503",
     "--extend-exclude=*pyi"
   ],
-  "python.sortImports.args": ["--profile=black"],
+  "isort.args": ["--profile=black"],
   "python.formatting.blackArgs": ["--experimental-string-processing"],
+  "djlint.enableLinting": false,
   "djlint.formatJs": true,
   "djlint.ignore": ["H030,H031"],
   "[django-html]": {
@@ -67,7 +68,6 @@
   },
   "editor.rulers": [88],
   "git.enableSmartCommit": true,
-  "aws.profile": "profile:makane",
   "workbench.editorAssociations": {
     "git-rebase-todo": "default"
   },
@@ -155,12 +155,12 @@
     "tmpl",
     "tracebacklimit",
     "treebeard",
+    "ujson",
     "venv",
     "vetrina",
     "viewsets",
     "zain"
   ],
-  "window.zoomLevel": 1,
   "yaml.customTags": [
     "!And",
     "!And sequence",
@@ -201,7 +201,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "yaml.schemas": {
-    "file:///home/karim/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///home/karim/.vscode/extensions/atlassian.atlascode-3.0.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.jira.jqlList": [
     {
@@ -234,6 +234,16 @@
       "after": ["<Esc>"]
     }
   ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<C-u>"],
+      "after": ["<C-u>", "z", "z"]
+    },
+    {
+      "before": ["<C-d>"],
+      "after": ["<C-d>", "z", "z"]
+    },
+  ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<C-n>"],
@@ -246,12 +256,23 @@
     {
       "before": ["<leader>", "r", "r"],
       "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["<leader>", "d", "d"],
+      "commands": ["editor.debug.action.toggleBreakpoint"]
+    },
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["J"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.moveLinesUpAction"]
     }
   ],
-  "vim.visualModeKeyBindings": [],
   "vim.leader": "<space>",
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false
-  }
+  "vim.handleKeys": {},
+  "vim.sneak": true
 }
