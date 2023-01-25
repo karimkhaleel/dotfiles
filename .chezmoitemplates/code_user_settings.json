@@ -222,8 +222,8 @@
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
-  "vim.enableNeovim": true,
-  "vim.neovimUseConfigFile": true,
+  "vim.enableNeovim": false,
+  "vim.neovimUseConfigFile": false,
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "k"],
@@ -270,9 +270,14 @@
     {
       "before": ["K"],
       "commands": ["editor.action.moveLinesUpAction"]
-    }
+    },
+    {
+      "before": ["p"],
+      "after": ["p", "g", "v", "y"]
+    },
   ],
   "vim.leader": "<space>",
   "vim.handleKeys": {},
-  "vim.sneak": true
+  "vim.sneak": true,
+  "vim.surround": true
 }
