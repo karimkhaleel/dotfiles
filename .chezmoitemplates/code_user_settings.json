@@ -261,6 +261,10 @@
       "before": ["<leader>", "d", "d"],
       "commands": ["editor.debug.action.toggleBreakpoint"]
     },
+    {
+      "before": ["g", "r"],
+      "commands": ["references-view.findReferences"]
+    }
   ],
   "vim.visualModeKeyBindings": [
     {
@@ -270,6 +274,14 @@
     {
       "before": ["K"],
       "commands": ["editor.action.moveLinesUpAction"]
+    },
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["L"],
+      "after": ["$"]
     },
     {
       "before": ["p"],
