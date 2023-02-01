@@ -97,7 +97,8 @@
   },
   "emmet.optimizeStylesheetParsing": false,
   "emmet.includeLanguages": {
-    "django-html": "html"
+    "django-html": "html",
+    "postcss": "css"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
