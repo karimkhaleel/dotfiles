@@ -55,12 +55,12 @@
   },
   {
     "key": "ctrl+n",
-    "command": "workbench.action.quickOpenNavigateNextInFilePicker",
-    "when": "inFilesPicker && inQuickOpen"
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inFilesPicker || inQuickOpen"
   },
   {
     "key": "ctrl+p",
-    "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
-    "when": "inFilesPicker && inQuickOpen"
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inFilesPicker || inQuickOpen"
   }
 ]
