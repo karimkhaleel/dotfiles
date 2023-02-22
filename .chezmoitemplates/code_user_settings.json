@@ -296,6 +296,45 @@
       "before": ["<C-p>"],
       "commands": ["workbench.action.quickOpenSelectPrevious"],
       "when": "inQuickOpen"
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<leader>", "W"],
+      "commands": ["workbench.action.files.saveAll"]
+    },
+    {
+      "before": ["<leader>", "q"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "Q", "o"],
+      "commands": ["workbench.action.closeOtherEditors"]
+    },
+    {
+      "before": ["<leader>", "Q", "a"],
+      "commands": ["workbench.action.closeOtherEditors", "workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "r", "g"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "f", "m"],
+      "commands": [
+        "editor.action.formatDocument",
+        "editor.action.organizeImports"
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -342,11 +381,23 @@
       "after": ["p", "g", "v", "y"]
     }
   ],
+  "vim.operatorPendingModeKeyBindings": [
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["L"],
+      "after": ["$", "h"]
+    }
+  ],
   "vim.leader": "<space>",
   "vim.handleKeys": {},
   "vim.surround": true,
+  "vim.textwidth": 88,
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.sideBar.location": "right"
+  "workbench.sideBar.location": "right",
+  "editor.inlineSuggest.enabled": true
 }
