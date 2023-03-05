@@ -73,7 +73,7 @@ zinit wait lucid light-mode for \
 alias v="nvim"
 {{- if eq .chezmoi.osRelease.id "fedora" }}
 alias cat="bat"
-{{- else if eq .chezmoi.osRelease.id "debian"}}
+{{- else if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "pop") }}
 alias cat="batcat"
 {{-  end}}
 alias ranger=". ranger"
