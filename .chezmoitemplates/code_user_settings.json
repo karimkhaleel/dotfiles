@@ -315,7 +315,10 @@
     },
     {
       "before": ["<leader>", "Q", "a"],
-      "commands": ["workbench.action.closeOtherEditors", "workbench.action.closeActiveEditor"]
+      "commands": [
+        "workbench.action.closeOtherEditors",
+        "workbench.action.closeActiveEditor"
+      ]
     },
     {
       "before": ["<leader>", "e"],
@@ -328,6 +331,26 @@
     {
       "before": ["<leader>", "f", "f"],
       "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "<leader>", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["<leader>", "<leader>", "d"],
+      "commands": ["workbench.view.debug"]
+    },
+    {
+      "before": ["<leader>", "<leader>", "T", "a"],
+      "commands": ["testing.runAll"]
+    },
+    {
+      "before": ["<leader>", "<leader>", "T", "c"],
+      "commands": ["testing.runCurrentFile"]
+    },
+    {
+      "before": ["<leader>", "<leader>", "G"],
+      "commands": ["workbench.view.scm"]
     },
     {
       "before": ["<leader>", "f", "m"],
@@ -399,5 +422,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "workbench.sideBar.location": "right",
-  "editor.inlineSuggest.enabled": true
+  "editor.inlineSuggest.enabled": true,
+  "window.zoomLevel": 1,
+  "workbench.activityBar.visible": false
 }
