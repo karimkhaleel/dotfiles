@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cluster=$1
+pod=$2
+path="$cluster/$pod"
+
+
+for app in loyalty multitenancy store dashboard;
+do
+	echo "Pushing $app"
+	kubectl cp "$app/migrations" "$path:$app"
+	echo "Done pushing $app"
+done
