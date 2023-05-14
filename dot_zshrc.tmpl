@@ -74,13 +74,15 @@ zinit wait lucid light-mode for \
         atload'eval "$(pyenv init - --no-rehash zsh)";' \
         src'completions/pyenv.zsh' nocompile'!' \
       pyenv/pyenv \
-    OMZ::plugins/gitignore/gitignore.plugin.zsh \
-    OMZ::plugins/sudo/sudo.plugin.zsh \
-    OMZ::plugins/aws/aws.plugin.zsh \
-    {{- if not .is_wsl }}
+    OMZP::gitignore \
+    OMZP::sudo \
+    OMZP::aws \
+    OMZP::autoenv \
+    OMZP::colored-man-pages \
+    OMZP::command-not-found \
+    OMZP::copyfile \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
         zdharma-continuum/fast-syntax-highlighting \
-    {{- end }}
     blockf atpull"zinit creinstall -q ." \
         zsh-users/zsh-completions \
     atload"_zsh_autosuggest_start" \
