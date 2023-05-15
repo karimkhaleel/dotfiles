@@ -31,6 +31,10 @@ export PATH=/usr/local/go/bin:$PATH      # Go user Local Path
 export PATH=$HOME/go/bin:$PATH           # Go local path
 export PATH=$HOME/.emacs.d/bin:$PATH     # Emacs local path
 export PATH=$HOME/.cargo/bin:$PATH       # Rust local path
+{{- if eq .chezmoi.os "darwin" }}
+export PATH=/opt/homebrew/bin/:$PATH     # Mac homebrew path
+export PATH=/usr/local/bin/:$PATH        # Mac usr bin path
+{{-  end}}
 
 # Zsh settings
 # History Settings
@@ -60,13 +64,12 @@ zinit wait lucid light-mode for \
     is-snippet ~/.dot_zsh/.ls.zshrc \
     as'command' \
         atclone"
-          ./fnm env --use-on-cd > fnmenv.zsh
           ./fnm completions --shell zsh > _fnm.zsh" \
         atpull'%atclone' \
         blockf \
         from'gh-r' \
         nocompile \
-        src'fnmenv.zsh' \
+        atload'eval "$(fnm env --use-on-cd)"' \
         sbin'fnm' \
       Schniz/fnm \
     as'command' \
@@ -75,13 +78,15 @@ zinit wait lucid light-mode for \
         atload'eval "$(pyenv init - --no-rehash zsh)";' \
         src'completions/pyenv.zsh' nocompile'!' \
       pyenv/pyenv \
-    OMZ::plugins/gitignore/gitignore.plugin.zsh \
-    OMZ::plugins/sudo/sudo.plugin.zsh \
-    OMZ::plugins/aws/aws.plugin.zsh \
-    {{- if not .is_wsl }}
+    OMZP::gitignore \
+    OMZP::sudo \
+    OMZP::aws \
+    OMZP::autoenv \
+    OMZP::colored-man-pages \
+    OMZP::command-not-found \
+    OMZP::copyfile \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
         zdharma-continuum/fast-syntax-highlighting \
-    {{- end }}
     blockf atpull"zinit creinstall -q ." \
         zsh-users/zsh-completions \
     atload"_zsh_autosuggest_start" \
@@ -91,9 +96,9 @@ source ~/neovim/modern-neovim/mnv.sh
 
 # Aliases
 alias v="mnv"
-{{- if eq .chezmoi.osRelease.id "fedora" }}
+{{- if eq .chezmoi.os "darwin" }}
 alias cat="bat"
-{{- else if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "pop") }}
+{{- else if eq .chezmoi.os "linux" }}
 alias cat="batcat"
 {{-  end}}
 alias ranger=". ranger"
