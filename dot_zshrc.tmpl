@@ -92,9 +92,9 @@ source ~/neovim/modern-neovim/mnv.sh
 
 # Aliases
 alias v="mnv"
-{{- if eq .chezmoi.osRelease.id "fedora" }}
+{{- if eq .chezmoi.os "darwin" }}
 alias cat="bat"
-{{- else if or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "pop") }}
+{{- else if eq .chezmoi.os "linux" }}
 alias cat="batcat"
 {{-  end}}
 alias ranger=". ranger"
