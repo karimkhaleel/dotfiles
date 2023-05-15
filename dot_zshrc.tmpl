@@ -31,6 +31,10 @@ export PATH=/usr/local/go/bin:$PATH      # Go user Local Path
 export PATH=$HOME/go/bin:$PATH           # Go local path
 export PATH=$HOME/.emacs.d/bin:$PATH     # Emacs local path
 export PATH=$HOME/.cargo/bin:$PATH       # Rust local path
+{{- if eq .chezmoi.os "darwin" }}
+export PATH=/opt/homebrew/bin/:$PATH     # Mac homebrew path
+export PATH=/usr/local/bin/:$PATH        # Mac usr bin path
+{{-  end}}
 
 # Zsh settings
 # History Settings
