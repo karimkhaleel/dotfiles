@@ -1,5 +1,11 @@
 {
+  {{- if eq .chezmoi.os "linux" }}
   "workbench.colorTheme": "Tokyo Night",
+  {{- else if eq .chezmoi.os "windows"}}
+  "workbench.colorTheme": "Tokyo Night",
+  {{- else if eq .chezmoi.os "darwin"}}
+  "workbench.colorTheme": "Tokyo Storm Gogh",
+  {{- end }}
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
     "[Material Theme Darker]": {}
@@ -216,16 +222,18 @@
   ],
   "redhat.telemetry.enabled": false,
   {{- if eq .chezmoi.os "linux" }}
-  "editor.fontFamily": "'FuraMono Nerd Font Mono'"
+  "editor.fontFamily": "'FuraMono Nerd Font Mono'",
+  {{- else if eq .chezmoi.os "windows"}}
+  "editor.fontFamily": "'FuraMono NFM'",
+  {{- else if eq .chezmoi.os "darwin"}}
+  "editor.fontFamily": "'FiraMono Nerd Font'",
   {{- end }}
-  {{- if eq .chezmoi.os "windows"}}
-  "editor.fontFamily": "'FuraMono NFM'"
-  {{- end }},
+  "editor.fontFamily": "'FiraMono Nerd Font'",
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "yaml.schemas": {
-    "file:///home/karim/.vscode/extensions/atlassian.atlascode-3.0.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///Users/karim/.vscode-insiders/extensions/atlassian.atlascode-3.0.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
   "atlascode.jira.jqlList": [
     {
@@ -238,9 +246,7 @@
     }
   ],
   "atlascode.bitbucket.enabled": true,
-  "workbench.activityBar.visible": false,
   "window.menuBarVisibility": "toggle",
-  "window.zoomLevel": 1,
   "vim.easymotion": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
@@ -341,6 +347,10 @@
       "commands": ["workbench.view.debug"]
     },
     {
+      "before": ["<leader>", "<leader>", "g"],
+      "commands": ["workbench.panel.interactiveSession.view.copilot.focus"]
+    },
+    {
       "before": ["<leader>", "<leader>", "T", "a"],
       "commands": ["testing.runAll"]
     },
@@ -353,7 +363,7 @@
       "commands": ["workbench.view.scm"]
     },
     {
-      "before": ["<leader>", "f", "m"],
+      "before": ["<leader>", "c", "f"],
       "commands": [
         "editor.action.formatDocument",
         "editor.action.organizeImports"
@@ -421,8 +431,15 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.sideBar.location": "right",
   "editor.inlineSuggest.enabled": true,
-  "window.zoomLevel": 1,
-  "workbench.activityBar.visible": false
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "aws.codeWhisperer.importRecommendation": false,
+  "aws.codeWhisperer.includeSuggestionsWithCodeReferences": false,
+  "aws.codeWhisperer.shareCodeWhispererContentWithAWS": false,
+  "editor.fontSize": 14
 }
