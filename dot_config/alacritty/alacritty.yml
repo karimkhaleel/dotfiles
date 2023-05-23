@@ -902,6 +902,6 @@ window: {decorations: none, opacity: 0.8 }
 
 font:
   normal:
-    family: FuraMono Nerd Font
+    family: FiraMono Nerd Font
     style: Medium
   size: 14
