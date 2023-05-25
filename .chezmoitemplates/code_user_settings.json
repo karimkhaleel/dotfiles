@@ -440,5 +440,5 @@
   "aws.codeWhisperer.importRecommendation": false,
   "aws.codeWhisperer.includeSuggestionsWithCodeReferences": false,
   "aws.codeWhisperer.shareCodeWhispererContentWithAWS": false,
-  "editor.fontSize": 14
+  "editor.fontSize": 16
 }
