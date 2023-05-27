@@ -58,40 +58,82 @@ PURE_PROMPT_VICMD_SYMBOL=
 zinit ice pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
 
-zinit wait lucid light-mode for \
-    andydecleyre/zpy \
-    unixorn/fzf-zsh-plugin \
-    Aloxaf/fzf-tab \
+zinit lucid for \
+    atinit"
+      ZSH_TMUX_FIXTERM=false
+      ZSH_TMUX_AUTOSTART=false
+      ZSH_TMUX_AUTOCONNECT=false" \
+  OMZP::tmux \
+  atinit"HIST_STAMPS=dd.mm.yyyy" \
+  OMZL::history.zsh \
+
+zinit wait lucid for \
+	OMZL::clipboard.zsh \
+	OMZL::compfix.zsh \
+	OMZL::completion.zsh \
+	OMZL::correction.zsh \
+    atload"
+      alias ..='cd ..'
+      alias ...='cd ../..'
+      alias ....='cd ../../..'
+      alias .....='cd ../../../..'" \
+	OMZL::directories.zsh \
+	OMZL::git.zsh \
+	OMZL::grep.zsh \
+	OMZL::key-bindings.zsh \
+	OMZL::spectrum.zsh \
+    atload"alias gcd='gco dev'" \
+	OMZP::git \
+	OMZP::fzf \
+    atload"
+      alias dcupb='docker-compose up --build'" \
+	OMZP::docker-compose \
+    as"completion" \
+  OMZP::docker/_docker \
+  OMZP::gitignore \
+  OMZP::sudo \
+  OMZP::aws \
+  OMZP::colored-man-pages \
+  OMZP::command-not-found \
+  OMZP::copyfile \
+  djui/alias-tips \
+  andydecleyre/zpy \
+  hlissner/zsh-autopair \
+
+zinit wait lucid for \
+      light-mode atinit"ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20" atload"_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+      light-mode atinit"
+        typeset -gA FAST_HIGHLIGHT; FAST_HIGHLIGHT[git-cmsg-len]=100;
+        zpcompinit; zpcdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+      atpull'zinit creinstall -q .' \
+      atinit"
+        zstyle ':completion:*' completer _expand _complete _ignored _approximate
+        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+        zstyle ':completion:*' menu select=2
+        zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
+        zstyle ':completion:*:*:*:*:processes' command 'ps -u $USER -o pid,user,comm,cmd -w -w'
+        zstyle ':completion:*:descriptions' format '-- %d --'
+        zstyle ':completion:*:processes' command 'ps -au$USER'
+        zstyle ':completion:complete:*:options' sort false
+        zstyle ':fzf-tab:complete:_zlua:*' query-string input
+        zstyle ':fzf-tab:complete:cd:*' extra-opts --preview=$extract'exa -1 --color=always ${~ctxt[hpre]}$in'
+        zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps --pid=$in[(w)1] -o cmd --no-headers -w -w' --preview-window=down:3:wrap" \
+      blockf light-mode \
+    zsh-users/zsh-completions \
+
+
+
+zinit wait lucid for \
     is-snippet ~/.dot_zsh/.ls.zshrc \
     is-snippet ~/.dot_zsh/_kubectl.zsh \
-    as'command' \
-        atclone"
-          ./fnm completions --shell zsh > _fnm.zsh" \
-        atpull'%atclone' \
-        blockf \
-        from'gh-r' \
-        nocompile \
-        atload'eval "$(fnm env --use-on-cd)"' \
-        sbin'fnm' \
-      Schniz/fnm \
     as'command' \
         pick'bin/pyenv' \
         blockf \
         atload'eval "$(pyenv init - --no-rehash zsh)";' \
         src'completions/pyenv.zsh' nocompile'!' \
       pyenv/pyenv \
-    OMZP::gitignore \
-    OMZP::sudo \
-    OMZP::aws \
-    OMZP::colored-man-pages \
-    OMZP::command-not-found \
-    OMZP::copyfile \
-    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-        zdharma-continuum/fast-syntax-highlighting \
-    blockf atpull"zinit creinstall -q ." \
-        zsh-users/zsh-completions \
-    atload"_zsh_autosuggest_start" \
-        zsh-users/zsh-autosuggestions \
 
 source ~/neovim/modern-neovim/mnv.sh
 
@@ -108,13 +150,4 @@ alias gfc="fzf-git-checkout"
 alias fzh='print -z -- $(cat ~/.zsh_history | fzf)'
 
 
-# Env Vars
-QT_QPA_PLATFORM=xcb
-
-# Keybinds
-bindkey "^[[H"      beginning-of-line
-bindkey "^[[F"      end-of-line
-bindkey "^[[1;5D"   vi-backward-blank-word
-bindkey "^[[1;5C"   vi-forward-blank-word
-bindkey "^[[3~"     kill-word
 
