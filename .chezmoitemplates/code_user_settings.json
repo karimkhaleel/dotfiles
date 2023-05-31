@@ -222,7 +222,8 @@
   ],
   "redhat.telemetry.enabled": false,
   {{- if eq .chezmoi.os "linux" }}
-  "editor.fontFamily": "'FuraMono Nerd Font Mono'",
+  "editor.fontFamily": "'FiraMono Nerd Font'",
+  "terminal.integrated.fontFamily": "'FiraMono Nerd Font'",
   {{- else if eq .chezmoi.os "windows"}}
   "editor.fontFamily": "'FuraMono NFM'",
   {{- else if eq .chezmoi.os "darwin"}}
