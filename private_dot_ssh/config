@@ -1,0 +1,9 @@
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/id_rsa
+  User karimkhaleel
+
+Host github-simma
+  HostName github.com
+  IdentityFile ~/.ssh/id_rsa_simma
+  User karim-simma
