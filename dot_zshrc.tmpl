@@ -169,3 +169,10 @@ esac
 # pnpm end
 {{- end}}
 
+
+{{- if eq .chezmoi.os "darwin" }}
+bindkey "^[backword" backward-word
+bindkey "^[forword" forward-word
+bindkey "^[beginline" beginning-of-line
+bindkey "^[endline" end-of-line
+{{- else if eq .chezmoi.os "linux" }}
