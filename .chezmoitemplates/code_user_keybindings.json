@@ -74,6 +74,26 @@
     "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
   },
   {
+    "key": "ctrl+j",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inFilesPicker || inCommandsPicker"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inFilesPicker || inCommandsPicker"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "selectNextSuggestion",
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "selectPrevSuggestion",
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  },
+  {
     "key": "ctrl+n",
     "command": "-workbench.action.files.newUntitledFile"
   }
