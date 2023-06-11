@@ -893,10 +893,79 @@
 
   # Highlight window damage information.
   #highlight_damage: false
-import:
-  - ~/.config/alacritty/themes/themes/tokyo-night.yaml
+
+schemes:
+  # Tokyo Night theme, based on both:
+  #   https://github.com/ghifarit53/tokyonight-vim
+  #   https://github.com/enkia/tokyo-night-vscode-theme
+  tokyo-night: &tokyo-night # Default colors
+    primary:
+      background: "#1a1b26"
+      foreground: "#a9b1d6"
+
+    # Normal colors
+    normal:
+      black: "#32344a"
+      red: "#f7768e"
+      green: "#9ece6a"
+      yellow: "#e0af68"
+      blue: "#7aa2f7"
+      magenta: "#ad8ee6"
+      cyan: "#449dab"
+      white: "#787c99"
+
+    # Bright colors
+    bright:
+      black: "#444b6a"
+      red: "#ff7a93"
+      green: "#b9f27c"
+      yellow: "#ff9e64"
+      blue: "#7da6ff"
+      magenta: "#bb9af7"
+      cyan: "#0db9d7"
+      white: "#acb0d0"
+
+  tokyo-night-storm: &tokyo-night-storm # Default colors
+    primary:
+      background: "#24283b"
+      foreground: "#a9b1d6"
+
+    # Normal colors
+    normal:
+      black: "#32344a"
+      red: "#f7768e"
+      green: "#9ece6a"
+      yellow: "#e0af68"
+      blue: "#7aa2f7"
+      magenta: "#ad8ee6"
+      cyan: "#449dab"
+      white: "#9699a8"
+
+    # Bright colors
+    bright:
+      black: "#444b6a"
+      red: "#ff7a93"
+      green: "#b9f27c"
+      yellow: "#ff9e64"
+      blue: "#7da6ff"
+      magenta: "#bb9af7"
+      cyan: "#0db9d7"
+      white: "#acb0d0"
+
+colors: *tokyo-night-storm
+
 key_bindings:
-  - { key: Return,  mods: Control|Shift, action: SpawnNewInstance }
+{{- if eq .chezmoi.os "darwin" }}
+  - { key: Comma,     mods: Command,      command:
+      {program: "sh", args: ["-c","open ~/.config/alacritty/alacritty.yml"]}     }
+  - { key: N,         mods: Command,      action: SpawnNewInstance       }
+  - { key: Space,     mods: Alt,          chars: " "                     }
+  - { key: Back, mods: Super, chars: "\x15" } # delete word/line
+  - { key: Left,     mods: Alt,     chars: "\x1bb"                       } # one word left
+  - { key: Right,    mods: Alt,     chars: "\x1bf"                       } # one word right
+  - { key: Left,     mods: Command, chars: "\x1bOH",   mode: AppCursor   } # Home
+  - { key: Right,    mods: Command, chars: "\x1bOF",   mode: AppCursor   } # End
+{{- end}}
 
 window: {decorations: none, opacity: 0.8 }
 
