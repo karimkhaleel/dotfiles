@@ -149,7 +149,7 @@ alias ranger=". ranger"
 alias gfc="fzf-git-checkout"
 alias fzh='print -z -- $(cat ~/.zsh_history | fzf)'
 
-
+eval "$(direnv hook zsh)"
 
 {{- if eq .chezmoi.os "darwin" }}
 # pnpm
