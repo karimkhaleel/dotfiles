@@ -954,8 +954,8 @@ schemes:
 
 colors: *tokyo-night-storm
 
-key_bindings:
 {{- if eq .chezmoi.os "darwin" }}
+key_bindings:
   - { key: Comma,     mods: Command,      command:
       {program: "sh", args: ["-c","open ~/.config/alacritty/alacritty.yml"]}     }
   - { key: N,         mods: Command,      action: SpawnNewInstance       }
