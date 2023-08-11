@@ -44,6 +44,7 @@ M.mason = {
     "black",
     "isort",
     "ruff",
+    "mypy",
   },
 }
 

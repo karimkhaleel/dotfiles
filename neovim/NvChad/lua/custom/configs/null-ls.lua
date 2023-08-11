@@ -16,8 +16,9 @@ local sources = {
 
   -- python
   b.formatting.black,
-  b.formatting.isort.with { extra_args = {"--profile", "black"} },
+  b.formatting.isort.with { extra_args = { "--profile", "black" } },
   b.diagnostics.ruff,
+  b.diagnostics.mypy.with { extra_args = { "--python-executable", "python" } },
 }
 
 null_ls.setup {
