@@ -49,7 +49,7 @@ setopt appendhistory
 LESSOPEN="|lesspipe.sh %s"; export LESSOPEN
 lessc () {/usr/share/vim/vim90/macros/less.sh "$@"}
 
-EDITOR="mnv"; export EDITOR 
+EDITOR="nvchad"; export EDITOR 
 
 # Theme
 PURE_PROMPT_SYMBOL=
@@ -135,10 +135,10 @@ zinit wait lucid for \
         src'completions/pyenv.zsh' nocompile'!' \
       pyenv/pyenv \
 
-source ~/neovim/modern-neovim/mnv.sh
+source ~/neovim/NvChad/nvchad.sh
 
 # Aliases
-alias v="mnv"
+alias v="nvchad"
 {{- if eq .chezmoi.os "darwin" }}
 alias cat="bat"
 {{- else if eq .chezmoi.os "linux" }}
