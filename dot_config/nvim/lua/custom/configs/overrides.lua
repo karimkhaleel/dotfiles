@@ -13,11 +13,13 @@ M.treesitter = {
     "markdown",
     "markdown_inline",
     "python",
+    "svelte",
+    "astro",
   },
   indent = {
     enable = true,
     disable = {
-      "python"
+      "python",
     },
   },
 }
@@ -31,9 +33,14 @@ M.mason = {
     -- web dev stuff
     "css-lsp",
     "html-lsp",
+    "eslint-lsp",
     "typescript-language-server",
+    "svelte-language-server",
+    "astro-language-server",
     "deno",
     "prettier",
+    "js-debug-adapter",
+    "rustywind",
 
     -- c/cpp stuff
     "clangd",

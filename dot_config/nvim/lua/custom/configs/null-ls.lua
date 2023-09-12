@@ -1,27 +1,38 @@
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local null_ls = require "null-ls"
 
-local b = null_ls.builtins
+local opts = {
+  sources = {
+    -- lua
+    null_ls.builtins.formatting.stylua,
 
-local sources = {
+    -- js stuff
+    null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.formatting.prettier.with({
+      extra_filetypes = { "astro", "svelte" }
+    }),
 
-  -- webdev stuff
-  b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
-  b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
+    -- python sfuff
+    null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.isort.with { extra_args = { "--profile", "black" } },
+    null_ls.builtins.diagnostics.ruff,
+  },
 
-  -- Lua
-  b.formatting.stylua,
-
-  -- cpp
-  b.formatting.clang_format,
-
-  -- python
-  b.formatting.black,
-  b.formatting.isort.with { extra_args = { "--profile", "black" } },
-  b.diagnostics.ruff,
-  b.diagnostics.mypy.with { extra_args = { "--python-executable", "python" } },
+  on_attach = function(client, bufnr)
+    if client.supports_method "textDocement/formatting" then
+      vim.api.nvim_clear_autocmds {
+        group = augroup,
+        buffer = bufnr,
+      }
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format { bufnr = bufnr }
+        end,
+      })
+    end
+  end,
 }
 
-null_ls.setup {
-  debug = true,
-  sources = sources,
-}
+return opts
