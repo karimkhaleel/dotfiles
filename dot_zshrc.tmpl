@@ -36,6 +36,7 @@ export PATH=/opt/homebrew/bin/:$PATH     # Mac homebrew path
 export PATH=/usr/local/bin/:$PATH        # Mac usr bin path
 export PATH=/Applications/Visual\ Studio\ Code\ -\ Insiders.app/Contents/Resources/app/bin:$PATH        # Mac vscode
 {{-  end}}
+export PATH=$HOME/progs/:$PATH           # Misc Progs
 
 # Zsh settings
 # History Settings
@@ -49,7 +50,7 @@ setopt appendhistory
 LESSOPEN="|lesspipe.sh %s"; export LESSOPEN
 lessc () {/usr/share/vim/vim90/macros/less.sh "$@"}
 
-EDITOR="nvchad"; export EDITOR 
+EDITOR="nvim"; export EDITOR 
 
 # Theme
 PURE_PROMPT_SYMBOL=
@@ -135,13 +136,12 @@ zinit wait lucid for \
         src'completions/pyenv.zsh' nocompile'!' \
       pyenv/pyenv \
 
-source ~/neovim/NvChad/nvchad.sh
-
 # Aliases
 alias v="nvchad"
 {{- if eq .chezmoi.os "darwin" }}
 alias cat="bat"
 {{- else if eq .chezmoi.os "linux" }}
+alias v="nvim"
 alias cat="batcat"
 alias code="code-insiders"
 {{-  end}}
