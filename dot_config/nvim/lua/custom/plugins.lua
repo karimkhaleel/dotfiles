@@ -16,9 +16,9 @@ local plugins = {
   {
     "jose-elias-alvarez/null-ls.nvim",
     event = "VeryLazy",
-    opts = function ()
-       return require "custom.configs.null-ls"
-    end
+    opts = function()
+      return require "custom.configs.null-ls"
+    end,
   },
 
   {
@@ -65,6 +65,89 @@ local plugins = {
   --   end,
   -- },
 
+  {
+    "zbirenbaum/copilot.lua",
+    enabled = true,
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {
+        panel = {
+          enabled = true,
+          auto_refresh = false,
+          keymap = {
+            jump_prev = "[[",
+            jump_next = "]]",
+            accept = "<CR>",
+            refresh = "gr",
+            open = "<M-CR>",
+          },
+          layout = {
+            position = "bottom", -- | top | left | right
+            ratio = 0.4,
+          },
+        },
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = "<C-l>",
+            accept_word = false,
+            accept_line = false,
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<C-]>",
+          },
+        },
+        filetypes = {
+          yaml = false,
+          markdown = false,
+          help = false,
+          gitcommit = false,
+          gitrebase = false,
+          hgcommit = false,
+          svn = false,
+          cvs = false,
+          ["."] = false,
+        },
+        copilot_node_command = "node", -- Node.js version must be > 16.x
+        server_opts_overrides = {},
+      }
+    end,
+  },
+
+  -- Motion
+  {
+    "ggandor/flit.nvim",
+    enabled = true,
+    keys = function()
+      local ret = {}
+      for _, key in ipairs { "f", "F", "t", "T" } do
+        ret[#ret + 1] = { key, mode = { "n", "x", "o" }, desc = key }
+      end
+      return ret
+    end,
+    opts = { labeled_modes = "nx" },
+  },
+  {
+    "ggandor/leap.nvim",
+    enabled = true,
+    keys = {
+      { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+      { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+      { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
+    },
+    config = function(_, opts)
+      local leap = require "leap"
+      for k, v in pairs(opts) do
+        leap.opts[k] = v
+      end
+      leap.add_default_mappings(true)
+      vim.keymap.del({ "x", "o" }, "x")
+      vim.keymap.del({ "x", "o" }, "X")
+    end,
+  },
+
   -- override plugin configs
   {
     "williamboman/mason.nvim",
@@ -73,6 +156,13 @@ local plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      "RRethy/nvim-treesitter-endwise",
+      "windwp/nvim-ts-autotag",
+      "nvim-treesitter/playground",
+    },
     opts = overrides.treesitter,
   },
 

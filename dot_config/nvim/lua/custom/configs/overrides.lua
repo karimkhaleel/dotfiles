@@ -1,7 +1,14 @@
 local M = {}
 
 M.treesitter = {
+  sync_install = false,
   ensure_installed = {
+    "bash",
+    "dockerfile",
+    "org",
+    "query",
+    "regex",
+    "latex",
     "vim",
     "lua",
     "html",
@@ -16,11 +23,67 @@ M.treesitter = {
     "svelte",
     "astro",
   },
-  indent = {
+  highlight = { enable = true, additional_vim_regex_highlighting = { "org", "markdown" } },
+  indent = { enable = true },
+  context_commentstring = { enable = true, enable_autocmd = false },
+  incremental_selection = {
     enable = true,
-    disable = {
-      "python",
+    keymaps = {
+      init_selection = "<cr>",
+      node_incremental = "<C-]>",
+      scope_incremental = "grn",
+      node_decremental = "<C-[>",
     },
+  },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["aa"] = "@parameter.outer",
+        ["ia"] = "@parameter.inner",
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+        ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+      },
+    },
+    move = {
+      enable = true,
+      set_jumps = true, -- whether to set jumps in the jumplist
+      goto_next_start = {
+        ["]m"] = "@function.outer",
+        ["]]"] = "@class.outer",
+      },
+      goto_next_end = {
+        ["]M"] = "@function.outer",
+        ["]["] = "@class.outer",
+      },
+      goto_previous_start = {
+        ["[m"] = "@function.outer",
+        ["[["] = "@class.outer",
+      },
+      goto_previous_end = {
+        ["[M"] = "@function.outer",
+        ["[]"] = "@class.outer",
+      },
+    },
+    swap = {
+      enable = true,
+      swap_next = swap_next,
+      swap_previous = swap_prev,
+    },
+  },
+  matchup = {
+    enable = true,
+  },
+  endwise = {
+    enable = true,
+  },
+  autotag = {
+    enable = true,
   },
 }
 
