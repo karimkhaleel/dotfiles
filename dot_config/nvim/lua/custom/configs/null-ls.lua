@@ -8,9 +8,9 @@ local opts = {
 
     -- js stuff
     null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.formatting.prettier.with({
-      extra_filetypes = { "astro", "svelte" }
-    }),
+    null_ls.builtins.formatting.prettier.with {
+      extra_filetypes = { "astro", "svelte" },
+    },
 
     -- python sfuff
     null_ls.builtins.formatting.black,
@@ -19,7 +19,7 @@ local opts = {
   },
 
   on_attach = function(client, bufnr)
-    if client.supports_method "textDocement/formatting" then
+    if client.supports_method "textDocument/formatting" then
       vim.api.nvim_clear_autocmds {
         group = augroup,
         buffer = bufnr,
