@@ -169,6 +169,8 @@ esac
 # pnpm end
 {{- end}}
 
+# bun completions
+[ -s "/home/karim/.bun/_bun" ] && source "/home/karim/.bun/_bun"
 
 {{- if eq .chezmoi.os "darwin" }}
 bindkey "^[backword" backward-word
@@ -176,3 +178,6 @@ bindkey "^[forword" forward-word
 bindkey "^[beginline" beginning-of-line
 bindkey "^[endline" end-of-line
 {{- end}}
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
