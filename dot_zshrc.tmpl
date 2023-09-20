@@ -31,6 +31,11 @@ export PATH=/usr/local/go/bin:$PATH      # Go user Local Path
 export PATH=$HOME/go/bin:$PATH           # Go local path
 export PATH=$HOME/.emacs.d/bin:$PATH     # Emacs local path
 export PATH=$HOME/.cargo/bin:$PATH       # Rust local path
+{{- if eq .chezmoi.os "darwin" }}
+export PATH=/opt/homebrew/bin/:$PATH     # Mac homebrew path
+export PATH=/usr/local/bin/:$PATH        # Mac usr bin path
+export PATH=/Applications/Visual\ Studio\ Code\ -\ Insiders.app/Contents/Resources/app/bin:$PATH        # Mac vscode
+{{-  end}}
 export PATH=$HOME/progs/:$PATH           # Misc Progs
 
 # Zsh settings
@@ -85,7 +90,6 @@ zinit wait lucid for \
       alias dcupb='docker-compose up --build'" \
 	OMZP::docker-compose \
     as"completion" \
-  OMZP::docker/_docker \
   OMZP::gitignore \
   OMZP::sudo \
   OMZP::aws \
@@ -135,7 +139,7 @@ zinit wait lucid for \
 alias cat="bat"
 {{- else if eq .chezmoi.os "linux" }}
 alias cat="batcat"
-{{- end }}}
+{{- end }}
 alias v="nvim"
 alias code="code-insiders"
 alias ranger=". ranger"
@@ -143,6 +147,16 @@ alias gfc="fzf-git-checkout"
 alias fzh='print -z -- $(cat ~/.zsh_history | fzf)'
 
 eval "$(direnv hook zsh)"
+
+{{- if eq .chezmoi.os "darwin" }}
+# pnpm
+export PNPM_HOME="/Users/karim/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+{{- else if eq .chezmoi.os "linux" }}
 # pnpm
 export PNPM_HOME="/home/karim/.local/share/pnpm"
 case ":$PATH:" in
@@ -150,6 +164,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+{{- end}}
 
 # bun completions
 [ -s "/home/karim/.bun/_bun" ] && source "/home/karim/.bun/_bun"
