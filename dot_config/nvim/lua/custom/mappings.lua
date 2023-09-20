@@ -4,6 +4,11 @@ local M = {}
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
+    ["<leader>tf"] = {
+      ":lua require('custom.flags').toggle_format_on_save()<CR>",
+      "toggle format on save",
+      opts = { nowait = true },
+    },
   },
 }
 

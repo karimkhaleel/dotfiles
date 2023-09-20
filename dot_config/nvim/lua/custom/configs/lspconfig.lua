@@ -4,7 +4,8 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "pyright", "emmet_language_server", "astro", "lua_ls", "tailwindcss" }
+local servers =
+  { "html", "cssls", "tsserver", "clangd", "pyright", "emmet_language_server", "astro", "lua_ls", "tailwindcss" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -41,3 +42,14 @@ lspconfig.tsserver.setup {
   },
 }
 
+lspconfig.lua_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+    },
+  },
+}

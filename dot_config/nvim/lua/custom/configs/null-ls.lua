@@ -16,6 +16,9 @@ local opts = {
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.isort.with { extra_args = { "--profile", "black" } },
     null_ls.builtins.diagnostics.ruff,
+    null_ls.builtins.diagnostics.mypy.with {
+      extra_args = { "--python-executable", vim.fn.systemlist("which python")[1] },
+    },
   },
 
   on_attach = function(client, bufnr)
@@ -28,7 +31,9 @@ local opts = {
         group = augroup,
         buffer = bufnr,
         callback = function()
-          vim.lsp.buf.format { bufnr = bufnr }
+          if require("custom.flags").format_on_save then
+            vim.lsp.buf.format { bufnr = bufnr }
+          end
         end,
       })
     end

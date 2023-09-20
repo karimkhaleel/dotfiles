@@ -100,6 +100,8 @@ M.mason = {
     "typescript-language-server",
     "svelte-language-server",
     "astro-language-server",
+    "tailwindcss-language-server",
+    "emmet-language-server",
     "deno",
     "prettier",
     "js-debug-adapter",
