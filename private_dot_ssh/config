@@ -3,7 +3,7 @@ Host github.com
   IdentityFile ~/.ssh/id_rsa
   User karimkhaleel
 
-Host github-simma
+Host github-proxidize
   HostName github.com
-  IdentityFile ~/.ssh/id_rsa_simma
-  User karim-simma
+  IdentityFile ~/.ssh/id_rsa_proxidize
+  User karim-proxidize
