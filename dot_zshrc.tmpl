@@ -31,11 +31,6 @@ export PATH=/usr/local/go/bin:$PATH      # Go user Local Path
 export PATH=$HOME/go/bin:$PATH           # Go local path
 export PATH=$HOME/.emacs.d/bin:$PATH     # Emacs local path
 export PATH=$HOME/.cargo/bin:$PATH       # Rust local path
-{{- if eq .chezmoi.os "darwin" }}
-export PATH=/opt/homebrew/bin/:$PATH     # Mac homebrew path
-export PATH=/usr/local/bin/:$PATH        # Mac usr bin path
-export PATH=/Applications/Visual\ Studio\ Code\ -\ Insiders.app/Contents/Resources/app/bin:$PATH        # Mac vscode
-{{-  end}}
 export PATH=$HOME/progs/:$PATH           # Misc Progs
 
 # Zsh settings
@@ -139,25 +134,15 @@ zinit wait lucid for \
 {{- if eq .chezmoi.os "darwin" }}
 alias cat="bat"
 {{- else if eq .chezmoi.os "linux" }}
-alias v="nvim"
 alias cat="batcat"
+{{- end }}}
+alias v="nvim"
 alias code="code-insiders"
-{{-  end}}
 alias ranger=". ranger"
 alias gfc="fzf-git-checkout"
 alias fzh='print -z -- $(cat ~/.zsh_history | fzf)'
 
 eval "$(direnv hook zsh)"
-
-{{- if eq .chezmoi.os "darwin" }}
-# pnpm
-export PNPM_HOME="/Users/karim/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-{{- else if eq .chezmoi.os "linux" }}
 # pnpm
 export PNPM_HOME="/home/karim/.local/share/pnpm"
 case ":$PATH:" in
@@ -165,17 +150,10 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-{{- end}}
 
 # bun completions
 [ -s "/home/karim/.bun/_bun" ] && source "/home/karim/.bun/_bun"
 
-{{- if eq .chezmoi.os "darwin" }}
-bindkey "^[backword" backward-word
-bindkey "^[forword" forward-word
-bindkey "^[beginline" beginning-of-line
-bindkey "^[endline" end-of-line
-{{- end}}
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
