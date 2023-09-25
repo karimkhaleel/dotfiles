@@ -96,7 +96,7 @@ M.mason = {
     -- web dev stuff
     "css-lsp",
     "html-lsp",
-    "eslint-lsp",
+    "eslint_d",
     "typescript-language-server",
     "svelte-language-server",
     "astro-language-server",
