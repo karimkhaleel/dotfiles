@@ -16,9 +16,7 @@ local opts = {
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.isort.with { extra_args = { "--profile", "black" } },
     null_ls.builtins.diagnostics.ruff,
-    null_ls.builtins.diagnostics.mypy.with {
-      extra_args = { "--python-executable", vim.fn.systemlist("which python")[1] },
-    },
+    null_ls.builtins.diagnostics.mypy.with { command = { "python", "-m", "mypy" } },
   },
 
   on_attach = function(client, bufnr)
