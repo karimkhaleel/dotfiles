@@ -12,6 +12,32 @@ M.general = {
   },
 }
 
+M.disabled = {
+  n = {
+    ["<tab>"] = "",
+    ["<S-tab>"] = "",
+  },
+}
+
+M.tabufline = {
+  n = {
+    -- cycle through buffers
+    ["<leader>k"] = {
+      function()
+        require("nvchad.tabufline").tabuflineNext()
+      end,
+      "Goto next buffer",
+    },
+
+    ["<leader>j"] = {
+      function()
+        require("nvchad.tabufline").tabuflinePrev()
+      end,
+      "Goto prev buffer",
+    },
+  },
+}
+
 -- more keybinds!
 
 M.dap = {
@@ -25,6 +51,15 @@ M.dap = {
       "<cmd> DapContinue <CR>",
       "Run or continue the debugger",
     },
+  },
+}
+
+M.telescope = {
+  plugin = true,
+
+  n = {
+    -- find
+    ["<leader>fs"] = { "<cmd> Telescope lsp_document_symbols <CR>", "Find document symbols" },
   },
 }
 
