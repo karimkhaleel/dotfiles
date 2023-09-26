@@ -18,10 +18,10 @@ end
 lspconfig.pyright.setup {
   on_attach = on_attach,
   settings = {
-    pyright = { autoImportCompletion = true },
     python = {
       analysis = {
         autoImportCompletions = true,
+        disableOrganizeImports = true,
         typeCheckingMode = "off",
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
