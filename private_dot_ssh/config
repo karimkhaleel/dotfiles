@@ -6,4 +6,4 @@ Host github.com
 Host github-proxidize
   HostName github.com
   IdentityFile ~/.ssh/id_rsa_proxidize
-  User karim-proxidize
+  User karimrc
