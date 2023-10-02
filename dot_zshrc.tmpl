@@ -138,11 +138,11 @@ zinit wait lucid for \
 {{- if eq .chezmoi.os "darwin" }}
 alias cat="bat"
 {{- else if eq .chezmoi.os "linux" }}
+alias code="code-insiders"
 alias cat="batcat"
 {{- end }}
 alias lg="lazygit"
 alias v="nvim"
-alias code="code-insiders"
 alias ranger=". ranger"
 alias gfc="fzf-git-checkout"
 alias fzh='print -z -- $(cat ~/.zsh_history | fzf)'
