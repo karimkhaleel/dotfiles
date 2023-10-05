@@ -9,6 +9,12 @@ M.general = {
       "toggle format on save",
       opts = { nowait = true },
     },
+    ["n"] = { "nzzzv" },
+    ["N"] = { "Nzzzv" },
+    ["g,"] = { "g,zvzz" },
+    ["g;"] = { "g;zvzz" },
+    ["<C-d>"] = { "<C-d>zz" },
+    ["<C-u>"] = { "<C-u>zz" },
   },
 }
 
