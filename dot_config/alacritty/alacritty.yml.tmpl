@@ -894,78 +894,34 @@
   # Highlight window damage information.
   #highlight_damage: false
 
-schemes:
-  # Tokyo Night theme, based on both:
-  #   https://github.com/ghifarit53/tokyonight-vim
-  #   https://github.com/enkia/tokyo-night-vscode-theme
-  tokyo-night: &tokyo-night # Default colors
-    primary:
-      background: "#1a1b26"
-      foreground: "#a9b1d6"
-
-    # Normal colors
-    normal:
-      black: "#32344a"
-      red: "#f7768e"
-      green: "#9ece6a"
-      yellow: "#e0af68"
-      blue: "#7aa2f7"
-      magenta: "#ad8ee6"
-      cyan: "#449dab"
-      white: "#787c99"
-
-    # Bright colors
-    bright:
-      black: "#444b6a"
-      red: "#ff7a93"
-      green: "#b9f27c"
-      yellow: "#ff9e64"
-      blue: "#7da6ff"
-      magenta: "#bb9af7"
-      cyan: "#0db9d7"
-      white: "#acb0d0"
-
-  tokyo-night-storm: &tokyo-night-storm # Default colors
-    primary:
-      background: "#24283b"
-      foreground: "#a9b1d6"
-
-    # Normal colors
-    normal:
-      black: "#32344a"
-      red: "#f7768e"
-      green: "#9ece6a"
-      yellow: "#e0af68"
-      blue: "#7aa2f7"
-      magenta: "#ad8ee6"
-      cyan: "#449dab"
-      white: "#9699a8"
-
-    # Bright colors
-    bright:
-      black: "#444b6a"
-      red: "#ff7a93"
-      green: "#b9f27c"
-      yellow: "#ff9e64"
-      blue: "#7da6ff"
-      magenta: "#bb9af7"
-      cyan: "#0db9d7"
-      white: "#acb0d0"
-
-colors: *tokyo-night-storm
+import:
+  # - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
 
 {{- if eq .chezmoi.os "darwin" }}
 key_bindings:
-  - { key: Comma,     mods: Command,      command:
-      {program: "sh", args: ["-c","open ~/.config/alacritty/alacritty.yml"]}     }
-  - { key: N,         mods: Command,      action: SpawnNewInstance       }
-  - { key: Space,     mods: Alt,          chars: " "                     }
+  - {
+      key: Comma,
+      mods: Command,
+      command:
+        {
+          program: "sh",
+          args: ["-c", "open ~/.config/alacritty/alacritty.yml"],
+        },
+    }
+  - { key: N, mods: Command, action: SpawnNewInstance }
+  - { key: Space, mods: Alt, chars: " " }
   - { key: Back, mods: Super, chars: "\x15" } # delete word/line
-  - { key: Left,     mods: Alt,     chars: "\x1bb"                       } # one word left
-  - { key: Right,    mods: Alt,     chars: "\x1bf"                       } # one word right
-  - { key: Left,     mods: Command, chars: "\x1bOH",   mode: AppCursor   } # Home
-  - { key: Right,    mods: Command, chars: "\x1bOF",   mode: AppCursor   } # End
-{{- end}}
+  - { key: Left, mods: Alt, chars: "\x1bb" } # one word left
+  - { key: Right, mods: Alt, chars: "\x1bf" } # one word right
+  - { key: Left, mods: Command, chars: "\x1bOH", mode: AppCursor } # Home
+  - { key: Right, mods: Command, chars: "\x1bOF", mode: AppCursor } # End
+{{- else }}
+key_bindings:
+{{- end }}
+  - { key: K, mods: Command, chars: "\x01\x54" } # open t - tmux smart session manager
 
 window: {decorations: none, opacity: 0.8 }
 
@@ -973,4 +929,4 @@ font:
   normal:
     family: FiraMono Nerd Font
     style: Medium
-  size: 12
+  size: 14
