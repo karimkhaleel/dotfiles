@@ -23,6 +23,7 @@ M.treesitter = {
     "svelte",
     "astro",
     "go",
+    "nim",
   },
   highlight = { enable = true, additional_vim_regex_highlighting = { "org", "markdown" } },
   indent = { enable = true },

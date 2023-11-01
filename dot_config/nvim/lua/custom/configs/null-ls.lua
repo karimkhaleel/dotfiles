@@ -22,6 +22,9 @@ local opts = {
     -- go stuff
     null_ls.builtins.formatting.gofumpt,
     null_ls.builtins.diagnostics.golangci_lint,
+
+    -- nim stuff
+    null_ls.builtins.formatting.nimpretty,
   },
 
   on_attach = function(client, bufnr)
