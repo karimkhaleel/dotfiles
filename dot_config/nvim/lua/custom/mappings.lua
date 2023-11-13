@@ -67,6 +67,7 @@ M.dap_python = {
       function()
         require("dap-python").test_method()
       end,
+      "Run pytest on method",
     },
   },
 }
