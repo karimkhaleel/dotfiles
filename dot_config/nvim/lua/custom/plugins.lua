@@ -76,6 +76,28 @@ local plugins = {
     end,
   },
 
+  {
+    "chipsenkbeil/distant.nvim",
+    event = "VeryLazy",
+    branch = "v0.3",
+    enabled = true,
+    config = function()
+      require("distant"):setup {
+        servers = {
+          ["*"] = {
+            lsp = {
+              ["proxidize"] = {
+                cmd = "/home/proxidize/newproj/.venv/bin/pyright",
+                root_dir = "/home/proxidize/newproj",
+                file_types = { "python" },
+              },
+            },
+          },
+        },
+      }
+    end,
+  },
+
   -- {
   --   "mfussenegger/nvim-lint",
   --   event = "VeryLazy",
