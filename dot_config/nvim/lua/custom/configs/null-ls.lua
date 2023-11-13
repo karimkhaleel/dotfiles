@@ -25,6 +25,9 @@ local opts = {
 
     -- nim stuff
     null_ls.builtins.formatting.nimpretty,
+
+    -- rust stuff
+    null_ls.builtins.formatting.rustfmt,
   },
 
   on_attach = function(client, bufnr)
