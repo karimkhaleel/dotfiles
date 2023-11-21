@@ -25,6 +25,7 @@ M.treesitter = {
     "go",
     "nim",
     "rust",
+    "sql",
   },
   highlight = { enable = true, additional_vim_regex_highlighting = { "org", "markdown" } },
   indent = { enable = true },
@@ -130,6 +131,10 @@ M.mason = {
 
     -- rust
     "rust-analyzer",
+
+    --sql
+    "sqlls",
+    "sqlfluff,",
   },
 }
 

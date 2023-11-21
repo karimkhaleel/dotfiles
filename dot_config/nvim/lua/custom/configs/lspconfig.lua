@@ -17,6 +17,8 @@ local servers = {
   "gopls",
   "rust_analyzer",
   "nimls",
+  "sqlls",
+  "svelte",
 }
 
 for _, lsp in ipairs(servers) do

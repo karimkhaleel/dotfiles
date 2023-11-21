@@ -77,6 +77,26 @@ local plugins = {
   },
 
   {
+    "ThePrimeagen/harpoon",
+    event = "VeryLazy",
+    config = function()
+      require("harpoon").setup {
+        projects = {
+          ["~/newproj"] = {
+            term = {
+              cmds = {
+                "poetry run python manage.py runserver",
+                "poetry run python manage.py shell",
+              },
+            },
+          },
+        },
+      }
+      require("telescope").load_extension "harpoon"
+    end,
+  },
+
+  {
     "chipsenkbeil/distant.nvim",
     event = "VeryLazy",
     branch = "v0.3",
@@ -234,6 +254,8 @@ local plugins = {
     "microsoft/python-type-stubs",
     cond = false,
   },
+
+  require "custom.configs.plugins.mini",
 
   -- To make a plugin not be loaded
   -- {

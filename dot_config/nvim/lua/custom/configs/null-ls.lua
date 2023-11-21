@@ -28,6 +28,10 @@ local opts = {
 
     -- rust stuff
     null_ls.builtins.formatting.rustfmt,
+
+    -- sql stuff
+    null_ls.builtins.diagnostics.sqlfluff,
+    null_ls.builtins.formatting.sqlfluff,
   },
 
   on_attach = function(client, bufnr)
