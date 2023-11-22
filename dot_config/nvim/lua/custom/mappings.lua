@@ -44,7 +44,11 @@ M.tabufline = {
   },
 }
 
--- more keybinds!
+M.LSP = {
+  n = {
+    ["<leader>lr"] = { "<cmd> LspRestart <CR>", "Restart LSP" },
+  },
+}
 
 M.dap = {
   plugin = true,
