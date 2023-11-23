@@ -46,7 +46,10 @@ M.tabufline = {
 
 M.LSP = {
   n = {
-    ["<leader>lr"] = { "<cmd> LspRestart <CR>", "Restart LSP" },
+    ["<leader>lr"] = {
+      "<cmd> LspRestart <CR>",
+      "Restart LSP",
+    },
   },
 }
 

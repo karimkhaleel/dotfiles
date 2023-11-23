@@ -19,6 +19,9 @@ local opts = {
     null_ls.builtins.diagnostics.ruff,
     null_ls.builtins.diagnostics.mypy.with { command = { "python", "-m", "mypy" } },
 
+    -- C/C++ stuff
+    null_ls.builtins.formatting.clang_format,
+
     -- go stuff
     null_ls.builtins.formatting.gofumpt,
     null_ls.builtins.diagnostics.golangci_lint,
