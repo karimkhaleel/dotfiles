@@ -35,6 +35,9 @@ local opts = {
     -- sql stuff
     null_ls.builtins.diagnostics.sqlfluff,
     null_ls.builtins.formatting.sqlfluff,
+
+    -- zig stuff
+    null_ls.builtins.formatting.zigfmt,
   },
 
   on_attach = function(client, bufnr)

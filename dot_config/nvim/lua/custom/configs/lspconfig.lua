@@ -19,6 +19,7 @@ local servers = {
   "nimls",
   "sqlls",
   "svelte",
+  "zls",
 }
 
 for _, lsp in ipairs(servers) do
