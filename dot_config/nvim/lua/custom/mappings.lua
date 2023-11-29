@@ -79,6 +79,20 @@ M.dap_python = {
   },
 }
 
+M.copilot = {
+  plugin = true,
+  n = {
+    ["<leader>lct"] = {
+      "<cmd> Copilot toggle <CR>",
+      "Copilot toggle",
+    },
+    ["<leader>ls"] = {
+      "<cmd> Copilot panel <CR>",
+      "Copilot panel",
+    },
+  },
+}
+
 M.telescope = {
   plugin = true,
 
