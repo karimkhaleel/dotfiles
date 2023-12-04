@@ -86,7 +86,7 @@ M.copilot = {
       "<cmd> Copilot toggle <CR>",
       "Copilot toggle",
     },
-    ["<leader>ls"] = {
+    ["<leader>lp"] = {
       "<cmd> Copilot panel <CR>",
       "Copilot panel",
     },
