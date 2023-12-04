@@ -1,6 +1,8 @@
 ---@type MappingsTable
 local M = {}
 
+local copilot_on = true
+
 M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
@@ -81,9 +83,20 @@ M.dap_python = {
 
 M.copilot = {
   plugin = true,
+
   n = {
     ["<leader>lct"] = {
-      "<cmd> Copilot toggle <CR>",
+      function()
+        if copilot_on then
+          copilot_on = false
+          require("copilot.command").disable()
+          print "Copilot disabled"
+        else
+          copilot_on = true
+          require("copilot.command").enable()
+          print "Copilot enabled"
+        end
+      end,
       "Copilot toggle",
     },
     ["<leader>lp"] = {
