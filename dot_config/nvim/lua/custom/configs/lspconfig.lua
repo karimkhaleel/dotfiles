@@ -1,24 +1,25 @@
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
 local servers = {
-  "html",
-  "cssls",
-  "tsserver",
-  "clangd",
-  "pyright",
-  "emmet_language_server",
   "astro",
-  "lua_ls",
-  "tailwindcss",
+  "clangd",
+  "cssls",
+  "emmet_language_server",
   "gopls",
-  "rust_analyzer",
+  "html",
+  "lua_ls",
   "nimls",
+  "pyright",
+  "rust_analyzer",
   "sqlls",
+  "templ",
   "svelte",
+  "tailwindcss",
   "zls",
 }
 

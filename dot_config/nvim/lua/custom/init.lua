@@ -5,8 +5,15 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
-require("custom.configs.autocommands")
+require "custom.configs.autocommands"
 
 local opt = vim.opt
 
 opt.relativenumber = true
+
+-- additional filetypes
+vim.filetype.add {
+  extension = {
+    templ = "templ",
+  },
+}

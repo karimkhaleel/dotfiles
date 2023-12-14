@@ -23,6 +23,7 @@ M.treesitter = {
     "rust",
     "sql",
     "svelte",
+    "templ",
     "tsx",
     "typescript",
     "vim",
@@ -130,6 +131,7 @@ M.mason = {
     "gofumpt",
     "golangci_lint",
     "gopls",
+    "templ",
 
     -- rust
     "rust-analyzer",

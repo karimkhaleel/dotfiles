@@ -1,6 +1,31 @@
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local null_ls = require "null-ls"
 
+local h = require "null-ls.helpers"
+local u = require "null-ls.utils"
+local methods = require "null-ls.methods"
+
+local FORMATTING = methods.internal.FORMATTING
+
+local templ_fmt = h.make_builtin {
+  name = "templ_fmt",
+  meta = {
+    url = "templ.guide",
+    description = "Format templ",
+  },
+  method = FORMATTING,
+  filetypes = { "templ" },
+  generator_opts = {
+    command = "/home/karim/.local/share/nvim/mason/bin/templ",
+    args = {
+      "fmt",
+      "$FILENAME",
+    },
+    to_temp_file = true,
+  },
+  factory = h.formatter_factory,
+}
+
 local opts = {
   sources = {
     -- lua
@@ -25,6 +50,7 @@ local opts = {
     -- go stuff
     null_ls.builtins.formatting.gofumpt,
     null_ls.builtins.diagnostics.golangci_lint,
+    templ_fmt,
 
     -- nim stuff
     null_ls.builtins.formatting.nimpretty,
