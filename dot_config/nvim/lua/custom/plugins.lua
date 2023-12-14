@@ -75,6 +75,9 @@ local plugins = {
       "williamboman/mason.nvim",
       "mfussenegger/nvim-dap",
     },
+    ensure_installed = {
+      "codelldb",
+    },
     opts = {
       handlers = {},
     },
