@@ -115,4 +115,23 @@ M.telescope = {
   },
 }
 
+M.ufo = {
+  plugin = true,
+
+  n = {
+    ["zR"] = {
+      function()
+        require("ufo").openAllFolds()
+      end,
+      "Open all folds",
+    },
+    ["zM"] = {
+      function()
+        require("ufo").closeAllFolds()
+      end,
+      "Close all folds",
+    },
+  },
+}
+
 return M
