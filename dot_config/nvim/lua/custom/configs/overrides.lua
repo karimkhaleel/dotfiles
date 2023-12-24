@@ -129,7 +129,7 @@ M.mason = {
 
     -- go
     "gofumpt",
-    "golangci_lint",
+    "golangci-lint",
     "gopls",
     "templ",
 
