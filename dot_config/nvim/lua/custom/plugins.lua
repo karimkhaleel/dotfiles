@@ -124,6 +124,13 @@ local plugins = {
   },
 
   {
+    "pmizio/typescript-tools.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  },
+
+  {
     "kevinhwang91/nvim-ufo",
     event = "VeryLazy",
     dependencies = { "kevinhwang91/promise-async" },

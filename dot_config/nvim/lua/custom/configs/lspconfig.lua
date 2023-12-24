@@ -1,6 +1,5 @@
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local lspconfig = require "lspconfig"
 
@@ -44,16 +43,6 @@ lspconfig.pyright.setup {
         diagnosticMode = "openFilesOnly",
         stubPath = vim.fn.stdpath "data" .. "/lazy/python-type-stubs/stubs",
       },
-    },
-  },
-}
-
-lspconfig.tsserver.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  init_options = {
-    preferences = {
-      disableSuggestions = true,
     },
   },
 }
