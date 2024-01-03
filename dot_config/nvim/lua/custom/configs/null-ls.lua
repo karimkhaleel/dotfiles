@@ -38,10 +38,8 @@ local opts = {
     },
 
     -- python sfuff
-    null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.isort,
-    -- null_ls.builtins.diagnostics.flake8,
     null_ls.builtins.diagnostics.ruff,
+    null_ls.builtins.formatting.ruff_format,
     null_ls.builtins.diagnostics.mypy.with { command = { "python", "-m", "mypy" } },
 
     -- C/C++ stuff
