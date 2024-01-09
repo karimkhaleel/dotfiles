@@ -14,7 +14,6 @@ local servers = {
   "lua_ls",
   "nimls",
   "pyright",
-  "rust_analyzer",
   "sqlls",
   "templ",
   "svelte",
@@ -57,4 +56,17 @@ lspconfig.lua_ls.setup {
       },
     },
   },
+}
+
+local on_attach_rs = function(client, bufnr)
+  local utils = require "core.utils"
+  utils.load_mappings("lspconfig", { buffer = bufnr })
+
+  if client.server_capabilities.signatureHelpProvider then
+    require("nvchad.signature").setup(client)
+  end
+end
+
+lspconfig.rust_analyzer.setup {
+  on_attach = on_attach_rs,
 }
