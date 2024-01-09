@@ -11,6 +11,11 @@ M.general = {
       "toggle format on save",
       opts = { nowait = true },
     },
+    ["<leader>ti"] = {
+      ":lua require('custom.flags').toggle_inlay_hints()<CR>",
+      "toggle inlay hints",
+      opts = { nowait = true },
+    },
     ["n"] = { "nzzzv" },
     ["N"] = { "Nzzzv" },
     ["g,"] = { "g,zvzz" },
