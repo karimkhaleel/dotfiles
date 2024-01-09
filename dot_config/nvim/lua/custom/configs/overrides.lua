@@ -119,9 +119,7 @@ M.mason = {
     "codelldb",
 
     -- python
-    "black",
     "debugpy",
-    "flake8",
     "isort",
     "mypy",
     "pyright",
