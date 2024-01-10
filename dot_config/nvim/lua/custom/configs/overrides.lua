@@ -120,6 +120,7 @@ M.mason = {
 
     -- python
     "debugpy",
+    "djlint",
     "isort",
     "mypy",
     "pyright",
