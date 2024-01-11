@@ -13,7 +13,6 @@ local servers = {
   "html",
   "lua_ls",
   "nimls",
-  "pyright",
   "sqlls",
   "templ",
   "svelte",
@@ -28,9 +27,21 @@ for _, lsp in ipairs(servers) do
   }
 end
 
---
+local python_capabilities = {
+  textDocument = {
+    publishDiagnostics = {
+      tagSupport = {
+        valueSet = { 2 },
+      },
+    },
+  },
+}
+
+python_capabilities = vim.tbl_deep_extend("force", capabilities, python_capabilities)
+
 lspconfig.pyright.setup {
   on_attach = on_attach,
+  capabilities = python_capabilities,
   settings = {
     python = {
       analysis = {
