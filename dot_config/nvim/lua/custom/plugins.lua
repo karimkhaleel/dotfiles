@@ -279,6 +279,8 @@ local plugins = {
       leap.add_default_mappings(true)
       vim.keymap.del({ "x", "o" }, "x")
       vim.keymap.del({ "x", "o" }, "X")
+      vim.api.nvim_set_hl(0, "LeapLabelPrimary", { bg = "red", fg = "white" })
+      vim.api.nvim_set_hl(0, "LeapLabelSecondary", { bg = "purple", fg = "white" })
     end,
   },
 
