@@ -197,6 +197,9 @@ bindkey '\e[1;5C' end-of-line         # Cmd + Right Arrow
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# 1password completion
+eval "$(op completion zsh)"; compdef _op op
+
 # poetry
 fpath+=~/.zfunc
 autoload -Uz compinit && compinit
