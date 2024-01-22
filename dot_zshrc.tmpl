@@ -151,6 +151,17 @@ alias ranger=". ranger"
 alias gfc="fzf-git-checkout"
 alias fzh='print -z -- $(cat ~/.zsh_history | fzf)'
 
+
+# Functions
+tm() {
+    tmux has-session -t main 2>/dev/null
+    if [ $? != 0 ]; then
+        tmux new -s main
+    else
+        tmux attach -t main
+    fi
+}
+
 eval "$(direnv hook zsh)"
 
 {{- if eq .chezmoi.os "darwin" }}
