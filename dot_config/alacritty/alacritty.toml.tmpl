@@ -1,0 +1,75 @@
+import = ["/Users/karim/.config/alacritty/catppuccin/catppuccin-macchiato.toml"]
+
+[font]
+size = 14
+
+[font.normal]
+family = "FiraMono Nerd Font"
+style = "Medium"
+
+
+{{- if eq .chezmoi.os "darwin" }}
+
+[[keyboard.bindings]]
+key = "Comma"
+mods = "Command"
+
+[keyboard.bindings.command]
+args = ["-c", "open ~/.config/alacritty/alacritty.toml"]
+program = "sh"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = " "
+key = "Space"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0015"
+key = "Back"
+mods = "Super"
+
+[[keyboard.bindings]]
+chars = "\u001Bb"
+key = "Left"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "Right"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001BOH"
+key = "Left"
+mode = "AppCursor"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001BOF"
+key = "Right"
+mode = "AppCursor"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0001T"
+key = "K"
+mods = "Command"
+
+{{- else }}
+
+[[keyboard.bindings]]
+chars = "\x01\x54"
+key = "K"
+mods = "Control"
+
+{{- end }}
+
+[window]
+decorations = "none"
+opacity = 0.8
+
