@@ -11,6 +11,7 @@ M.treesitter = {
     "go",
     "html",
     "javascript",
+    "json",
     "latex",
     "lua",
     "markdown",
@@ -27,6 +28,7 @@ M.treesitter = {
     "tsx",
     "typescript",
     "vim",
+    "yaml",
     "zig",
   },
   highlight = { enable = true, additional_vim_regex_highlighting = { "org", "markdown" } },
@@ -141,6 +143,10 @@ M.mason = {
 
     -- zig
     "zls",
+
+    -- misc
+    "json-lsp",
+    "yaml-language-server",
   },
 }
 
