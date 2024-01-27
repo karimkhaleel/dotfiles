@@ -11,7 +11,6 @@ local servers = {
   "emmet_language_server",
   "gopls",
   "html",
-  "lua_ls",
   "nimls",
   "sqlls",
   "templ",
@@ -76,18 +75,6 @@ lspconfig.pyright.setup {
         useLibraryCodeForTypes = true,
         diagnosticMode = "openFilesOnly",
         stubPath = vim.fn.stdpath "data" .. "/lazy/python-type-stubs/stubs",
-      },
-    },
-  },
-}
-
-lspconfig.lua_ls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
       },
     },
   },
