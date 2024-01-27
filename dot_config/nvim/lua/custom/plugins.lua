@@ -268,6 +268,7 @@ local plugins = {
     end,
     opts = { labeled_modes = "nx" },
   },
+
   {
     "ggandor/leap.nvim",
     enabled = true,
@@ -276,6 +277,7 @@ local plugins = {
       { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
       { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
     },
+    event = "VeryLazy",
     config = function(_, opts)
       local leap = require "leap"
       for k, v in pairs(opts) do
@@ -286,6 +288,16 @@ local plugins = {
       vim.keymap.del({ "x", "o" }, "X")
       vim.api.nvim_set_hl(0, "LeapLabelPrimary", { bg = "red", fg = "white" })
       vim.api.nvim_set_hl(0, "LeapLabelSecondary", { bg = "purple", fg = "white" })
+    end,
+  },
+
+  {
+    "ggandor/leap-spooky.nvim",
+    dependencies = { "ggandor/leap.nvim" },
+    enabled = true,
+    event = "VeryLazy",
+    config = function()
+      require("leap-spooky").setup()
     end,
   },
 
