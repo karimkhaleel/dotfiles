@@ -41,3 +41,18 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
   once = true,
 })
+
+-- Detect djangohtml filetype
+local function set_django_html_filetype()
+  local path = vim.fn.expand "%:p"
+  if string.match(path, ".*/templates/.*%.html$") then
+    vim.bo.filetype = "htmldjango"
+  end
+end
+
+vim.api.nvim_create_augroup("DjangoHtmlFiletype", { clear = true })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  group = "DjangoHtmlFiletype",
+  pattern = "*.html",
+  callback = set_django_html_filetype,
+})
