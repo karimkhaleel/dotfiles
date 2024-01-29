@@ -2,7 +2,6 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local null_ls = require "null-ls"
 
 local h = require "null-ls.helpers"
-local u = require "null-ls.utils"
 local methods = require "null-ls.methods"
 
 local FORMATTING = methods.internal.FORMATTING
@@ -26,43 +25,6 @@ local templ_fmt = h.make_builtin {
   factory = h.formatter_factory,
 }
 
--- Function to check if Poetry virtual environment exists
--- local function get_poetry_venv_path()
---   local handle = io.popen "poetry env info -p 2>/dev/null"
---   local result = handle:read "*a"
---   handle:close()
---
---   if result ~= "" then
---     return result:gsub("\n", "")
---   else
---     return nil
---   end
--- end
---
--- local function get_venv_path()
---   local handle = io.popen "echo $VIRTUAL_ENV"
---   local result = handle:read "*a"
---   handle:close()
---
---   if result ~= "" then
---     return result:gsub("\n", "")
---   else
---     return nil
---   end
--- end
---
--- Configure mypy command based on Poetry environment
--- local mypy_command = { "python", "-m", "mypy" }
--- local poetry_venv_path = get_poetry_venv_path()
--- local venv_path = get_venv_path()
---
--- if venv_path then
---   mypy_command = { venv_path .. "/bin/python", "-m", "mypy" }
--- elseif poetry_venv_path then
---   mypy_command = { poetry_venv_path .. "/bin/python", "-m", "mypy" }
--- else
---   mypy_command = { "python", "-m", "mypy" }
--- end
 --
 local opts = {
   sources = {
