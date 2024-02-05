@@ -39,7 +39,9 @@ local opts = {
 
     -- python sfuff
     null_ls.builtins.diagnostics.ruff,
-    null_ls.builtins.formatting.djlint,
+    null_ls.builtins.formatting.djlint.with {
+      extra_args = { "--format-css", "--format-js" },
+    },
     null_ls.builtins.diagnostics.djlint,
     null_ls.builtins.formatting.ruff_format,
     null_ls.builtins.formatting.isort.with {
