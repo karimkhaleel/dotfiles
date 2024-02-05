@@ -10,7 +10,6 @@ local servers = {
   "cssls",
   "emmet_language_server",
   "gopls",
-  "html",
   "nimls",
   "sqlls",
   "templ",
@@ -27,6 +26,8 @@ for _, lsp in ipairs(servers) do
 end
 
 lspconfig.jsonls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     json = {
       schemas = require("schemastore").json.schemas(),
@@ -35,7 +36,21 @@ lspconfig.jsonls.setup {
   },
 }
 
+lspconfig.htmx.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "html", "htmldjango", "templ" },
+}
+
+lspconfig.html.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "html", "htmldjango", "templ" },
+}
+
 lspconfig.yamlls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     yaml = {
       schemaStore = {
@@ -91,4 +106,5 @@ end
 
 lspconfig.rust_analyzer.setup {
   on_attach = on_attach_rs,
+  capabilities = capabilities,
 }

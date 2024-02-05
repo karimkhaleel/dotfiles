@@ -114,6 +114,7 @@ M.mason = {
     "svelte-language-server",
     "tailwindcss-language-server",
     "typescript-language-server",
+    "htmx-lsp",
 
     -- c/cpp stuff
     "clang-format",
