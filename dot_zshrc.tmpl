@@ -59,84 +59,158 @@ EDITOR="nvim"; export EDITOR
 # Theme
 PURE_PROMPT_SYMBOL=
 PURE_PROMPT_VICMD_SYMBOL=
-
 zinit ice pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
 
+# Completions
+autoload -Uz compinit && compinit
+
+
+# Programs
+{{ if eq .chezmoi.os "darwin" }}
+zinit lucid light-mode from"gh-r" as"command" bpick'*darwin*' for \
+{{ else if eq .chezmoi.os "linux" }}
+zinit lucid light-mode from"gh-r" as"command" bpick'*linux*' for \
+{{- end}}
+    atload'
+        eval "$(zoxide init --cmd cd zsh)"
+        alias z="__zoxide_z"
+    ' pick'zoxide/zoxide' \
+        @ajeetdsouza/zoxide \
+        @junegunn/fzf \
+    mv'ripgrep* -> rg' pick'rg/rg' \
+        @BurntSushi/ripgrep \
+    mv'fd* -> fd' pick'fd/fd' \
+        @sharkdp/fd \
+    mv'bat* -> bat' pick'bat/bat' atload'
+        export MANPAGER="bat --plain"
+    ' \
+        @sharkdp/bat \
+    mv'delta* -> delta' pick'delta/delta' \
+        @dandavison/delta \
+    atload'
+        alias l="exa -abghHlS --git --group-directories-first"
+    ' pick'bin/exa' \
+        @ogham/exa \
+
+# Scripts
+zinit lucid light-mode as"command" for \
+    id-as"fzf-tmux" pick"./bin/fzf-tmux" junegunn/fzf \
+
+# Python stuff
+zinit pack"bgn" git for pyenv
+
+zinit wait"1" lucid as"command" for \
+    atclone'python3 -m pip install --user pipx; python3 -m pipx ensurepath' \
+    atpull'%atclone' \
+    atinit'eval "$(register-python-argcomplete pipx)"' \
+    id-as"pipx-installer" \
+    zdharma-continuum/null
+
+zinit lucid as"command" for \
+    id-as"httpie" \
+    atclone'pipx install httpie' \
+    atpull'pipx upgrade httpie' \
+    zdharma-continuum/null \
+id-as"pre-commit" \
+    atclone'pipx install pre-commit' \
+    atpull'pipx upgrade pre-commit' \
+    zdharma-continuum/null \
+id-as"poetry" \
+    atclone'pipx install poetry' \
+    atpull'pipx upgrade poetry' \
+    zdharma-continuum/null \
+
+
+# Go Programs
+zinit lucid light-mode as"command" for \
+  atclone'
+    go build
+  ' \
+      @joshmedeski/sesh \
+
+
+setopt promptsubst
+
 zinit lucid for \
     atinit"
-      ZSH_TMUX_FIXTERM=false
-      ZSH_TMUX_AUTOSTART=false
-      ZSH_TMUX_AUTOCONNECT=false" \
-  OMZP::tmux \
-  atinit"HIST_STAMPS=dd.mm.yyyy" \
-  OMZL::history.zsh \
+        export ZSH_TMUX_FIXTERM=false
+        export ZSH_TMUX_AUTOSTART=true
+        export ZSH_TMUX_AUTOCONNECT=true
+        export ZSH_TMUX_DEFAULT_SESSION_NAME='</>'
+    " \
+    OMZP::tmux \
+    atinit"HIST_STAMPS=dd.mm.yyyy" \
+    OMZL::history.zsh \
 
 zinit wait lucid for \
 	OMZL::clipboard.zsh \
 	OMZL::compfix.zsh \
 	OMZL::completion.zsh \
 	OMZL::correction.zsh \
-    atload"
-      alias ..='cd ..'
-      alias ...='cd ../..'
-      alias ....='cd ../../..'
-      alias .....='cd ../../../..'" \
+    atload'
+        alias ..="cd .."
+        alias ...="cd ../.."
+        alias ....="cd ../../.."
+        alias .....="cd ../../../.."
+
+        function take() {
+            mkdir -p $@ && cd ${@:$#}
+        }
+
+        alias rm="rm -rf"
+    ' \
 	OMZL::directories.zsh \
 	OMZL::git.zsh \
 	OMZL::grep.zsh \
 	OMZL::key-bindings.zsh \
 	OMZL::spectrum.zsh \
-    atload"alias gcd='gco dev'" \
-	OMZP::git \
-	OMZP::fzf \
+	OMZL::functions.zsh \
+	OMZL::termsupport.zsh \
     atload"
-      alias dcupb='docker-compose up --build'" \
-	OMZP::docker-compose \
-    as"completion" \
-  OMZP::gitignore \
-  OMZP::sudo \
-  OMZP::aws \
-  OMZP::colored-man-pages \
-  OMZP::command-not-found \
-  OMZP::copyfile \
-  andydecleyre/zpy \
-  hlissner/zsh-autopair \
+        alias gcd='git checkout dev'
+        alias gce='git commit -a -e'
+    " \
+	OMZP::git \
+  djui/alias-tips \
+  https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh \
+  https://github.com/junegunn/fzf/blob/master/shell/completion.zsh \
+
+
 
 zinit wait lucid for \
-      light-mode atinit"ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20" atload"_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions \
-      light-mode atinit"
-        typeset -gA FAST_HIGHLIGHT; FAST_HIGHLIGHT[git-cmsg-len]=100;
-        zpcompinit; zpcdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
-      atpull'zinit creinstall -q .' \
-      atinit"
+    light-mode blockf atpull'zinit creinstall -q .' \
+    atinit"
         zstyle ':completion:*' completer _expand _complete _ignored _approximate
         zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
         zstyle ':completion:*' menu select=2
         zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
-        zstyle ':completion:*:*:*:*:processes' command 'ps -u $USER -o pid,user,comm,cmd -w -w'
         zstyle ':completion:*:descriptions' format '-- %d --'
         zstyle ':completion:*:processes' command 'ps -au$USER'
         zstyle ':completion:complete:*:options' sort false
         zstyle ':fzf-tab:complete:_zlua:*' query-string input
+        zstyle ':completion:*:*:*:*:processes' command 'ps -u $USER -o pid,user,comm,cmd -w -w'
+        zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps --pid=$in[(w)1] -o cmd --no-headers -w -w' --preview-window=down:3:wrap
         zstyle ':fzf-tab:complete:cd:*' extra-opts --preview=$extract'exa -1 --color=always ${~ctxt[hpre]}$in'
-        zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps --pid=$in[(w)1] -o cmd --no-headers -w -w' --preview-window=down:3:wrap" \
-      blockf light-mode \
-    zsh-users/zsh-completions \
-
-
-
-zinit wait lucid for \
-    is-snippet ~/.dot_zsh/.ls.zshrc \
-    is-snippet ~/.dot_zsh/_kubectl.zsh \
-    as'command' \
-        pick'bin/pyenv' \
-        blockf \
-        atload'eval "$(pyenv init - --no-rehash zsh)";' \
-        src'completions/pyenv.zsh' nocompile'!' \
-      pyenv/pyenv \
+    " \
+        zsh-users/zsh-completions \
+    light-mode atinit"ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20" atload"_zsh_autosuggest_start" \
+        zsh-users/zsh-autosuggestions \
+    light-mode atinit"
+        typeset -gA FAST_HIGHLIGHT;
+        FAST_HIGHLIGHT[git-cmsg-len]=100;
+        zpcompinit;
+        zpcdreplay;
+    " \
+        zdharma-continuum/fast-syntax-highlighting \
+    reset \
+    atclone"local P=${${(M)OSTYPE:#*darwin*}:+g}
+            \${P}sed -i \
+            '/DIR/c\DIR 38;5;63;1' LS_COLORS; \
+            \${P}dircolors -b LS_COLORS > c.zsh" \
+    atpull'%atclone' pick"c.zsh" nocompile'!' \
+    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”' \
+        trapd00r/LS_COLORS
 
 # Aliases
 {{- if eq .chezmoi.os "darwin" }}
@@ -148,21 +222,10 @@ alias cat="batcat"
 alias lg="lazygit"
 alias v="nvim"
 alias ranger=". ranger"
-alias gfc="fzf-git-checkout"
 alias fzh='print -z -- $(cat ~/.zsh_history | fzf)'
+alias "docker compose"="docker-compose"
+alias "docker-compose"="docker compose"
 
-
-# Functions
-tm() {
-    tmux has-session -t main 2>/dev/null
-    if [ $? != 0 ]; then
-        tmux new -s main
-    else
-        tmux attach -t main
-    fi
-}
-
-eval "$(direnv hook zsh)"
 
 {{- if eq .chezmoi.os "darwin" }}
 # pnpm
@@ -201,7 +264,3 @@ bindkey '\e[1;5C' end-of-line         # Cmd + Right Arrow
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# poetry
-fpath+=~/.zfunc
-autoload -Uz compinit && compinit
