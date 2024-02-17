@@ -67,9 +67,9 @@ autoload -Uz compinit && compinit
 
 
 # Programs
-{{ if eq .chezmoi.os "darwin" }}
+{{- if eq .chezmoi.os "darwin" }}
 zinit lucid light-mode from"gh-r" as"command" bpick'*darwin*' for \
-{{ else if eq .chezmoi.os "linux" }}
+{{- else if eq .chezmoi.os "linux" }}
 zinit lucid light-mode from"gh-r" as"command" bpick'*linux*' for \
 {{- end}}
     atload'
@@ -88,10 +88,12 @@ zinit lucid light-mode from"gh-r" as"command" bpick'*linux*' for \
         @sharkdp/bat \
     mv'delta* -> delta' pick'delta/delta' \
         @dandavison/delta \
+{{- if eq .chezmoi.os "linux" }}
     atload'
         alias l="exa -abghHlS --git --group-directories-first"
     ' pick'bin/exa' \
         @ogham/exa \
+{{- end}}
 
 # Scripts
 zinit lucid light-mode as"command" for \
@@ -125,8 +127,9 @@ id-as"poetry" \
 # Go Programs
 zinit lucid light-mode as"command" for \
   atclone'
-    go build
+    go build -o target/sesh
   ' \
+  sbin'target/sesh' \
       @joshmedeski/sesh \
 
 
