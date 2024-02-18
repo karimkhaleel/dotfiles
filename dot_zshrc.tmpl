@@ -88,16 +88,20 @@ zinit lucid light-mode from"gh-r" as"command" bpick'*linux*' for \
         @sharkdp/bat \
     mv'delta* -> delta' pick'delta/delta' \
         @dandavison/delta \
-{{- if eq .chezmoi.os "linux" }}
-    atload'
-        alias l="exa -abghHlS --git --group-directories-first"
-    ' pick'bin/exa' \
-        @ogham/exa \
-{{- end}}
 
 # Scripts
 zinit lucid light-mode as"command" for \
-    id-as"fzf-tmux" pick"./bin/fzf-tmux" junegunn/fzf \
+    id-as"fzf-tmux" sbin"./bin/fzf-tmux" junegunn/fzf \
+
+# Rust
+zinit lucid light-mode as"command" for \
+    id-as"eza" \
+    atclone'cargo install eza' \
+    atpull'cargo install eza' \
+    atload'
+        alias ls="eza"
+    ' \
+    @zdharma-continuum/null \
 
 # Python stuff
 zinit pack"bgn" git for pyenv
@@ -124,12 +128,13 @@ id-as"poetry" \
     zdharma-continuum/null \
 
 
-# Go Programs
+# Go
 zinit lucid light-mode as"command" for \
   atclone'
     go build -o target/sesh
-  ' \
-  sbin'target/sesh' \
+  ' atpull'
+    %atclone
+  ' sbin'target/sesh' \
       @joshmedeski/sesh \
 
 
