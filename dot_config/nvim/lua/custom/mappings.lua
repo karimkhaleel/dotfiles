@@ -117,6 +117,7 @@ M.telescope = {
   n = {
     -- find
     ["<leader>fs"] = { "<cmd> Telescope lsp_document_symbols <CR>", "Find document symbols" },
+    ["<leader>fe"] = { "<cmd> lua MiniFiles.open() <CR>", "Open file explorer" },
   },
 }
 

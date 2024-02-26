@@ -2,6 +2,9 @@ local mini_module_configs = {
   function()
     require("mini.ai").setup()
   end,
+  function()
+    require("mini.files").setup()
+  end,
 }
 
 local M = {
