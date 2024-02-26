@@ -219,7 +219,17 @@ zinit wait lucid for \
     atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”' \
         trapd00r/LS_COLORS
 
+
 # Aliases
+run_tsa() {
+  # Run the tmux session script if it exists
+    if [[ -z "$TMUX_SESSION_SCRIPT" ]]; then
+        echo "TMUX_SESSION_SCRIPT is not set"
+    else
+        "$TMUX_SESSION_SCRIPT"
+    fi
+}
+
 {{- if eq .chezmoi.os "darwin" }}
 alias cat="bat"
 {{- else if eq .chezmoi.os "linux" }}
@@ -232,6 +242,7 @@ alias ranger=". ranger"
 alias fzh='print -z -- $(cat ~/.zsh_history | fzf)'
 alias "docker compose"="docker-compose"
 alias "docker-compose"="docker compose"
+alias tsa=run_tsa
 
 
 {{- if eq .chezmoi.os "darwin" }}
