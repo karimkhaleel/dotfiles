@@ -56,3 +56,11 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.html",
   callback = set_django_html_filetype,
 })
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  desc = "Set textwidth to 88 for python files",
+  pattern = "*.py",
+  callback = function()
+    vim.bo.textwidth = 120
+  end,
+})
