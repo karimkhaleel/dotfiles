@@ -2,6 +2,7 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- if you just want default config for the servers then put them in a table
 local servers = {
@@ -16,6 +17,7 @@ local servers = {
   "svelte",
   "tailwindcss",
   "zls",
+  "ruff_lsp",
 }
 
 for _, lsp in ipairs(servers) do
@@ -101,6 +103,22 @@ local on_attach_rs = function(client, bufnr)
 
   if client.server_capabilities.signatureHelpProvider then
     require("nvchad.signature").setup(client)
+  end
+
+  if client.supports_method "textDocument/formatting" then
+    vim.api.nvim_clear_autocmds {
+      group = augroup,
+      buffer = bufnr,
+    }
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = bufnr,
+      callback = function()
+        if require("custom.flags").format_on_save then
+          vim.lsp.buf.format { bufnr = bufnr }
+        end
+      end,
+    })
   end
 end
 
