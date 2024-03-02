@@ -32,21 +32,15 @@ local opts = {
     null_ls.builtins.formatting.stylua,
 
     -- js stuff
-    null_ls.builtins.diagnostics.eslint_d,
     null_ls.builtins.formatting.prettier.with {
       extra_filetypes = { "astro", "svelte" },
     },
 
     -- python sfuff
-    null_ls.builtins.diagnostics.ruff,
     null_ls.builtins.formatting.djlint.with {
       extra_args = { "--format-css", "--format-js" },
     },
     null_ls.builtins.diagnostics.djlint,
-    null_ls.builtins.formatting.ruff_format,
-    null_ls.builtins.formatting.isort.with {
-      extra_args = { "--profile", "black" },
-    },
 
     null_ls.builtins.diagnostics.mypy,
 
@@ -61,15 +55,9 @@ local opts = {
     -- nim stuff
     null_ls.builtins.formatting.nimpretty,
 
-    -- rust stuff
-    null_ls.builtins.formatting.rustfmt,
-
     -- sql stuff
     null_ls.builtins.diagnostics.sqlfluff,
     null_ls.builtins.formatting.sqlfluff,
-
-    -- zig stuff
-    null_ls.builtins.formatting.zigfmt,
   },
 
   on_attach = function(client, bufnr)

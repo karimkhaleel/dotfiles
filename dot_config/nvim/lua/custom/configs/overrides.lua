@@ -127,7 +127,7 @@ M.mason = {
     "isort",
     "mypy",
     "pyright",
-    "ruff",
+    "ruff-lsp",
 
     -- go
     "gofumpt",
