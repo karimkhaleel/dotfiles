@@ -148,6 +148,8 @@ M.mason = {
     -- misc
     "json-lsp",
     "yaml-language-server",
+    "bash-language-server",
+    "shfmt",
   },
 }
 

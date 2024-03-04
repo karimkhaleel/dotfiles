@@ -18,6 +18,7 @@ local servers = {
   "tailwindcss",
   "zls",
   "ruff_lsp",
+  "bashls",
 }
 
 for _, lsp in ipairs(servers) do
