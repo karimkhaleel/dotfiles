@@ -38,9 +38,9 @@ M.treesitter = {
     enable = true,
     keymaps = {
       init_selection = "<cr>",
-      node_incremental = "<C-]>",
-      scope_incremental = "grn",
-      node_decremental = "<C-[>",
+      node_incremental = "<cr>",
+      scope_incremental = false,
+      node_decremental = "<bs>",
     },
   },
   textobjects = {
