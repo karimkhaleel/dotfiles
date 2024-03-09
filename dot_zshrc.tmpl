@@ -89,14 +89,16 @@ zinit lucid light-mode from"gh-r" as"command" bpick'*x86_64*linux*' for \
         @dandavison/delta \
 
 {{if eq .chezmoi.os "darwin" }}
-zinit lucid light-mode from"gh-r" as"command" bpick'*darwin*' for \
+zinit lucid light-mode from"gh-r" as"command" bpick'*darwin*arm64' for \
 {{- else if eq .chezmoi.os "linux" }}
 zinit lucid light-mode from"gh-r" as"command" bpick'*linux*amd64*' for \
 {{- end}}
         @junegunn/fzf \
+    mv'direnv* -> direnv' pick'direnv/direnv' \
+        @direnv/direnv \
 
 # Scripts
-zinit lucid light-mode as"command" for \
+zinit lucid light-mode for \
     id-as"fzf-tmux" sbin"./bin/fzf-tmux" junegunn/fzf \
 
 # Rust
@@ -135,7 +137,7 @@ id-as"poetry" \
 
 
 # Go
-zinit lucid light-mode as"command" for \
+zinit lucid light-mode for \
   atclone'
     go build -o target/sesh
   ' atpull'
