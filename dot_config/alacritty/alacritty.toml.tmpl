@@ -1,4 +1,8 @@
+{{- if eq .chezmoi.os "darwin" }}
 import = ["/Users/karim/.config/alacritty/catppuccin/catppuccin-macchiato.toml"]
+{{- else }}
+import = ["/home/karim/.config/alacritty/catppuccin/catppuccin-macchiato.toml"]
+{{- end }}
 
 [font]
 size = 14
@@ -55,19 +59,12 @@ key = "Right"
 mode = "AppCursor"
 mods = "Command"
 
-[[keyboard.bindings]]
-chars = "\u0001T"
-key = "K"
-mods = "Control"
-
-{{- else }}
-
-[[keyboard.bindings]]
-chars = "\x01\x54"
-key = "K"
-mods = "Control"
-
 {{- end }}
+
+[[keyboard.bindings]]
+chars = "connect_sesh\n"
+key = "K"
+mods = "Control"
 
 [window]
 decorations = "none"
