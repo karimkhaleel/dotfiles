@@ -17,7 +17,6 @@ local servers = {
   "svelte",
   "tailwindcss",
   "zls",
-  "ruff_lsp",
   "bashls",
 }
 
@@ -125,5 +124,31 @@ end
 
 lspconfig.rust_analyzer.setup {
   on_attach = on_attach_rs,
+  capabilities = capabilities,
+}
+
+local on_attach_ruff_lsp = function(client, bufnr)
+  local utils = require "core.utils"
+  utils.load_mappings("lspconfig", { buffer = bufnr })
+
+  if client.supports_method "textDocument/formatting" then
+    vim.api.nvim_clear_autocmds {
+      group = augroup,
+      buffer = bufnr,
+    }
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = bufnr,
+      callback = function()
+        if require("custom.flags").format_on_save then
+          vim.lsp.buf.format { bufnr = bufnr }
+        end
+      end,
+    })
+  end
+end
+
+lspconfig.ruff_lsp.setup {
+  on_attach = on_attach_ruff_lsp,
   capabilities = capabilities,
 }
