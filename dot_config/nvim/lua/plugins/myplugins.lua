@@ -1,4 +1,4 @@
-local overrides = require "custom.configs.overrides"
+local overrides = require "configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -8,8 +8,8 @@ local plugins = {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
+      require "nvchad.configs.lspconfig"
+      require "configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
 
@@ -17,7 +17,7 @@ local plugins = {
     "nvimtools/none-ls.nvim",
     event = "VeryLazy",
     opts = function()
-      return require "custom.configs.null-ls"
+      return require "configs.null-ls"
     end,
   },
 
@@ -69,7 +69,7 @@ local plugins = {
     config = function(_, opts)
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
-      require("core.utils").load_mappings "dap_python"
+      -- require("core.utils").load_mappings "dap_python"
     end,
   },
 
@@ -108,8 +108,8 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     config = function()
-      require "custom.configs.dap"
-      require("core.utils").load_mappings "dap"
+      require "configs.dap"
+      -- require("core.utils").load_mappings "dap"
     end,
   },
 
@@ -191,7 +191,7 @@ local plugins = {
   --   "mfussenegger/nvim-lint",
   --   event = "VeryLazy",
   --   config = function()
-  --     require "custom.configs.lint"
+  --     require "configs.lint"
   --   end,
   -- },
   --
@@ -199,7 +199,7 @@ local plugins = {
   --   "mhartington/formatter.nvim",
   --   event = "VeryLazy",
   --   opts = function()
-  --     return require "custom.configs.formatter"
+  --     return require "configs.formatter"
   --   end,
   -- },
 
@@ -251,7 +251,7 @@ local plugins = {
         copilot_node_command = "node", -- Node.js version must be > 16.x
         server_opts_overrides = {},
       }
-      require("core.utils").load_mappings "copilot"
+      -- require("core.utils").load_mappings "copilot"
     end,
   },
 
@@ -341,7 +341,7 @@ local plugins = {
     cond = false,
   },
 
-  require "custom.configs.plugins.mini",
+  require "configs.plugins.mini",
 
   -- To make a plugin not be loaded
   -- {

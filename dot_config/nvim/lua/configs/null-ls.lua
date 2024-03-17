@@ -72,7 +72,7 @@ local opts = {
         group = augroup,
         buffer = bufnr,
         callback = function()
-          if require("custom.flags").format_on_save then
+          if require("flags").format_on_save then
             vim.lsp.buf.format { bufnr = bufnr }
           end
         end,

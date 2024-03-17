@@ -5,7 +5,7 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
-require "custom.configs.autocommands"
+require "configs.autocommands"
 
 local opt = vim.opt
 

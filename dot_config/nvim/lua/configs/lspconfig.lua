@@ -1,5 +1,5 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+local on_attach = require("nvchad.configs.lspconfig").on_attach
+local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -114,7 +114,7 @@ local on_attach_rs = function(client, bufnr)
       group = augroup,
       buffer = bufnr,
       callback = function()
-        if require("custom.flags").format_on_save then
+        if require("flags").format_on_save then
           vim.lsp.buf.format { bufnr = bufnr }
         end
       end,
@@ -140,7 +140,7 @@ local on_attach_ruff_lsp = function(client, bufnr)
       group = augroup,
       buffer = bufnr,
       callback = function()
-        if require("custom.flags").format_on_save then
+        if require("flags").format_on_save then
           vim.lsp.buf.format { bufnr = bufnr }
         end
       end,
