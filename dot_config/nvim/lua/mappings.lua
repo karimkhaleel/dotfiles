@@ -4,141 +4,69 @@ local M = {}
 
 local copilot_on = true
 
-M.general = {
-  n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<leader>tf"] = {
-      ":lua require('flags').toggle_format_on_save()<CR>",
-      "toggle format on save",
-      opts = { nowait = true },
-    },
-    ["<leader>ti"] = {
-      ":lua require('flags').toggle_inlay_hints()<CR>",
-      "toggle inlay hints",
-      opts = { nowait = true },
-    },
-    ["n"] = { "nzzzv" },
-    ["N"] = { "Nzzzv" },
-    ["g,"] = { "g,zvzz" },
-    ["g;"] = { "g;zvzz" },
-    ["<C-d>"] = { "<C-d>zz" },
-    ["<C-u>"] = { "<C-u>zz" },
-  },
-}
+local map = vim.keymap.set
 
-M.disabled = {
-  n = {
-    ["<tab>"] = "",
-    ["<S-tab>"] = "",
-  },
-}
+-- General
+map("n", ";", ":", { desc = "enter command mode", nowait = true })
+map(
+  "n",
+  "<leader>tf",
+  ":lua require('flags').toggle_format_on_save()<CR>",
+  { desc = "toggle format on save", nowait = true }
+)
+map("n", "<leader>ti", ":lua require('flags').toggle_inlay_hints()<CR>", { desc = "toggle inlay hints", nowait = true })
+map("n", "n", "nzzzv", { desc = "next search result centered" })
+map("n", "N", "Nzzzv", { desc = "previous search result centered" })
+map("n", "g,", "g,zvzz", { desc = "next change centered" })
+map("n", "g;", "g;zvzz", { desc = "previous change centered" })
+map("n", "<C-d>", "<C-d>zz", { desc = "page down centered" })
+map("n", "<C-u>", "<C-u>zz", { desc = "page up centered" })
+map("n", "<C-o>", "<C-o>zz", { desc = "jump back centered" })
 
-M.tabufline = {
-  n = {
-    -- cycle through buffers
-    ["<leader>k"] = {
-      function()
-        require("nvchad.tabufline").tabuflineNext()
-      end,
-      "Goto next buffer",
-    },
+-- Disabled mappings
+map("n", "<tab>", "", { desc = "Disabled mapping" })
+map("n", "<S-tab>", "", { desc = "Disabled mapping" })
 
-    ["<leader>j"] = {
-      function()
-        require("nvchad.tabufline").tabuflinePrev()
-      end,
-      "Goto prev buffer",
-    },
-  },
-}
+-- Tabufline mappings
+map("n", "<leader>k", function()
+  require("nvchad.tabufline").next()
+end, { desc = "Goto next buffer" })
+map("n", "<leader>j", function()
+  require("nvchad.tabufline").prev()
+end, { desc = "Goto prev buffer" })
+map("n", "<leader>oq", function()
+  require("nvchad.tabufline").closeOtherBufs()
+end, { desc = "Close other buffers" })
 
-M.LSP = {
-  n = {
-    ["<leader>lr"] = {
-      "<cmd> LspRestart <CR>",
-      "Restart LSP",
-    },
-  },
-}
+-- LSP mappings
+map("n", "<leader>lr", "<cmd> LspRestart <CR>", { desc = "Restart LSP" })
 
-M.dap = {
-  plugin = true,
-  n = {
-    ["<leader>db"] = {
-      "<cmd> DapToggleBreakpoint <CR>",
-      "Add breakpoint at line",
-    },
-    ["<leader>dr"] = {
-      "<cmd> DapContinue <CR>",
-      "Run or continue the debugger",
-    },
-  },
-}
+-- DAP mappings
+map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line" })
+map("n", "<leader>dr", "<cmd> DapContinue <CR>", { desc = "Run or continue the debugger" })
 
-M.dap_python = {
-  plugin = true,
-  n = {
-    ["<leader>dpr"] = {
-      function()
-        require("dap-python").test_method()
-      end,
-      "Run pytest on method",
-    },
-  },
-}
+-- Copilot mappings
+map("n", "<leader>lct", function()
+  if copilot_on then
+    copilot_on = false
+    require("copilot.command").disable()
+    print "Copilot disabled"
+  else
+    copilot_on = true
+    require("copilot.command").enable()
+    print "Copilot enabled"
+  end
+end, { desc = "Copilot toggle" })
+map("n", "<leader>lp", "<cmd> Copilot panel <CR>", { desc = "Copilot panel" })
 
-M.copilot = {
-  plugin = true,
+-- Telescope mappings
+map("n", "<leader>fs", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "Find document symbols" })
+map("n", "<leader>fe", "<cmd> lua MiniFiles.open() <CR>", { desc = "Open file explorer" })
 
-  n = {
-    ["<leader>lct"] = {
-      function()
-        if copilot_on then
-          copilot_on = false
-          require("copilot.command").disable()
-          print "Copilot disabled"
-        else
-          copilot_on = true
-          require("copilot.command").enable()
-          print "Copilot enabled"
-        end
-      end,
-      "Copilot toggle",
-    },
-    ["<leader>lp"] = {
-      "<cmd> Copilot panel <CR>",
-      "Copilot panel",
-    },
-  },
-}
-
-M.telescope = {
-  plugin = true,
-
-  n = {
-    -- find
-    ["<leader>fs"] = { "<cmd> Telescope lsp_document_symbols <CR>", "Find document symbols" },
-    ["<leader>fe"] = { "<cmd> lua MiniFiles.open() <CR>", "Open file explorer" },
-  },
-}
-
-M.ufo = {
-  plugin = true,
-
-  n = {
-    ["zR"] = {
-      function()
-        require("ufo").openAllFolds()
-      end,
-      "Open all folds",
-    },
-    ["zM"] = {
-      function()
-        require("ufo").closeAllFolds()
-      end,
-      "Close all folds",
-    },
-  },
-}
-
-return M
+-- UFO mappings
+map("n", "zR", function()
+  require("ufo").openAllFolds()
+end, { desc = "Open all folds" })
+map("n", "zM", function()
+  require("ufo").closeAllFolds()
+end, { desc = "Close all folds" })
