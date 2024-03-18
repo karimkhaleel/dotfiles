@@ -97,13 +97,8 @@ lspconfig.pyright.setup {
   },
 }
 
-local on_attach_rs = function(client, bufnr)
-  local utils = require "core.utils"
-  utils.load_mappings("lspconfig", { buffer = bufnr })
-
-  if client.server_capabilities.signatureHelpProvider then
-    require("nvchad.signature").setup(client)
-  end
+local on_attach_formatting = function(client, bufnr)
+  on_attach(client, bufnr)
 
   if client.supports_method "textDocument/formatting" then
     vim.api.nvim_clear_autocmds {
@@ -123,32 +118,11 @@ local on_attach_rs = function(client, bufnr)
 end
 
 lspconfig.rust_analyzer.setup {
-  on_attach = on_attach_rs,
+  on_attach = on_attach_formatting,
   capabilities = capabilities,
 }
 
-local on_attach_ruff_lsp = function(client, bufnr)
-  local utils = require "core.utils"
-  utils.load_mappings("lspconfig", { buffer = bufnr })
-
-  if client.supports_method "textDocument/formatting" then
-    vim.api.nvim_clear_autocmds {
-      group = augroup,
-      buffer = bufnr,
-    }
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        if require("flags").format_on_save then
-          vim.lsp.buf.format { bufnr = bufnr }
-        end
-      end,
-    })
-  end
-end
-
 lspconfig.ruff_lsp.setup {
-  on_attach = on_attach_ruff_lsp,
+  on_attach = on_attach_formatting,
   capabilities = capabilities,
 }
