@@ -114,26 +114,6 @@ local plugins = {
   },
 
   {
-    "ThePrimeagen/harpoon",
-    event = "VeryLazy",
-    config = function()
-      require("harpoon").setup {
-        projects = {
-          ["~/newproj"] = {
-            term = {
-              cmds = {
-                "poetry run python manage.py runserver",
-                "poetry run python manage.py shell",
-              },
-            },
-          },
-        },
-      }
-      require("telescope").load_extension "harpoon"
-    end,
-  },
-
-  {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
@@ -186,22 +166,6 @@ local plugins = {
       }
     end,
   },
-
-  -- {
-  --   "mfussenegger/nvim-lint",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require "configs.lint"
-  --   end,
-  -- },
-  --
-  -- {
-  --   "mhartington/formatter.nvim",
-  --   event = "VeryLazy",
-  --   opts = function()
-  --     return require "configs.formatter"
-  --   end,
-  -- },
 
   {
     "zbirenbaum/copilot.lua",
