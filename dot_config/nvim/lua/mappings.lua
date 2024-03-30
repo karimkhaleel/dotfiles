@@ -22,9 +22,12 @@ map("n", "g;", "g;zvzz", { desc = "previous change centered" })
 map("n", "<C-d>", "<C-d>zz", { desc = "page down centered" })
 map("n", "<C-u>", "<C-u>zz", { desc = "page up centered" })
 map("n", "<C-o>", "<C-o>zz", { desc = "jump back centered" })
+map("n", "<C-i>", "<C-i>zz", { desc = "jump forwards centered" })
+
+map("v", "p", "P", { desc = "paste" })
 
 -- Disabled mappings
-map("n", "<tab>", "", { desc = "Disabled mapping" })
+map("n", "<tab>", "<C-i>", { desc = "Disabled mapping" }) -- tab to jump forward
 map("n", "<S-tab>", "", { desc = "Disabled mapping" })
 
 -- Tabufline mappings
