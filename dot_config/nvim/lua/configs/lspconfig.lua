@@ -4,6 +4,8 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
+require("neodev").setup {} -- have to call it before setting up lua_ls
+
 -- if you just want default config for the servers then put them in a table
 local servers = {
   "astro",
@@ -18,6 +20,7 @@ local servers = {
   "tailwindcss",
   "zls",
   "bashls",
+  "lua_ls",
 }
 
 for _, lsp in ipairs(servers) do
