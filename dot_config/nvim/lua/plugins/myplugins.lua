@@ -163,6 +163,8 @@ local plugins = {
     end,
   },
 
+  { "folke/neodev.nvim", opts = {} },
+
   {
     "zbirenbaum/copilot.lua",
     enabled = false,
