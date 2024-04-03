@@ -1,16 +1,10 @@
 ---@type ChadrcConfig
 local M = {}
 
--- Path to overriding theme and highlights files
-local highlights = require "highlights"
-
 M.ui = {
   theme = "nightowl",
   theme_toggle = { "nightowl", "one_light" },
   transparency = false,
-
-  hl_override = highlights.override,
-  hl_add = highlights.add,
 
   tabufline = {
     --  more opts
