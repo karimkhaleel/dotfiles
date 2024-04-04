@@ -9,6 +9,7 @@ return {
 
   {
     "neovim/nvim-lspconfig",
+    event = "VeryLazy",
     config = function()
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
@@ -77,7 +78,6 @@ return {
         copilot_node_command = "node", -- Node.js version must be > 16.x
         server_opts_overrides = {},
       }
-      -- require("core.utils").load_mappings "copilot"
     end,
   },
 }

@@ -21,6 +21,7 @@ return {
 
   {
     "mfussenegger/nvim-dap-python",
+    event = "VeryLazy",
     ft = "python",
     dependencies = {
       "mfussenegger/nvim-dap",
@@ -29,7 +30,6 @@ return {
     config = function(_, opts)
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
-      -- require("core.utils").load_mappings "dap_python"
     end,
   },
 
@@ -52,7 +52,6 @@ return {
     "mfussenegger/nvim-dap",
     config = function()
       require "configs.dap"
-      -- require("core.utils").load_mappings "dap"
     end,
   },
 }
