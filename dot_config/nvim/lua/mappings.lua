@@ -65,6 +65,7 @@ map("n", "<leader>lp", "<cmd> Copilot panel <CR>", { desc = "Copilot panel" })
 -- Telescope mappings
 map("n", "<leader>fs", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "Find document symbols" })
 map("n", "<leader>fe", "<cmd> lua MiniFiles.open() <CR>", { desc = "Open file explorer" })
+map("n", "<leader>fi", "<cmd> Telescope import <CR>", { desc = "Search for product imports" })
 
 -- UFO mappings
 map("n", "zR", function()
