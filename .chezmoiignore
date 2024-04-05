@@ -10,10 +10,16 @@ dot_config/nvim/dot_git
 AppData
 {{- end }}
 {{- if and (ne .chezmoi.os "linux") (ne .chezmoi.os "darwin") }}
-Library
 .config
 .zshrc
 secrets
 scripts
 .tmux.conf
 {{- end }}
+
+{{ if ne .chezmoi.os "darwin" }}
+Library/Application Support/lazygit/config.yml
+{{ end }}
+{{ if ne .chezmoi.os "linux" }}
+.config/lazygit/config.yml
+{{ end }}
