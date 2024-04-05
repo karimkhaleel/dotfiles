@@ -19,6 +19,8 @@ opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldenable = true
 
+opt.fillchars:append { diff = "╱" }
+
 -- additional filetypes
 vim.filetype.add {
   extension = {

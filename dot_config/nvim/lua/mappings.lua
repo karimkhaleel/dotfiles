@@ -68,12 +68,9 @@ map("n", "<leader>fe", "<cmd> lua MiniFiles.open() <CR>", { desc = "Open file ex
 map("n", "<leader>fi", "<cmd> Telescope import <CR>", { desc = "Search for product imports" })
 
 -- Diffview mappings
-map(
-  "n",
-  "<leader>gdf",
-  "<cmd> DiffviewFileHistory " .. vim.fn.expand "%" .. "<CR>",
-  { desc = "Open diff view for file" }
-)
+map("n", "<leader>gdf", "<cmd>DiffviewFileHistory %<CR>", { noremap = true, silent = true })
+map("n", "<leader>gdo", "<cmd> DiffviewOpen <CR>", { desc = "Open diff view" })
+map("n", "<leader>gdq", "<cmd> DiffviewClose <CR>", { desc = "Close diff view" })
 
 -- UFO mappings
 map("n", "zR", function()
