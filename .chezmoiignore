@@ -3,6 +3,7 @@ README.md
 
 dot_config/nvim/dot_git
 dot_config/nvim/lua/custom/dot_mypy_cache
+dot_config/nvim/dot_mypy_cache
 dot_config/nvim/lazy-lock.json
 dot_config/nvim/dot_git
 
