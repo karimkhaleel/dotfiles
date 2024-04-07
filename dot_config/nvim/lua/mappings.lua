@@ -103,3 +103,7 @@ map("x", "L", "<cmd>STSSelectChildNode<cr>", tree_surfer_opts)
 
 map("x", "<A-j>", "<cmd>STSSwapNextVisual<cr>", tree_surfer_opts)
 map("x", "<A-k>", "<cmd>STSSwapPrevVisual<cr>", tree_surfer_opts)
+
+-- Portal
+map("n", "<leader>o", "<cmd>Portal jumplist backward<cr>")
+map("n", "<leader>i", "<cmd>Portal jumplist forward<cr>")
