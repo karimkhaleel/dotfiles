@@ -1,20 +1,18 @@
 require "nvchad.mappings"
----@type MappingsTable
-local M = {}
-
-local copilot_on = true
 
 local map = vim.keymap.set
 
 -- General
 map("n", ";", ":", { desc = "enter command mode", nowait = true })
-map(
-  "n",
-  "<leader>tf",
-  ":lua require('flags').toggle_format_on_save()<CR>",
-  { desc = "toggle format on save", nowait = true }
-)
-map("n", "<leader>ti", ":lua require('flags').toggle_inlay_hints()<CR>", { desc = "toggle inlay hints", nowait = true })
+
+map("n", "<leader>tf", function()
+  require("flags").toggle_format_on_save()
+end, { desc = "toggle format on save", nowait = true })
+
+map("n", "<leader>ti", function()
+  require("flags").toggle_inlay_hints()
+end, { desc = "toggle inlay hints", nowait = true })
+
 map("n", "n", "nzzzv", { desc = "next search result centered" })
 map("n", "N", "Nzzzv", { desc = "previous search result centered" })
 map("n", "g,", "g,zvzz", { desc = "next change centered" })
@@ -79,3 +77,29 @@ end, { desc = "Open all folds" })
 map("n", "zM", function()
   require("ufo").closeAllFolds()
 end, { desc = "Close all folds" })
+
+-- Tree Surfer
+local tree_surfer_opts = { noremap = true, silent = true }
+vim.keymap.set("n", "vU", function()
+  vim.opt.opfunc = "v:lua.STSSwapUpNormal_Dot"
+  return "g@l"
+end, { desc = "Swap TS Parent Node Up", silent = true, expr = true })
+vim.keymap.set("n", "vD", function()
+  vim.opt.opfunc = "v:lua.STSSwapDownNormal_Dot"
+  return "g@l"
+end, { desc = "Swap TS Node Down", silent = true, expr = true })
+map("n", "vd", function()
+  vim.opt.opfunc = "v:lua.STSSwapCurrentNodeNextNormal_Dot"
+  return "g@l"
+end, { desc = "Swap TS Sibling Node Up", silent = true, expr = true })
+map("n", "vu", function()
+  vim.opt.opfunc = "v:lua.STSSwapCurrentNodePrevNormal_Dot"
+  return "g@l"
+end, { desc = "Swap TS Sibling Node Down", silent = true, expr = true })
+map("x", "J", "<cmd>STSSelectNextSiblingNode<cr>", tree_surfer_opts)
+map("x", "K", "<cmd>STSSelectPrevSiblingNode<cr>", tree_surfer_opts)
+map("x", "x", "<cmd>STSSelectParentNode<cr>", tree_surfer_opts)
+map("x", "L", "<cmd>STSSelectChildNode<cr>", tree_surfer_opts)
+
+map("x", "<A-j>", "<cmd>STSSwapNextVisual<cr>", tree_surfer_opts)
+map("x", "<A-k>", "<cmd>STSSwapPrevVisual<cr>", tree_surfer_opts)
