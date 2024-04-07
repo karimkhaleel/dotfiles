@@ -44,4 +44,13 @@ return {
       require("leap-spooky").setup()
     end,
   },
+
+  {
+    "ziontee113/syntax-tree-surfer",
+    enabled = true,
+    event = "VeryLazy",
+    config = function()
+      require("syntax-tree-surfer").setup()
+    end,
+  },
 }
