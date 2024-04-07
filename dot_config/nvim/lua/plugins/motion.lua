@@ -53,4 +53,17 @@ return {
       require("syntax-tree-surfer").setup()
     end,
   },
+
+  {
+    "cbochs/portal.nvim",
+    enabled = true,
+    event = "VeryLazy",
+    -- Optional dependencies
+    dependencies = {
+      "cbochs/grapple.nvim",
+      "ThePrimeagen/harpoon",
+    },
+  },
+
+  { "chrisgrieser/nvim-spider", enabled = true, event = "VeryLazy" },
 }

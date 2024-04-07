@@ -2,6 +2,7 @@ local M = {}
 
 M.format_on_save = true
 M.inlay_hints = false
+M.copilot_enabled = false
 
 M.toggle_format_on_save = function()
   M.format_on_save = not M.format_on_save
