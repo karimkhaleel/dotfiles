@@ -125,6 +125,11 @@ lspconfig.rust_analyzer.setup {
   capabilities = capabilities,
 }
 
+lspconfig.taplo.setup {
+  on_attach = on_attach_formatting,
+  capabilities = capabilities,
+}
+
 local on_attach_ruff = function(client, bufnr)
   on_attach(client, bufnr)
 
