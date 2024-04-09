@@ -25,6 +25,7 @@ M.treesitter = {
     "sql",
     "svelte",
     "templ",
+    "toml",
     "tsx",
     "typescript",
     "vim",
