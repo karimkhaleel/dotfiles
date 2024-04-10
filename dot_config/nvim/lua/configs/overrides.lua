@@ -118,7 +118,6 @@ M.mason = {
     "htmx-lsp",
 
     -- c/cpp stuff
-    "clang-format",
     "clangd",
     "codelldb",
 

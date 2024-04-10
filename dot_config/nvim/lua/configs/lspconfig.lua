@@ -6,10 +6,29 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 require("neodev").setup {} -- have to call it before setting up lua_ls
 
+local on_attach_formatting = function(client, bufnr)
+  on_attach(client, bufnr)
+
+  if client.supports_method "textDocument/formatting" then
+    vim.api.nvim_clear_autocmds {
+      group = augroup,
+      buffer = bufnr,
+    }
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = bufnr,
+      callback = function()
+        if require("flags").format_on_save then
+          vim.lsp.buf.format { bufnr = bufnr }
+        end
+      end,
+    })
+  end
+end
+
 -- if you just want default config for the servers then put them in a table
 local servers = {
   "astro",
-  "clangd",
   "cssls",
   "emmet_language_server",
   "gopls",
@@ -23,9 +42,22 @@ local servers = {
   "lua_ls",
 }
 
+local servers_w_formatting = {
+  "clangd",
+  "taplo",
+  "rust_analyzer",
+}
+
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
+
+for _, lsp in ipairs(servers_w_formatting) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach_formatting,
     capabilities = capabilities,
   }
 end
@@ -98,36 +130,6 @@ lspconfig.pyright.setup {
       },
     },
   },
-}
-
-local on_attach_formatting = function(client, bufnr)
-  on_attach(client, bufnr)
-
-  if client.supports_method "textDocument/formatting" then
-    vim.api.nvim_clear_autocmds {
-      group = augroup,
-      buffer = bufnr,
-    }
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        if require("flags").format_on_save then
-          vim.lsp.buf.format { bufnr = bufnr }
-        end
-      end,
-    })
-  end
-end
-
-lspconfig.rust_analyzer.setup {
-  on_attach = on_attach_formatting,
-  capabilities = capabilities,
-}
-
-lspconfig.taplo.setup {
-  on_attach = on_attach_formatting,
-  capabilities = capabilities,
 }
 
 local on_attach_ruff = function(client, bufnr)
