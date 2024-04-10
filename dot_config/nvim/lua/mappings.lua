@@ -21,6 +21,8 @@ map("n", "<C-d>", "<C-d>zz", { desc = "page down centered" })
 map("n", "<C-u>", "<C-u>zz", { desc = "page up centered" })
 map("n", "<C-o>", "<C-o>zz", { desc = "jump back centered" })
 map("n", "<C-i>", "<C-i>zz", { desc = "jump forwards centered" })
+map("v", ">", ">gv", { desc = "indent" })
+map("v", "<", "<gv", { desc = "dedent" })
 
 map("v", "p", "P", { desc = "paste" })
 
