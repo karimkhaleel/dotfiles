@@ -34,6 +34,14 @@ return {
   },
 
   {
+    "leoluz/nvim-dap-go",
+    event = "VeryLazy",
+    config = function(_, opts)
+      require("dap-go").setup()
+    end,
+  },
+
+  {
     "jay-babu/mason-nvim-dap.nvim",
     event = "VeryLazy",
     dependencies = {
