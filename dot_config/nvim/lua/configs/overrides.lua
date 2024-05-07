@@ -151,6 +151,8 @@ M.mason = {
     "bash-language-server",
     "shfmt",
     "taplo",
+    "nil",
+    "nixpkgs-fmt",
   },
 }
 
