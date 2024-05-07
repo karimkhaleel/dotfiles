@@ -40,6 +40,7 @@ local servers = {
   "zls",
   "bashls",
   "lua_ls",
+  "nil_ls",
 }
 
 local servers_w_formatting = {
