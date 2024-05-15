@@ -25,8 +25,11 @@ map("v", ">", ">gv", { desc = "indent" })
 map("v", "<", "<gv", { desc = "dedent" })
 map("n", "k", "gk", { desc = "up" })
 map("n", "j", "gj", { desc = "down" })
-
 map("v", "p", "P", { desc = "paste" })
+map("n", "<leader>ttn", "<cmd> tabnew <CR>", { desc = "create new tab" })
+map("n", "<leader>ttq", "<cmd> tabclose <CR>", { desc = "close tab" })
+map("n", "<leader>ttk", "<cmd> tabNext <CR>", { desc = "next tab" })
+map("n", "<leader>ttj", "<cmd> tabprevious <CR>", { desc = "previous tab" })
 
 -- Disabled mappings
 map("n", "<tab>", "<C-i>", { desc = "Disabled mapping" }) -- tab to jump forward
