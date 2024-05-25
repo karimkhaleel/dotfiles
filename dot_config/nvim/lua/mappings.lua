@@ -54,7 +54,7 @@ map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoin
 map("n", "<leader>dr", "<cmd> DapContinue <CR>", { desc = "Run or continue the debugger" })
 map("n", "<leader>ds", "<cmd> DapTerminate <CR>", { desc = "Stop debugger" })
 map("n", "<leader>dc", "<cmd> DapStepOver <CR>", { desc = "Step over" })
-map("n", "<leader>di", "<cmd> DapStepInto CR>", { desc = "Step into" })
+map("n", "<leader>di", "<cmd> DapStepInto <CR>", { desc = "Step into" })
 map("n", "<leader>do", "<cmd> DapStepOut Into CR>", { desc = "Step out" })
 map("n", "<leader>dj", "<cmd> DapLoadLaunchJSON CR>", { desc = "DAP Launch JSON" })
 
