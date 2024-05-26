@@ -48,6 +48,7 @@ end, { desc = "Close other buffers" })
 
 -- LSP mappings
 map("n", "<leader>lr", "<cmd> LspRestart <CR>", { desc = "Restart LSP" })
+map("n", "<leader>lf", vim.diagnostic.open_float, { desc = "Restart LSP" })
 
 -- DAP mappings
 map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line" })
