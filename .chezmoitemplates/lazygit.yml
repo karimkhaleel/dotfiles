@@ -7,3 +7,4 @@ notARepository: quit
 
 gui:
   nerdFontsVersion: "3"
+  showDivergenceFromBaseBranch: arrowAndNumber
