@@ -1,0 +1,1 @@
+feh --bg-fill "$(shuf -en1 /home/karim/Pictures/wallpapers/vertical/*)" "$(shuf -en1 /home/karim/Pictures/wallpapers/horizontal/*)"
