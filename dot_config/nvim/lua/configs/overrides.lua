@@ -139,7 +139,6 @@ M.mason = {
     "rust-analyzer",
 
     -- sql
-    "sqlfluff,",
     "sqlls",
 
     -- zig
