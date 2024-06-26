@@ -8,10 +8,17 @@ return {
 
   {
     "linux-cultist/venv-selector.nvim",
-    dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap-python" },
-    opts = {},
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "mfussenegger/nvim-dap",
+      "mfussenegger/nvim-dap-python",
+      { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+    },
     lazy = false,
-    branch = "regexp",
+    branch = "regexp", -- This is the regexp branch, use this for the new version
+    config = function()
+      require("venv-selector").setup()
+    end,
     keys = {
       -- Keymap to open VenvSelector to pick a venv.
       { "<leader>tvs", "<cmd>VenvSelect<cr>" },

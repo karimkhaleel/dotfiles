@@ -25,7 +25,6 @@ local templ_fmt = h.make_builtin {
   factory = h.formatter_factory,
 }
 
---
 local opts = {
   sources = {
     -- lua
@@ -42,7 +41,9 @@ local opts = {
     },
     null_ls.builtins.diagnostics.djlint,
 
-    null_ls.builtins.diagnostics.mypy,
+    null_ls.builtins.diagnostics.mypy.with {
+      command = vim.loop.os_getenv "MYPYPATH",
+    },
 
     -- go stuff
     null_ls.builtins.formatting.gofumpt,
