@@ -46,11 +46,10 @@ M.treesitter = {
   },
   textobjects = {
     select = {
-      enable = true,
-      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+      enable = false,
       keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
         ["aa"] = "@parameter.outer",
+        ["aF"] = "@lawl",
         ["ia"] = "@parameter.inner",
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
@@ -60,7 +59,7 @@ M.treesitter = {
       },
     },
     move = {
-      enable = true,
+      enable = false,
       set_jumps = true, -- whether to set jumps in the jumplist
       goto_next_start = {
         ["]m"] = "@function.outer",
@@ -78,11 +77,6 @@ M.treesitter = {
         ["[M"] = "@function.outer",
         ["[]"] = "@class.outer",
       },
-    },
-    swap = {
-      enable = true,
-      swap_next = swap_next,
-      swap_previous = swap_prev,
     },
   },
   matchup = {
