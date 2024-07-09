@@ -7,7 +7,8 @@ autocmd("VimResized", {
   pattern = "*",
   command = "tabdo wincmd =",
 })
--- require "plugins.autocommands"
+
+require "custom_commands"
 
 local opt = vim.opt
 
