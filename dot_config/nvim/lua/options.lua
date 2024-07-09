@@ -27,3 +27,5 @@ vim.filetype.add {
     templ = "templ",
   },
 }
+
+vim.g.vscode_snippets_path = vim.fn.stdpath "config" .. "/lua/snippets/vscode_snippets"
