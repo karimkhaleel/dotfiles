@@ -15,7 +15,7 @@ end
 
 M.toggle_inlay_hints = function()
   M.inlay_hints = not M.inlay_hints
-  vim.lsp.inlay_hint.enable(0, M.inlay_hints)
+  vim.lsp.inlay_hint.enable(M.inlay_hints)
   if M.inlay_hints then
     print "Inlay hints enabled"
   else
