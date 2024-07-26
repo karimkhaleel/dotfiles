@@ -41,6 +41,7 @@ local servers = {
   "bashls",
   "lua_ls",
   "nil_ls",
+  "ansiblels",
 }
 
 local servers_w_formatting = {

@@ -60,6 +60,7 @@ local opts = {
     -- misc
     null_ls.builtins.formatting.shfmt,
     null_ls.builtins.formatting.nixpkgs_fmt,
+    null_ls.builtins.diagnostics.ansiblelint,
   },
 
   on_attach = function(client, bufnr)
