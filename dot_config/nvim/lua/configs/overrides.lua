@@ -139,13 +139,15 @@ M.mason = {
     "zls",
 
     -- misc
-    "json-lsp",
-    "yaml-language-server",
+    "ansible_language_server",
+    "ansible_lint",
     "bash-language-server",
-    "shfmt",
-    "taplo",
+    "json-lsp",
     "nil",
     "nixpkgs-fmt",
+    "shfmt",
+    "taplo",
+    "yaml-language-server",
   },
 }
 
