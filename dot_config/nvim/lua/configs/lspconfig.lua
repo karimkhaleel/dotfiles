@@ -37,7 +37,6 @@ local servers = {
   "templ",
   "svelte",
   "tailwindcss",
-  "zls",
   "bashls",
   "lua_ls",
   "nil_ls",
@@ -48,6 +47,7 @@ local servers_w_formatting = {
   "clangd",
   "taplo",
   "rust_analyzer",
+  "zls",
 }
 
 for _, lsp in ipairs(servers) do
