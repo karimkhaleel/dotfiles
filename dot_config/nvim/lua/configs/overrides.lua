@@ -46,7 +46,7 @@ M.treesitter = {
   },
   textobjects = {
     select = {
-      enable = false,
+      enable = true,
       keymaps = {
         ["aa"] = "@parameter.outer",
         ["aF"] = "@lawl",
