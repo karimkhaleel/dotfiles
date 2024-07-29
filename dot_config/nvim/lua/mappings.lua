@@ -127,3 +127,8 @@ map("n", "<leader>i", "<cmd>Portal jumplist forward<cr>")
 map({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
 map({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 map({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+
+-- Gitsigns
+local gs = require "gitsigns"
+map("n", "<leader>gsh", gs.stage_hunk, { desc = "Stage hunk" })
+map("n", "<leader>gsb", gs.stage_hunk, { desc = "Stage buffer" })
