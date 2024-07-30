@@ -267,6 +267,9 @@ connect_sesh() {
   )
 }
 
+{{- if eq .chezmoi.os "darwin" }}
+echo "source /Users/karim/.config/op/plugins.sh"
+{{- end}}
 
 {{- if eq .chezmoi.os "darwin" }}
 # pnpm
