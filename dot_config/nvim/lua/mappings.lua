@@ -79,6 +79,7 @@ map("n", "<leader>lp", "<cmd> Copilot panel <CR>", { desc = "Copilot panel" })
 map("n", "<leader>fs", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "Find document symbols" })
 map("n", "<leader>fe", "<cmd> lua MiniFiles.open() <CR>", { desc = "Open file explorer" })
 map("n", "<leader>fi", "<cmd> Telescope import <CR>", { desc = "Search for product imports" })
+map("n", "<leader>fgb", "<cmd> Telescope git_branches <CR>", { desc = "Find and checkout git branch" })
 
 -- Diffview mappings
 map("n", "<leader>gdf", "<cmd>DiffviewFileHistory %<CR>", { noremap = true, silent = true })
