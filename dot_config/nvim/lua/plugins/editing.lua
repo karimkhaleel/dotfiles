@@ -18,4 +18,17 @@ return {
       require("Comment").setup()
     end,
   },
+  {
+    "nvim-pack/nvim-spectre",
+    event = "VeryLazy",
+    config = function()
+      require("spectre").setup {
+        default = {
+          replace = {
+            cmd = "oxi",
+          },
+        },
+      }
+    end,
+  },
 }
