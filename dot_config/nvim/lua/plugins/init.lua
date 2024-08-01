@@ -75,4 +75,8 @@ return {
       }
     end,
   },
+  {
+    "rktjmp/playtime.nvim",
+    event = "VeryLazy",
+  },
 }
