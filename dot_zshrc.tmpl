@@ -105,12 +105,14 @@ zinit lucid light-mode for \
 
 # Rust
 zinit lucid light-mode as"command" for \
-    id-as"eza" \
+id-as"eza" \
     atclone'cargo install eza' \
     atpull'cargo install eza' \
-    atload'
-        alias ls="eza"
-    ' \
+    atload'alias ls="eza"' \
+    @zdharma-continuum/null \
+id-as"oxi" \
+    atclone'cargo install oxi && $HOME/.local/share/nvim/lazy/nvim-spectre/build.sh nvim-oxi' \
+    atpull'cargo install oxi && $HOME/.local/share/nvim/lazy/nvim-spectre/build.sh nvim-oxi' \
     @zdharma-continuum/null \
 
 # Python stuff
