@@ -134,3 +134,7 @@ local gs = require "gitsigns"
 map("n", "<leader>gsh", gs.stage_hunk, { desc = "Stage hunk" })
 map("n", "<leader>gsb", gs.stage_buffer, { desc = "Stage buffer" })
 map("n", "<leader>rb", gs.reset_buffer, { desc = "Reset buffer" })
+
+-- Spectre
+local spectre = require "spectre"
+map("n", "<leader>fr", spectre.open, { desc = "Start spectre" })
