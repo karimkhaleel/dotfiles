@@ -61,25 +61,13 @@ map("n", "<leader>di", "<cmd> DapStepInto <CR>", { desc = "Step into" })
 map("n", "<leader>do", "<cmd> DapStepOut Into CR>", { desc = "Step out" })
 map("n", "<leader>dj", "<cmd> DapLoadLaunchJSON CR>", { desc = "DAP Launch JSON" })
 
--- Copilot mappings
-map("n", "<leader>lct", function()
-  if copilot_on then
-    copilot_on = false
-    require("copilot.command").disable()
-    print "Copilot disabled"
-  else
-    copilot_on = true
-    require("copilot.command").enable()
-    print "Copilot enabled"
-  end
-end, { desc = "Copilot toggle" })
-map("n", "<leader>lp", "<cmd> Copilot panel <CR>", { desc = "Copilot panel" })
-
 -- Telescope mappings
 map("n", "<leader>fs", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "Find document symbols" })
-map("n", "<leader>fe", "<cmd> lua MiniFiles.open() <CR>", { desc = "Open file explorer" })
 map("n", "<leader>fi", "<cmd> Telescope import <CR>", { desc = "Search for product imports" })
 map("n", "<leader>fgb", "<cmd> Telescope git_branches <CR>", { desc = "Find and checkout git branch" })
+
+-- Files
+map("n", "<leader>fe", "<cmd> lua MiniFiles.open() <CR>", { desc = "Open file explorer" })
 
 -- Diffview mappings
 map("n", "<leader>gdf", "<cmd>DiffviewFileHistory %<CR>", { noremap = true, silent = true })
