@@ -67,6 +67,8 @@ map("n", "<leader>dj", "<cmd> DapLoadLaunchJSON CR>", { desc = "DAP Launch JSON"
 map("n", "<leader>fs", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "Find document symbols" })
 map("n", "<leader>fi", "<cmd> Telescope import <CR>", { desc = "Search for product imports" })
 map("n", "<leader>fgb", "<cmd> Telescope git_branches <CR>", { desc = "Find and checkout git branch" })
+map("n", "<leader>fc", "<cmd> Telescope neoclip <CR>", { desc = "Search through yank history" })
+map("n", "<leader>fm", "<cmd> Telescope macroscope <CR>", { desc = "Search through macro history" })
 
 -- Files
 map("n", "<leader>fe", "<cmd> lua MiniFiles.open() <CR>", { desc = "Open file explorer" })
