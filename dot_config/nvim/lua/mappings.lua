@@ -47,7 +47,7 @@ map("n", "<leader>j", function()
 end, { desc = "Goto prev buffer" })
 
 map("n", "<leader>oq", function()
-  require("nvchad.tabufline").closeOtherBufs()
+  require("nvchad.tabufline").closeAllBufs(false)
 end, { desc = "Close other buffers" })
 
 -- LSP mappings
