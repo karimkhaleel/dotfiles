@@ -86,14 +86,6 @@ map("n", "<leader>gdf", "<cmd>DiffviewFileHistory %<CR>", { noremap = true, sile
 map("n", "<leader>gdo", "<cmd> DiffviewOpen <CR>", { desc = "Open diff view" })
 map("n", "<leader>gdq", "<cmd> DiffviewClose <CR>", { desc = "Close diff view" })
 
--- UFO mappings
--- map("n", "zR", function()
---   require("ufo").openAllFolds()
--- end, { desc = "Open all folds" })
--- map("n", "zM", function()
---   require("ufo").closeAllFolds()
--- end, { desc = "Close all folds" })
-
 -- Tree Surfer
 local tree_surfer_opts = { noremap = true, silent = true }
 vim.keymap.set("n", "vU", function()
