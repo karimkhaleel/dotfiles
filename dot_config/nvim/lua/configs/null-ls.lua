@@ -40,9 +40,9 @@ local opts = {
       extra_args = { "--format-css", "--format-js" },
     },
     null_ls.builtins.diagnostics.djlint,
-
     null_ls.builtins.diagnostics.mypy.with {
       command = vim.loop.os_getenv "MYPYPATH",
+      extra_args = { "--enable-incomplete-feature=NewGenericSyntax" },
     },
 
     -- go stuff
