@@ -4,8 +4,6 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-require("neodev").setup {} -- have to call it before setting up lua_ls
-
 local on_attach_formatting = function(client, bufnr)
   on_attach(client, bufnr)
 
@@ -38,7 +36,6 @@ local servers = {
   "svelte",
   "tailwindcss",
   "bashls",
-  "lua_ls",
   "nil_ls",
   "ansiblels",
 }
