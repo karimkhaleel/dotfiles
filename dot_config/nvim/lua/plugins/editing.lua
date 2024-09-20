@@ -42,6 +42,10 @@ return {
       require("neoclip").setup {
         enable_persistent_history = true,
         continuous_sync = true,
+        on_select = {
+          move_to_front = true,
+          close_telescope = true,
+        },
       }
       require("telescope").load_extension "neoclip"
     end,
