@@ -25,6 +25,23 @@ local templ_fmt = h.make_builtin {
   factory = h.formatter_factory,
 }
 
+---Parses an arg string into a table
+---@param str string
+---@return table
+function parseArgString(str)
+  local result = {}
+  if str == nil then
+    return result
+  end
+  for pair in str:gmatch "%S+" do
+    local key, value = pair:match "([^=]+)=(.+)"
+    if key and value then
+      result[key] = value
+    end
+  end
+  return result
+end
+
 local opts = {
   sources = {
     -- lua
@@ -40,9 +57,10 @@ local opts = {
       extra_args = { "--format-css", "--format-js" },
     },
     null_ls.builtins.diagnostics.djlint,
+
     null_ls.builtins.diagnostics.mypy.with {
       command = vim.loop.os_getenv "MYPYPATH",
-      extra_args = { "--enable-incomplete-feature=NewGenericSyntax" },
+      extra_args = parseArgString(vim.loop.os_getenv "MYPYARGS"),
     },
 
     -- go stuff
