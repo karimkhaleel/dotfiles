@@ -1,38 +1,81 @@
 ---@type ChadrcConfig
 local M = {}
 
-M.ui = {
-  theme = "tokyonight",
-  theme_toggle = { "tokyonight", "one_light" },
-  transparency = false,
+M.base46 = {
+  theme = "decay",
+}
 
-  tabufline = {
-    --  more opts
-    order = { "treeOffset", "buffers", "tabs", "btns" },
-    modules = {},
-  },
+M.ui = {
+  telescope = { style = "borderless" }, -- borderless / bordered
 
   statusline = {
-    --  more opts
-    order = { "mode", "f", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
-    --  more modules
-    modules = {
-      f = function()
-        local icon = "󰈚"
-        local name = vim.fn.expand "%:p"
+    theme = "default", -- default/vscode/vscode_colored/minimal
+    -- default/round/block/arrow separators work only for default statusline theme
+    -- round and block will work for minimal theme only
+    separator_style = "round",
+    order = nil,
+    modules = nil,
+  },
+}
 
-        if name ~= "Empty " then
-          local devicons_present, devicons = pcall(require, "nvim-web-devicons")
+M.mason = {
+  pkgs = {
+    -- lua stuff
+    "lua-language-server",
+    "stylua",
 
-          if devicons_present then
-            local ft_icon = devicons.get_icon(name)
-            icon = (ft_icon ~= nil and ft_icon) or icon
-          end
-        end
+    -- web dev stuff
+    "astro-language-server",
+    "css-lsp",
+    "deno",
+    "emmet-language-server",
+    "eslint_d",
+    "html-lsp",
+    "js-debug-adapter",
+    "prettier",
+    "rustywind",
+    "svelte-language-server",
+    "tailwindcss-language-server",
+    "typescript-language-server",
+    "htmx-lsp",
 
-        return "%#St_file# " .. name
-      end,
-    },
+    -- c/cpp stuff
+    "clangd",
+    "codelldb",
+
+    -- python
+    "debugpy",
+    "djlint",
+    "isort",
+    "mypy",
+    "pyright",
+    "ruff-lsp",
+
+    -- go
+    "gofumpt",
+    "golangci-lint",
+    "gopls",
+    "templ",
+
+    -- rust
+    "rust-analyzer",
+
+    -- sql
+    "sqlls",
+
+    -- zig
+    "zls",
+
+    -- misc
+    "ansible-language-server",
+    "ansible-lint",
+    "bash-language-server",
+    "json-lsp",
+    "nil",
+    "nixpkgs-fmt",
+    "shfmt",
+    "taplo",
+    "yaml-language-server",
   },
 }
 

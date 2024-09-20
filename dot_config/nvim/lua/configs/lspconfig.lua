@@ -34,6 +34,7 @@ local servers = {
   "sqlls",
   "templ",
   "svelte",
+  "pyright",
   "tailwindcss",
   "bashls",
   "nil_ls",
