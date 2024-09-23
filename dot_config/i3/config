@@ -49,7 +49,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec /home/karim/.cargo/bin/alacritty
+bindsym $mod+Return exec /usr/bin/wezterm
 
 # kill focused window
 bindsym $mod+Shift+q kill
