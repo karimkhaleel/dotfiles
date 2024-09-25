@@ -250,6 +250,15 @@ ns() {
   tmux switchc -t $1
 }
 
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 {{- if eq .chezmoi.os "darwin" }}
 alias cat="bat"
 {{- else if eq .chezmoi.os "linux" }}
