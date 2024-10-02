@@ -8,6 +8,7 @@ M.treesitter = {
     "c",
     "css",
     "dockerfile",
+    "gleam",
     "go",
     "html",
     "javascript",

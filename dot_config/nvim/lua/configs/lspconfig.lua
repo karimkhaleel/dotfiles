@@ -26,19 +26,20 @@ end
 
 -- if you just want default config for the servers then put them in a table
 local servers = {
+  "ansiblels",
   "astro",
+  "bashls",
   "cssls",
   "emmet_language_server",
+  "gleam",
   "gopls",
-  "nimls",
-  "sqlls",
-  "templ",
-  "svelte",
-  "pyright",
-  "tailwindcss",
-  "bashls",
   "nil_ls",
-  "ansiblels",
+  "nimls",
+  "pyright",
+  "sqlls",
+  "svelte",
+  "tailwindcss",
+  "templ",
 }
 
 local servers_w_formatting = {
