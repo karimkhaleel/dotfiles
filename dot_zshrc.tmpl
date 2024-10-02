@@ -91,7 +91,7 @@ zinit lucid light-mode from"gh-r" as"command" bpick'*x86_64*linux*' for \
         @dandavison/delta \
 
 {{if eq .chezmoi.os "darwin" }}
-zinit lucid light-mode from"gh-r" as"command" bpick'*darwin*arm64' for \
+zinit lucid light-mode from"gh-r" as"command" bpick'*darwin*arm64*' for \
 {{- else if eq .chezmoi.os "linux" }}
 zinit lucid light-mode from"gh-r" as"command" bpick'*linux*amd64*' for \
 {{- end}}
