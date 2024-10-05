@@ -42,6 +42,10 @@ export PATH=/opt/homebrew/bin/:$PATH     # Mac homebrew path
 export PATH=/usr/local/bin/:$PATH        # Mac usr bin path
 export PATH=/Applications/Visual\ Studio\ Code\ -\ Insiders.app/Contents/Resources/app/bin:$PATH        # Mac vscode
 {{-  end}}
+{{- if eq .chezmoi.os "linux" }}
+export PATH=/var/lib/flatpak/exports/bin:$PATH               # Flatpak path
+export PATH=$HOME/.local/share/flatpak/exports/bin:$PATH     # Flatpak path user
+{{-  end}}
 export PATH=$HOME/progs/:$PATH           # Misc Progs
 
 # Zsh settings
