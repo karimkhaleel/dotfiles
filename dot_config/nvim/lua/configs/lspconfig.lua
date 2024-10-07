@@ -31,7 +31,6 @@ local servers = {
   "bashls",
   "cssls",
   "emmet_language_server",
-  "gleam",
   "gopls",
   "nil_ls",
   "nimls",
@@ -39,13 +38,15 @@ local servers = {
   "sqlls",
   "svelte",
   "tailwindcss",
+  "elixirls",
   "templ",
 }
 
 local servers_w_formatting = {
   "clangd",
-  "taplo",
+  "gleam",
   "rust_analyzer",
+  "taplo",
   "zls",
 }
 
