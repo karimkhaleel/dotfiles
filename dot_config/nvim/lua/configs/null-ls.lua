@@ -3,6 +3,7 @@ local null_ls = require "null-ls"
 
 local h = require "null-ls.helpers"
 local methods = require "null-ls.methods"
+local utils = require "utils"
 
 local FORMATTING = methods.internal.FORMATTING
 
@@ -25,46 +26,6 @@ local templ_fmt = h.make_builtin {
   factory = h.formatter_factory,
 }
 
----Parses an arg string into a table
----@param str string
----@return table
-function parseArgString(str)
-  local result = {}
-  if str == nil then
-    return result
-  end
-  for pair in str:gmatch "%S+" do
-    local key, value = pair:match "([^=]+)=(.+)"
-    if key and value then
-      result[key] = value
-    end
-  end
-  return result
-end
-
----@param cmd string
----@return string
-local function capture_command_output(cmd)
-  local handle, err = io.popen(cmd)
-  if not handle then
-    print("Error executing command: " .. (err or "unknown error"))
-    return ""
-  end
-
-  local result = handle:read "*a"
-  local success, _, exit_code = handle:close()
-
-  if not success then
-    return ""
-  end
-
-  if exit_code ~= 0 then
-    return ""
-  end
-
-  return (result:gsub("^%s*(.-)%s*$", "%1")) -- Trim whitespace
-end
-
 local opts = {
   sources = {
     -- lua
@@ -83,9 +44,9 @@ local opts = {
 
     null_ls.builtins.diagnostics.mypy.with {
       command = vim.loop.os_getenv "MYPYPATH"
-        or capture_command_output "uv run which mypy"
-        or capture_command_output "which mypy",
-      extra_args = parseArgString(vim.loop.os_getenv "MYPYARGS") or "",
+        or utils.capture_command_output "uv run which mypy"
+        or utils.capture_command_output "which mypy",
+      extra_args = utils.parse_arg_string(vim.loop.os_getenv "MYPYARGS") or "",
     },
 
     -- go stuff
