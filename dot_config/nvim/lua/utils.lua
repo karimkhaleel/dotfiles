@@ -31,4 +31,44 @@ M.is_ansible = function()
   return false
 end
 
+---Parses an arg string into a table
+---@param str string
+---@return table
+M.parse_arg_string = function(str)
+  local result = {}
+  if str == nil then
+    return result
+  end
+  for pair in str:gmatch "%S+" do
+    local key, value = pair:match "([^=]+)=(.+)"
+    if key and value then
+      result[key] = value
+    end
+  end
+  return result
+end
+
+---@param cmd string
+---@return string
+M.capture_command_output = function(cmd)
+  local handle, err = io.popen(cmd)
+  if not handle then
+    print("Error executing command: " .. (err or "unknown error"))
+    return ""
+  end
+
+  local result = handle:read "*a"
+  local success, _, exit_code = handle:close()
+
+  if not success then
+    return ""
+  end
+
+  if exit_code ~= 0 then
+    return ""
+  end
+
+  return (result:gsub("^%s*(.-)%s*$", "%1")) -- Trim whitespace
+end
+
 return M
