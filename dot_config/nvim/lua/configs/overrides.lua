@@ -35,7 +35,7 @@ M.treesitter = {
     "zig",
   },
   highlight = { enable = true, additional_vim_regex_highlighting = { "org", "markdown" } },
-  indent = { enable = true },
+  indent = { enable = false },
   context_commentstring = { enable = true, enable_autocmd = false },
   incremental_selection = {
     enable = true,
