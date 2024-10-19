@@ -21,7 +21,6 @@ M.ui = {
 M.mason = {
   pkgs = {
     -- lua stuff
-    "lua-language-server",
     "stylua",
 
     -- web dev stuff
