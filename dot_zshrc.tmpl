@@ -332,3 +332,7 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 eval "$(direnv hook zsh)"
+
+{{- if not (eq .chezmoi.os "darwin") }}
+. "/home/karim/.deno/env"
+{{- end}}
