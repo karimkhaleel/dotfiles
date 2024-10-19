@@ -65,15 +65,49 @@ return {
     enabled = false,
     opts = overrides.nvimtree,
   },
-
   {
     "max397574/better-escape.nvim",
-    event = "InsertEnter",
     config = function()
       require("better_escape").setup {
-        mapping = { "jk", "kj", "jj" },
+        timeout = vim.o.timeoutlen,
+        default_mappings = true,
+        mappings = {
+          i = {
+            j = {
+              k = "<Esc>",
+            },
+            k = {
+              j = "<Esc>",
+            },
+          },
+          c = {
+            j = {
+              k = "<Esc>",
+              j = "<Esc>",
+            },
+          },
+          t = {
+            j = {
+              k = "<C-\\><C-n>",
+            },
+          },
+          v = {
+            j = {
+              k = "<Esc>",
+            },
+            k = {
+              j = "<Esc>",
+            },
+          },
+          s = {
+            j = {
+              k = "<Esc>",
+            },
+          },
+        },
       }
     end,
+    event = "VeryLazy",
   },
   {
     "rktjmp/playtime.nvim",

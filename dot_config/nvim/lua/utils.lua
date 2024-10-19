@@ -51,20 +51,21 @@ end
 ---@param cmd string
 ---@return string
 M.capture_command_output = function(cmd)
-  local handle, err = io.popen(cmd)
+  local is_windows = package.config:sub(1, 1) == "\\"
+  local null_device = is_windows and "NUL" or "/dev/null"
+
+  -- Redirect stderr to null device
+  local full_cmd = is_windows and ('cmd /c "' .. cmd .. " 2>" .. null_device .. '"') or (cmd .. " 2>" .. null_device)
+
+  local handle, err = io.popen(full_cmd)
   if not handle then
-    print("Error executing command: " .. (err or "unknown error"))
     return ""
   end
 
   local result = handle:read "*a"
   local success, _, exit_code = handle:close()
 
-  if not success then
-    return ""
-  end
-
-  if exit_code ~= 0 then
+  if not success or exit_code ~= 0 then
     return ""
   end
 
