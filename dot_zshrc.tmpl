@@ -263,10 +263,9 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-{{- if eq .chezmoi.os "darwin" }}
+{{- if  or (eq .chezmoi.os "darwin") (eq .chezmoi.osRelease.id "fedora") }}
 alias cat="bat"
-{{- else if eq .chezmoi.os "linux" }}
-alias code="code-insiders"
+{{- else if or (eq .chezmoi.osRelease.id "ubuntu") (eq .chezmoi.osRelease.id "pop-os") (eq .chezmoi.osRelease.id "debian") }}
 alias cat="batcat"
 {{- end }}
 alias lg="lazygit"
@@ -290,12 +289,12 @@ connect_sesh() {
 }
 
 {{- if eq .chezmoi.os "darwin" }}
-source /Users/karim/.config/op/plugins.sh
+source {{ .chezmoi.homeDir }}.config/op/plugins.sh
 {{- end}}
 
 {{- if eq .chezmoi.os "darwin" }}
 # pnpm
-export PNPM_HOME="/Users/karim/Library/pnpm"
+export PNPM_HOME="{{ .chezmoi.homeDir }}/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -303,7 +302,7 @@ esac
 # pnpm end
 {{- else if eq .chezmoi.os "linux" }}
 # pnpm
-export PNPM_HOME="/home/karim/.local/share/pnpm"
+export PNPM_HOME="{{ .chezmoi.homeDir }}/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -312,7 +311,7 @@ esac
 {{- end}}
 
 # bun completions
-[ -s "/home/karim/.bun/_bun" ] && source "/home/karim/.bun/_bun"
+[ -s "{{ .chezmoi.homeDir }}/.bun/_bun" ] && source "{{ .chezmoi.homeDir }}/.bun/_bun"
 
 {{- if not (eq .chezmoi.os "darwin") }}
 # 1password completion
@@ -334,5 +333,5 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 eval "$(direnv hook zsh)"
 
 {{- if not (eq .chezmoi.os "darwin") }}
-. "/home/karim/.deno/env"
+. "{{ .chezmoi.homeDir }}/.deno/env"
 {{- end}}
