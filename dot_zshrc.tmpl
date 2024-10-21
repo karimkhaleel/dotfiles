@@ -119,30 +119,6 @@ id-as"oxi" \
     atpull'cargo install oxi && $HOME/.local/share/nvim/lazy/nvim-spectre/build.sh nvim-oxi' \
     @zdharma-continuum/null \
 
-# Python stuff
-zinit pack"bgn" git for pyenv
-
-zinit wait"1" lucid as"command" for \
-    atclone'python3 -m pip install --user pipx; python3 -m pipx ensurepath' \
-    atpull'%atclone' \
-    atinit'eval "$(register-python-argcomplete pipx)"' \
-    id-as"pipx-installer" \
-    zdharma-continuum/null
-
-zinit lucid as"command" for \
-    id-as"httpie" \
-    atclone'pipx install httpie' \
-    atpull'pipx upgrade httpie' \
-    zdharma-continuum/null \
-id-as"pre-commit" \
-    atclone'pipx install pre-commit' \
-    atpull'pipx upgrade pre-commit' \
-    zdharma-continuum/null \
-id-as"poetry" \
-    atclone'pipx install poetry' \
-    atpull'pipx upgrade poetry' \
-    zdharma-continuum/null \
-
 
 # Go
 zinit lucid light-mode for \
