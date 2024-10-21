@@ -289,7 +289,7 @@ connect_sesh() {
 }
 
 {{- if eq .chezmoi.os "darwin" }}
-source {{ .chezmoi.homeDir }}.config/op/plugins.sh
+source {{ .chezmoi.homeDir }}/.config/op/plugins.sh
 {{- end}}
 
 {{- if eq .chezmoi.os "darwin" }}
