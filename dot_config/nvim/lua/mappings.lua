@@ -70,6 +70,7 @@ map("n", "<leader>fi", "<cmd> Telescope import <CR>", { desc = "Search for produ
 map("n", "<leader>fgb", "<cmd> Telescope git_branches <CR>", { desc = "Find and checkout git branch" })
 map("n", "<leader>fc", "<cmd> Telescope neoclip <CR>", { desc = "Search through yank history" })
 map("n", "<leader>fm", "<cmd> Telescope macroscope <CR>", { desc = "Search through macro history" })
+map("n", "<leader>fd", "<cmd> Telescope diagnostics <CR>", { desc = "Search through project diagnostics" })
 
 -- Files
 map("n", "<leader>fe", "<cmd> lua MiniFiles.open() <CR>", { desc = "Open file explorer" })
