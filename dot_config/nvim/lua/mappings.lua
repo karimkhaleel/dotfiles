@@ -117,14 +117,13 @@ map({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc
 
 -- Gitsigns
 local gs = require "gitsigns"
+map("n", "<leader>gsb", gs.stage_buffer, { desc = "Stage buffer" })
 map("n", "<leader>gsh", gs.stage_hunk, { desc = "Stage hunk" })
 map("n", "<leader>guh", gs.undo_stage_hunk, { desc = "Unstage hunk" })
-map("n", "<leader>grb", gs.reset_hunk, { desc = "Reset hunk" })
-map("n", "<leader>gsb", gs.stage_buffer, { desc = "Stage buffer" })
+map("n", "<leader>grh", gs.reset_hunk, { desc = "Reset hunk" })
 map("n", "<leader>grb", gs.reset_buffer, { desc = "Reset buffer" })
 map("n", "<leader>gp", gs.preview_hunk, { desc = "Preview hunk" })
 map("n", "<leader>gb", gs.blame_line, { desc = "Blame line" })
-map("n", "<leader>gp", gs.blame, { desc = "Blame line" })
 map("n", "[h", gs.prev_hunk, { desc = "Prev hunk" })
 map("n", "]h", gs.next_hunk, { desc = "Next hunk" })
 
