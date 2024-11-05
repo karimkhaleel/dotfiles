@@ -58,8 +58,8 @@ local opts = {
     null_ls.builtins.formatting.nimpretty,
 
     -- sql stuff
-    null_ls.builtins.diagnostics.sqlfluff,
-    null_ls.builtins.formatting.sqlfluff,
+    -- null_ls.builtins.diagnostics.sqlfluff,
+    -- null_ls.builtins.formatting.sqlfluff,
 
     -- misc
     null_ls.builtins.formatting.shfmt,
