@@ -48,6 +48,7 @@ local servers_w_formatting = {
   "rust_analyzer",
   "taplo",
   "zls",
+  "ruff",
 }
 
 for _, lsp in ipairs(servers) do
@@ -132,49 +133,4 @@ lspconfig.pyright.setup {
       },
     },
   },
-}
-
-local on_attach_ruff = function(client, bufnr)
-  on_attach(client, bufnr)
-
-  -- Disable hover in favor of Pyright
-  client.server_capabilities.hoverProvider = false
-
-  local ruff_lsp_client = require("lspconfig.util").get_active_client_by_name(bufnr, "ruff_lsp")
-
-  local request = function(method, params)
-    ruff_lsp_client.request(method, params, nil, bufnr)
-  end
-
-  if client.supports_method "textDocument/formatting" then
-    vim.api.nvim_clear_autocmds {
-      group = augroup,
-      buffer = bufnr,
-    }
-
-    local organize_imports = function()
-      request("workspace/executeCommand", {
-        command = "ruff.applyOrganizeImports",
-        arguments = {
-          { uri = vim.uri_from_bufnr(bufnr) },
-        },
-      })
-    end
-
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        if require("flags").format_on_save then
-          vim.lsp.buf.format { bufnr = bufnr }
-          organize_imports()
-        end
-      end,
-    })
-  end
-end
-
-lspconfig.ruff_lsp.setup {
-  on_attach = on_attach_ruff,
-  capabilities = capabilities,
 }

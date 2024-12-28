@@ -48,7 +48,7 @@ M.mason = {
     "isort",
     "mypy",
     "pyright",
-    "ruff-lsp",
+    "ruff",
 
     -- go
     "gofumpt",
