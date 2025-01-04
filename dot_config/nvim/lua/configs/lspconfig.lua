@@ -87,6 +87,12 @@ lspconfig.html.setup {
   filetypes = { "html", "htmldjango", "templ" },
 }
 
+lspconfig.denols.setup {
+  on_attach = on_attach_formatting,
+  capabilities = capabilities,
+  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+}
+
 lspconfig.yamlls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
