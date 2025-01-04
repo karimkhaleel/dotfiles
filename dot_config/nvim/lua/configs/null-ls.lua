@@ -31,11 +31,6 @@ local opts = {
     -- lua
     null_ls.builtins.formatting.stylua,
 
-    -- js stuff
-    null_ls.builtins.formatting.prettier.with {
-      extra_filetypes = { "astro", "svelte" },
-    },
-
     -- python sfuff
     null_ls.builtins.formatting.djlint.with {
       extra_args = { "--format-css", "--format-js" },
@@ -46,7 +41,7 @@ local opts = {
       command = vim.loop.os_getenv "MYPYPATH"
         or utils.capture_command_output "uv run which mypy"
         or utils.capture_command_output "which mypy",
-      extra_args = utils.parse_arg_string(vim.loop.os_getenv "MYPYARGS") or "",
+      extra_args = utils.parse_arg_string(vim.loop.os_getenv "MYPYARGS" or ""),
     },
 
     -- go stuff
@@ -56,10 +51,6 @@ local opts = {
 
     -- nim stuff
     null_ls.builtins.formatting.nimpretty,
-
-    -- sql stuff
-    -- null_ls.builtins.diagnostics.sqlfluff,
-    -- null_ls.builtins.formatting.sqlfluff,
 
     -- misc
     null_ls.builtins.formatting.shfmt,

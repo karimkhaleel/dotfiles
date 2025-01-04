@@ -82,7 +82,7 @@ lspconfig.htmx.setup {
 }
 
 lspconfig.html.setup {
-  on_attach = on_attach,
+  on_attach = on_attach_formatting,
   capabilities = capabilities,
   filetypes = { "html", "htmldjango", "templ" },
 }
