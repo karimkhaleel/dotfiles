@@ -69,7 +69,12 @@ map("n", "<leader>fs", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "Fi
 map("n", "<leader>fi", "<cmd> Telescope import <CR>", { desc = "Search for product imports" })
 map("n", "<leader>fgb", "<cmd> Telescope git_branches <CR>", { desc = "Find and checkout git branch" })
 map("n", "<leader>fc", "<cmd> Telescope neoclip <CR>", { desc = "Search through yank history" })
-map("n", "<leader>fm", "<cmd> Telescope macroscope <CR>", { desc = "Search through macro history" })
+map(
+  "n",
+  "<leader>fm",
+  "<cmd>lua require('configs.telescope.multigrep').live_multigrep()<CR>",
+  { desc = "Live multigrep with file specified " }
+)
 map("n", "<leader>fd", "<cmd> Telescope diagnostics <CR>", { desc = "Search through project diagnostics" })
 
 -- Files
