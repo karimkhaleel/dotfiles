@@ -47,7 +47,6 @@ local servers_w_formatting = {
   "rust_analyzer",
   "taplo",
   "zls",
-  "ruff",
 }
 
 for _, lsp in ipairs(servers) do
@@ -119,6 +118,8 @@ local python_capabilities = {
     },
   },
 }
+
+require("lspconfig").ruff_lsp.setup {}
 
 python_capabilities = vim.tbl_deep_extend("force", capabilities, python_capabilities)
 
