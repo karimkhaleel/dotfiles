@@ -119,7 +119,7 @@ local python_capabilities = {
   },
 }
 
-require("lspconfig").ruff_lsp.setup {}
+require("lspconfig").ruff.setup {}
 
 python_capabilities = vim.tbl_deep_extend("force", capabilities, python_capabilities)
 
