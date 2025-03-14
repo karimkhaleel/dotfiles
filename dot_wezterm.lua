@@ -46,15 +46,6 @@ config.keys = {
 		mods = "LEADER",
 		action = act.SendKey({ key = "a", mods = "CTRL" }),
 	},
-	-- Sesh
-	{
-		key = "k",
-		mods = "CTRL",
-		action = act.Multiple({
-			act.SendKey({ key = "a", mods = "CTRL" }),
-			act.SendKey({ key = "t", mods = "SHIFT" }),
-		}),
-	},
 	-- Nav
 	{
 		key = "LeftArrow",

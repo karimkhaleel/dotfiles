@@ -135,3 +135,9 @@ map("n", "]h", gs.next_hunk, { desc = "Next hunk" })
 -- Spectre
 local spectre = require "spectre"
 map("n", "<leader>fr", spectre.open, { desc = "Start spectre" })
+
+-- Snippets
+local ls = require "luasnip"
+map("i", "<C-k>", function()
+  ls.expand()
+end, { desc = "Complete snippet" })
