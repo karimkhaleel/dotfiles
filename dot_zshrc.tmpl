@@ -41,6 +41,7 @@ export PATH=$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin:$PATH
 export PATH=/opt/homebrew/bin/:$PATH     # Mac homebrew path
 export PATH=/usr/local/bin/:$PATH        # Mac usr bin path
 export PATH=/Applications/Visual\ Studio\ Code\ -\ Insiders.app/Contents/Resources/app/bin:$PATH        # Mac vscode
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 {{-  end}}
 {{- if eq .chezmoi.os "linux" }}
 export PATH=/var/lib/flatpak/exports/bin:$PATH               # Flatpak path
@@ -245,7 +246,7 @@ alias cat="bat"
 alias cat="batcat"
 {{- end }}
 
-{{- if eq .chezmoi.osRelease.id "fedora" }}
+{{- if eq .osid "linux-fedora" }}
 alias open='xdg-open'
 {{- end }}
 alias lg="lazygit"
