@@ -45,7 +45,6 @@ local opts = {
     },
 
     -- go stuff
-    null_ls.builtins.formatting.gofumpt,
     null_ls.builtins.diagnostics.golangci_lint,
     templ_fmt,
 
