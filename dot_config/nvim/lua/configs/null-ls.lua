@@ -51,6 +51,9 @@ local opts = {
     -- nim stuff
     null_ls.builtins.formatting.nimpretty,
 
+    -- js/ts
+    null_ls.builtins.formatting.prettier,
+
     -- misc
     null_ls.builtins.formatting.shfmt,
     null_ls.builtins.formatting.nixpkgs_fmt,
