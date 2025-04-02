@@ -136,6 +136,11 @@ map("n", "]h", gs.next_hunk, { desc = "Next hunk" })
 local spectre = require "spectre"
 map("n", "<leader>fr", spectre.open, { desc = "Start spectre" })
 
+-- DB
+map("n", "<leader>du", function()
+  require("dbee").toggle()
+end, { desc = "Toggle DBee interface" })
+
 -- Snippets
 local ls = require "luasnip"
 map("i", "<C-k>", function()
