@@ -75,6 +75,7 @@ M.mason = {
     "shfmt",
     "taplo",
     "yaml-language-server",
+    "sqruff",
   },
 }
 
