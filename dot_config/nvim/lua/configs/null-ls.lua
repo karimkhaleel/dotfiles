@@ -38,9 +38,11 @@ local opts = {
     null_ls.builtins.diagnostics.djlint,
 
     null_ls.builtins.diagnostics.mypy.with {
-      command = vim.loop.os_getenv "MYPYPATH"
-        or utils.capture_command_output "uv run which mypy"
-        or utils.capture_command_output "which mypy",
+      command = utils.first_nonempty(
+        vim.loop.os_getenv "MYPYPATH",
+        utils.capture_command_output "uv run which mypy",
+        utils.get_executable_path("mypy", "mypy")
+      ),
       extra_args = utils.parse_arg_string(vim.loop.os_getenv "MYPYARGS" or ""),
     },
 

@@ -57,19 +57,40 @@ M.capture_command_output = function(cmd)
   -- Redirect stderr to null device
   local full_cmd = is_windows and ('cmd /c "' .. cmd .. " 2>" .. null_device .. '"') or (cmd .. " 2>" .. null_device)
 
-  local handle, err = io.popen(full_cmd)
+  local handle = io.popen(full_cmd)
   if not handle then
     return ""
   end
 
   local result = handle:read "*a"
-  local success, _, exit_code = handle:close()
+  handle:close()
 
-  if not success or exit_code ~= 0 then
-    return ""
+  return (result:gsub("^%s*(.-)%s*$", "%1")) -- Trim leading/trailing whitespace
+end
+
+local registry = require "mason-registry"
+
+M.get_executable_path = function(package_name, executable_name)
+  local ok, pkg = pcall(registry.get_package, package_name)
+  if not ok then
+    return
   end
 
-  return (result:gsub("^%s*(.-)%s*$", "%1")) -- Trim whitespace
+  if not pkg:is_installed() then
+    return
+  end
+
+  local path = pkg:get_install_path() .. "/bin/" .. executable_name
+  return path
+end
+
+function M.first_nonempty(...)
+  for i = 1, select("#", ...) do
+    local v = select(i, ...)
+    if v and v ~= "" then
+      return v
+    end
+  end
 end
 
 return M
