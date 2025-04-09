@@ -181,7 +181,10 @@ local python_capabilities = {
   },
 }
 
-require("lspconfig").ruff.setup {}
+require("lspconfig").ruff.setup {
+  on_attach = on_attach_formatting,
+  capabilities = capabilities,
+}
 
 python_capabilities = vim.tbl_deep_extend("force", capabilities, python_capabilities)
 
