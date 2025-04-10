@@ -4,8 +4,24 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-local on_attach_formatting = function(client, bufnr)
+local map = vim.keymap.set
+
+local on_attach_custom = function(client, bufnr)
   on_attach(client, bufnr)
+
+  local function opts(desc)
+    return { buffer = bufnr, desc = "LSP " .. desc }
+  end
+
+  map("n", "<leader>ca", vim.lsp.buf.code_action, opts "Go to definition")
+end
+
+local on_attach_formatting = function(client, bufnr)
+  on_attach_custom(client, bufnr)
+
+  map({ "n", "v" }, "<leader>cf", function()
+    vim.lsp.buf.format { async = true }
+  end, { desc = "format document" })
 
   if client.supports_method "textDocument/formatting" then
     vim.api.nvim_clear_autocmds {
