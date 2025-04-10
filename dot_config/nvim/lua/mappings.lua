@@ -33,9 +33,6 @@ map("n", "<leader>ttq", "<cmd> tabclose <CR>", { desc = "close tab" })
 map("n", "<leader>ttk", "<cmd> tabNext <CR>", { desc = "next tab" })
 map("n", "<leader>ttj", "<cmd> tabprevious <CR>", { desc = "previous tab" })
 map("n", "<leader>sf", ":echo expand('%:p')<CR>", { desc = "display full path" })
-map({ "n", "v" }, "<leader>cf", function()
-  vim.lsp.buf.format { async = true }
-end, { desc = "format document" })
 
 -- Disabled mappings
 map("n", "<tab>", "<C-i>", { desc = "Disabled mapping" }) -- tab to jump forward
