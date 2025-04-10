@@ -13,7 +13,8 @@ local on_attach_custom = function(client, bufnr)
     return { buffer = bufnr, desc = "LSP " .. desc }
   end
 
-  map("n", "<leader>ca", vim.lsp.buf.code_action, opts "Go to definition")
+  map("n", "<leader>ca", vim.lsp.buf.code_action, opts "Code actions")
+  map("n", "gi", vim.lsp.buf.implementation, opts "Go to implementation")
 end
 
 local on_attach_formatting = function(client, bufnr)
