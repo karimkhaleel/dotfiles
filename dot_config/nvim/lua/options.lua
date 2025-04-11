@@ -41,7 +41,7 @@ vim.filetype.add {
   },
 }
 
-vim.g.vscode_snippets_path = vim.fn.stdpath "config" .. "/lua/snippets/vscode_snippets"
+vim.g.vscode_snippets_path = vim.fn.stdpath "config" .. "/lua/snippets"
 
 -- v0.11 compatibility
 vim.tbl_add_reverse_lookup = function(tbl)
@@ -49,3 +49,6 @@ vim.tbl_add_reverse_lookup = function(tbl)
     tbl[v] = k
   end
 end
+
+-- Debugging
+vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })

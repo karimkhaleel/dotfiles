@@ -52,6 +52,4 @@ M.live_multigrep = function(opts)
     :find()
 end
 
-M.setup = function() end
-
 return M

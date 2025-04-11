@@ -30,23 +30,33 @@ vim.api.nvim_create_autocmd("TermEnter", {
   end,
 })
 
--- Detect djangohtml filetype
-local function set_django_html_filetype()
-  local path = vim.fn.expand "%:p"
-  if string.match(path, ".*/templates/.*%.html$") then
-    vim.bo.filetype = "htmldjango"
-  end
-end
-
-vim.api.nvim_create_augroup("DjangoHtmlFiletype", { clear = true })
+-- Detect django html type files
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  group = "DjangoHtmlFiletype",
+  group = augroup "djangohtml",
   pattern = "*.html",
-  callback = set_django_html_filetype,
+  callback = function()
+    local path = vim.fn.expand "%:p"
+
+    local function is_django_project()
+      local dir = vim.fn.fnamemodify(path, ":p:h")
+
+      while dir ~= "/" do
+        if vim.fn.glob(dir .. "/manage.py") ~= "" then
+          return true
+        end
+        dir = vim.fn.fnamemodify(dir, ":h")
+      end
+      return false
+    end
+
+    if string.match(path, ".*/templates/.*%.html$") and is_django_project() then
+      vim.bo.filetype = "htmldjango"
+    end
+  end,
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  desc = "Set textwidth to 88 for python files",
+  desc = "Set textwidth to 120 for python files",
   pattern = "*.py",
   callback = function()
     vim.bo.textwidth = 120
