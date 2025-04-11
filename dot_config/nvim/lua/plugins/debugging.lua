@@ -1,5 +1,3 @@
-local utils = require "utils"
-
 return {
   {
     "rcarriga/nvim-dap-ui",
@@ -22,27 +20,6 @@ return {
   },
 
   {
-    "mfussenegger/nvim-dap-python",
-    event = "VeryLazy",
-    ft = "python",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      "rcarriga/nvim-dap-ui",
-    },
-    config = function(_, opts)
-      require("dap-python").setup "python"
-    end,
-  },
-
-  {
-    "leoluz/nvim-dap-go",
-    event = "VeryLazy",
-    config = function(_, opts)
-      require("dap-go").setup()
-    end,
-  },
-
-  {
     "jay-babu/mason-nvim-dap.nvim",
     event = "VeryLazy",
     dependencies = {
@@ -59,8 +36,5 @@ return {
 
   {
     "mfussenegger/nvim-dap",
-    config = function()
-      require "configs.dap"
-    end,
   },
 }
