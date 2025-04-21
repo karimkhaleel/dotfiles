@@ -27,7 +27,7 @@ end
 
 lspconfig.gopls.setup {
   on_attach = function(client, bufnr)
-    on_attach.on_attach_formatting(client, bufnr)
+    on_attach.on_attach_w_formatting(client, bufnr)
 
     local map = vim.keymap.set
     local autocmd = vim.api.nvim_create_autocmd
