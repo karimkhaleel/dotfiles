@@ -29,6 +29,7 @@ local servers_w_formatting = {
   "gleam",
   "rust_analyzer",
   "zls",
+  "protols",
 }
 
 for _, lsp in ipairs(servers_w_formatting) do
