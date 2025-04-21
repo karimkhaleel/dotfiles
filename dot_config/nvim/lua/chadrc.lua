@@ -72,10 +72,11 @@ M.mason = {
     "json-lsp",
     "nil",
     "nixpkgs-fmt",
+    "protols",
     "shfmt",
+    "sqruff",
     "taplo",
     "yaml-language-server",
-    "sqruff",
   },
 }
 
