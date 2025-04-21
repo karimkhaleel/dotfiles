@@ -19,7 +19,6 @@ M.treesitter = {
     "markdown",
     "markdown_inline",
     "nim",
-    "org",
     "python",
     "query",
     "regex",
