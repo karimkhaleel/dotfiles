@@ -43,7 +43,6 @@ M.mason = {
     "codelldb",
 
     -- python
-    "debugpy",
     "djlint",
     "isort",
     "mypy",

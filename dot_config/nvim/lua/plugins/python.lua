@@ -30,8 +30,12 @@ return {
       "mfussenegger/nvim-dap",
       "rcarriga/nvim-dap-ui",
     },
-    config = function()
-      require("dap-python").setup "python"
+    config = function(_, opts)
+      require("dap-python").setup("python", opts)
+      local map = vim.keymap.set
+      map("n", "<leader>dt", function()
+        require("dap-python").test_method()
+      end, { desc = "run test" })
     end,
   },
 }
