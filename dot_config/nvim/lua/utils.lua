@@ -80,8 +80,7 @@ M.get_executable_path = function(package_name, executable_name)
     return
   end
 
-  local path = pkg:get_install_path() .. "/bin/" .. executable_name
-  return path
+  return vim.fn.exepath(executable_name)
 end
 
 function M.first_nonempty(...)
