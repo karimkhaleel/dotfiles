@@ -253,6 +253,9 @@ alias cat="batcat"
 
 {{- if eq .osid "linux-fedora" }}
 alias open='xdg-open'
+alias clipboard='xclip -selection clipboard'
+{{- else if eq .chezmoi.os "darwin" }}
+alias clipboard='pbcopy'
 {{- end }}
 alias lg="lazygit"
 alias v="nvim"
