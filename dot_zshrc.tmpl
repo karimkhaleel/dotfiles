@@ -128,11 +128,9 @@ id-as"sd" \
 
 # Go
 zinit lucid light-mode for \
-  atclone'
-    go build -o target/sesh
-  'atpull'
-    go build -o target/sesh
-  'sbin'target/sesh' \
+  atclone'go build -o target/sesh' \
+  atpull'go build -o target/sesh' \
+  sbin'target/sesh' \
       @joshmedeski/sesh \
 
 
