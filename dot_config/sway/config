@@ -52,6 +52,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+input type:keyboard xkb_options caps:ctrl_modifier
+
 input type:touchpad {
     tap enabled
     natural_scroll enabled
