@@ -8,13 +8,14 @@ local servers = {
   "astro",
   "bashls",
   "cssls",
+  "elixirls",
   "emmet_language_server",
   "nil_ls",
   "nimls",
   "sqlls",
   "svelte",
-  "elixirls",
   "templ",
+  "protols",
 }
 
 for _, lsp in ipairs(servers) do
@@ -25,11 +26,10 @@ for _, lsp in ipairs(servers) do
 end
 
 local servers_w_formatting = {
-  "clangd",
+  "buf_ls",
   "gleam",
   "rust_analyzer",
   "zls",
-  "protols",
 }
 
 for _, lsp in ipairs(servers_w_formatting) do

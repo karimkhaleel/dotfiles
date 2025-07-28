@@ -6,7 +6,9 @@ M.base46 = {
 }
 
 M.ui = {
-  telescope = { style = "borderless" }, -- borderless / bordered
+  telescope = {
+    style = "borderless",
+  },
 
   statusline = {
     theme = "default", -- default/vscode/vscode_colored/minimal
