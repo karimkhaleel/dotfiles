@@ -147,7 +147,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-bindsym Print exec grim
+bindsym Print exec "grimshot copy area"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
