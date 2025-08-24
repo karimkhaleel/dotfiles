@@ -17,6 +17,15 @@ lspconfig.ruff.setup {
   capabilities = capabilities,
 }
 
+vim.lsp.config("ty", {
+  settings = {
+    ty = {},
+  },
+})
+
+-- Required: Enable the language server
+vim.lsp.enable "ty"
+
 lspconfig.pyright.setup {
   on_attach = on_attach.on_attach,
   capabilities = vim.tbl_deep_extend("force", capabilities, python_capabilities),
