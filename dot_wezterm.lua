@@ -12,7 +12,7 @@ config.color_scheme = "Catppuccin Macchiato"
 config.font = wezterm.font("FiraMono Nerd Font", { weight = "Medium" })
 
 config.font_size = 12
-config.window_decorations = "NONE"
+config.window_decorations = "RESIZE"
 
 config.window_padding = {
 	left = 0,
