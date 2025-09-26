@@ -13,11 +13,8 @@ M.on_attach = function(client, bufnr)
 
   map("n", "<leader>ca", vim.lsp.buf.code_action, opts "Code actions")
   map("n", "gi", vim.lsp.buf.implementation, opts "Go to implementation")
-end
 
-M.on_attach_w_formatting = function(client, bufnr)
-  M.on_attach(client, bufnr)
-
+  -- if the server supporst formatting then apply attempt to use it
   if client.supports_method "textDocument/formatting" then
     vim.api.nvim_clear_autocmds {
       group = augroup,

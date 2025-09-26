@@ -73,6 +73,7 @@ map("n", "<leader>fs", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "Fi
 map("n", "<leader>fi", "<cmd> Telescope import <CR>", { desc = "Search for product imports" })
 map("n", "<leader>fgb", "<cmd> Telescope git_branches <CR>", { desc = "Find and checkout git branch" })
 map("n", "<leader>fc", "<cmd> Telescope neoclip <CR>", { desc = "Search through yank history" })
+map("n", "<leader>fj", "<cmd> Telescope jumplist <CR>", { desc = "Search through jump history" })
 map(
   "n",
   "<leader>mg",

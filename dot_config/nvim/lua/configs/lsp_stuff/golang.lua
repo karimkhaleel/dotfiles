@@ -2,37 +2,12 @@ local lspconfig = require "lspconfig"
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 local on_attach = require "configs.lsp_stuff.on_attach"
 
-local gofumpt_enabled = true
-
-function ToggleGofumpt()
-  gofumpt_enabled = not gofumpt_enabled
-
-  -- Get the current gopls client
-  local clients = vim.lsp.get_clients()
-  for _, client in ipairs(clients) do
-    if client.name == "gopls" then
-      -- Notify gopls to use new settings
-      client.config.settings.gopls.gofumpt = gofumpt_enabled
-      client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-
-      -- Optionally restart the client to ensure changes take effect
-      vim.cmd "LspRestart gopls"
-      print("gofumpt is now " .. (gofumpt_enabled and "enabled" or "disabled"))
-      return
-    end
-  end
-
-  print "gopls not found"
-end
-
 lspconfig.gopls.setup {
   on_attach = function(client, bufnr)
-    on_attach.on_attach_w_formatting(client, bufnr)
+    on_attach.on_attach(client, bufnr)
 
     local map = vim.keymap.set
     local autocmd = vim.api.nvim_create_autocmd
-
-    map("n", "<leader>ts", ":lua ToggleGofumpt()<CR>", { desc = "toggle between gofumpt and gofmt" })
 
     autocmd("BufWritePre", {
       pattern = "*.go",

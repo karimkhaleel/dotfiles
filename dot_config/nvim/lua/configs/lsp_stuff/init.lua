@@ -16,25 +16,15 @@ local servers = {
   "svelte",
   "templ",
   "protols",
-}
-
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach.on_attach,
-    capabilities = capabilities,
-  }
-end
-
-local servers_w_formatting = {
   "buf_ls",
   "gleam",
   "rust_analyzer",
   "zls",
 }
 
-for _, lsp in ipairs(servers_w_formatting) do
+for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    on_attach = on_attach.on_attach_w_formatting,
+    on_attach = on_attach.on_attach,
     capabilities = capabilities,
   }
 end
@@ -57,13 +47,13 @@ lspconfig.htmx.setup {
 }
 
 lspconfig.html.setup {
-  on_attach = on_attach.on_attach_w_formatting,
+  on_attach = on_attach.on_attach,
   capabilities = capabilities,
   filetypes = { "html", "htmldjango", "templ" },
 }
 
 lspconfig.denols.setup {
-  on_attach = on_attach.on_attach_w_formatting,
+  on_attach = on_attach.on_attach,
   capabilities = capabilities,
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 }
@@ -85,5 +75,5 @@ lspconfig.yamlls.setup {
   },
 }
 
-require "configs.lsp_stuff.golang"
 require "configs.lsp_stuff.python"
+require "configs.lsp_stuff.golang"
