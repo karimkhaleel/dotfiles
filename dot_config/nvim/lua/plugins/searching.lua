@@ -1,21 +1,19 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-telescope/telescope-ui-select.nvim",
-    },
-    opts = function(_, opts)
-      local t = {
-        extensions_list = { "fzf" },
-        extensions = {
-          ["ui-select"] = require("telescope.themes").get_dropdown {},
-        },
+    opts = function()
+      local nvchad_config = require "nvchad.configs.telescope"
+
+      local custom_config = {
+        extensions_list = { "fzf", "import" },
       }
-      return vim.tbl_deep_extend("force", opts, t)
+
+      return vim.tbl_deep_extend("force", nvchad_config, custom_config)
     end,
     config = function(_, opts)
       local telescope = require "telescope"
-      telescope.load_extension "ui-select"
+      telescope.setup(opts)
+      telescope.load_extension "import"
     end,
   },
   {
