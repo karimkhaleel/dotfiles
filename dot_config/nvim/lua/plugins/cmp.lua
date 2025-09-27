@@ -1,3 +1,9 @@
+local cmp = require "cmp"
+
+local set_keybind = function(opts, keybind, action)
+  opts.mapping[keybind] = action
+end
+
 return {
   {
     "hrsh7th/nvim-cmp",
@@ -13,6 +19,8 @@ return {
     },
     opts = function(_, opts)
       table.insert(opts.sources, 1, { name = "cmp-dbee" })
+      set_keybind(opts, "<c-l>", cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true })
+      set_keybind(opts, "<c-k>", cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true })
     end,
   },
 }
