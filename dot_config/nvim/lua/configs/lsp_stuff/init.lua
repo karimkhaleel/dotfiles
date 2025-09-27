@@ -19,6 +19,7 @@ local servers = {
   "buf_ls",
   "gleam",
   "rust_analyzer",
+  "tailwindcss",
   "zls",
 }
 
