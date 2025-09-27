@@ -119,9 +119,3 @@ map("n", "<leader>fr", spectre.open, { desc = "Start spectre" })
 map("n", "<leader>du", function()
   require("dbee").toggle()
 end, { desc = "Toggle DBee interface" })
-
--- Snippets
-local ls = require "luasnip"
-map("i", "<C-k>", function()
-  ls.expand()
-end, { desc = "Complete snippet" })
