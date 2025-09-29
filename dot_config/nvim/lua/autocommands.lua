@@ -62,12 +62,3 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     vim.bo.textwidth = 120
   end,
 })
-
-vim.api.nvim_create_autocmd("ModeChanged", {
-  pattern = "i:*",
-  callback = function()
-    local ls = require "luasnip"
-    -- Clear any active snippet when leaving insert mode
-    ls.unlink_current()
-  end,
-})
