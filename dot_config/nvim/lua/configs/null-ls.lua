@@ -3,7 +3,6 @@ local null_ls = require "null-ls"
 
 local h = require "null-ls.helpers"
 local methods = require "null-ls.methods"
-local utils = require "utils"
 
 local FORMATTING = methods.internal.FORMATTING
 

@@ -7,6 +7,7 @@ end
 return {
   {
     "hrsh7th/nvim-cmp",
+    enabled = true,
     dependencies = {
       {
         "MattiasMTS/cmp-dbee",
