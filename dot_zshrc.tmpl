@@ -321,4 +321,5 @@ eval "$(direnv hook zsh)"
 
 {{- if not (eq .chezmoi.os "darwin") }}
 . "{{ .chezmoi.homeDir }}/.deno/env"
+if [ -e /home/karim/.nix-profile/etc/profile.d/nix.sh ]; then . /home/karim/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 {{- end}}
