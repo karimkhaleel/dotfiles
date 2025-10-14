@@ -1,6 +1,6 @@
-local lspconfig = require "lspconfig"
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 local on_attach = require "configs.lsp_stuff.on_attach"
+local lsputil = require "utils.lsp"
 
 local python_capabilities = {
   textDocument = {
@@ -12,33 +12,30 @@ local python_capabilities = {
   },
 }
 
-lspconfig.ruff.setup {
-  on_attach = on_attach.on_attach_w_formatting,
-  capabilities = capabilities,
-}
-
-vim.lsp.config("ty", {
-  settings = {
-    ty = {},
+lsputil.config {
+  ruff = {
+    on_attach = on_attach.on_attach_w_formatting,
+    capabilities = capabilities,
   },
-})
-
--- Required: Enable the language server
-vim.lsp.enable "ty"
-
-lspconfig.pyright.setup {
-  on_attach = on_attach.on_attach,
-  capabilities = vim.tbl_deep_extend("force", capabilities, python_capabilities),
-  settings = {
-    python = {
-      analysis = {
-        autoImportCompletions = true,
-        disableOrganizeImports = true,
-        typeCheckingMode = "off",
-        autoSearchPaths = true,
-        useLibraryCodeForTypes = true,
-        diagnosticMode = "openFilesOnly",
-        stubPath = vim.fn.stdpath "data" .. "/lazy/python-type-stubs/stubs",
+  ty = {
+    settings = {
+      ty = {},
+    },
+  },
+  pyright = {
+    on_attach = on_attach.on_attach,
+    capabilities = vim.tbl_deep_extend("force", capabilities, python_capabilities),
+    settings = {
+      python = {
+        analysis = {
+          autoImportCompletions = true,
+          disableOrganizeImports = true,
+          typeCheckingMode = "off",
+          autoSearchPaths = true,
+          useLibraryCodeForTypes = true,
+          diagnosticMode = "openFilesOnly",
+          stubPath = vim.fn.stdpath "data" .. "/lazy/python-type-stubs/stubs",
+        },
       },
     },
   },
