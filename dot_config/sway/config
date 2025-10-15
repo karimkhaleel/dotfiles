@@ -91,7 +91,7 @@ bindcode $mod+40 exec $menu
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # lock
-bindsym $mod+Shift+l exec i3lock
+bindsym $mod+Shift+l exec 'swaylock -f -c 000000'
 
 # change focus
 bindsym $mod+j focus left
