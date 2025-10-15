@@ -249,7 +249,7 @@ alias cat="bat"
 alias cat="batcat"
 {{- end }}
 
-{{- if eq .osid "linux-fedora" }}
+{{- if eq .chezmoi.osRelease.id "linux-fedora" }}
 alias open='xdg-open'
 alias clipboard='xclip -selection clipboard'
 {{- else if eq .chezmoi.os "darwin" }}
