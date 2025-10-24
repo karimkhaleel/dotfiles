@@ -32,7 +32,7 @@ vim.filetype.add {
   },
   pattern = {
     [".*.yaml"] = function(path, bufnr, ext)
-      if require("utils").is_ansible() then
+      if require("utils.misc").is_ansible() then
         return "yaml.ansible"
       end
 
