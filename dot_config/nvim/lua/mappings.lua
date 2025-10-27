@@ -87,7 +87,7 @@ map(
   { desc = "Live multigrep with file specified " }
 )
 
-map({ "n", "v" }, "<leader>fm", function()
+map({ "n", "v" }, "<leader>gf", function()
   vim.lsp.buf.format()
 end, { desc = "format document" })
 map("n", "<leader>fd", "<cmd> Telescope diagnostics <CR>", { desc = "Search through project diagnostics" })

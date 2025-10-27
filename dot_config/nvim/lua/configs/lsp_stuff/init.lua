@@ -40,11 +40,6 @@ lsputil.config {
     capabilities = capabilities,
     filetypes = { "html", "htmldjango", "templ" },
   },
-  denols = {
-    on_attach = on_attach.on_attach,
-    capabilities = capabilities,
-    -- root_dir = vim.lsp.config.util.root_pattern("deno.json", "deno.jsonc"),
-  },
   yamlls = {
     on_attach = on_attach.on_attach,
     capabilities = capabilities,

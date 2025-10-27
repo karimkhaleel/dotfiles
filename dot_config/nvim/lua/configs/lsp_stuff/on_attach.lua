@@ -15,21 +15,19 @@ M.on_attach = function(client, bufnr)
   map("n", "gi", vim.lsp.buf.implementation, opts "Go to implementation")
 
   -- if the server supporst formatting then apply attempt to use it
-  if client.supports_method "textDocument/formatting" then
-    vim.api.nvim_clear_autocmds {
-      group = augroup,
-      buffer = bufnr,
-    }
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = augroup,
-      buffer = bufnr,
-      callback = function()
-        if require("flags").format_on_save then
-          vim.lsp.buf.format { bufnr = bufnr, async = false }
-        end
-      end,
-    })
-  end
+  vim.api.nvim_clear_autocmds {
+    group = augroup,
+    buffer = bufnr,
+  }
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    group = augroup,
+    buffer = bufnr,
+    callback = function()
+      if require("flags").format_on_save then
+        vim.lsp.buf.format { bufnr = bufnr, async = false }
+      end
+    end,
+  })
 end
 
 return M
