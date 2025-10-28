@@ -96,7 +96,7 @@ map("n", "<leader>fd", "<cmd> Telescope diagnostics <CR>", { desc = "Search thro
 map("n", "<leader>fe", "<cmd> lua MiniFiles.open() <CR>", { desc = "Open file explorer" })
 
 -- Diffview mappings
-map("n", "<leader>df", "<cmd>DiffviewFileHistory %<CR>", { noremap = true, silent = true })
+map("n", "<leader>df", "<cmd> DiffviewFileHistory %<CR>", { noremap = true, silent = true })
 map("n", "<leader>do", "<cmd> DiffviewOpen <CR>", { desc = "Open diff view" })
 map("n", "<leader>dq", "<cmd> DiffviewClose <CR>", { desc = "Close diff view" })
 
@@ -104,6 +104,11 @@ map("n", "<leader>dq", "<cmd> DiffviewClose <CR>", { desc = "Close diff view" })
 map({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
 map({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 map({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+
+-- Leap
+map({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
+map({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
+map("n", "gs", "<Plug>(leap-from-window)")
 
 -- Gitsigns
 local gs = require "gitsigns"
