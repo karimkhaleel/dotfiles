@@ -218,6 +218,16 @@ bindsym $mod+r mode "resize"
 # exec_always --no-startup-id $HOME/.config/i3/bg
 exec --no-startup-id dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
+{{- $chassisType := "desktop" }}
+{{- if eq .chezmoi.os "linux"}}
+{{- $chassisType = (output "hostnamectl" "--json=short" | mustFromJson).Chassis }}
+  {{- if eq $chassisType "laptop" }}
+# set displays
+output eDP-1 pos 0 360 res 1920x1080
+output HDMI-A-1 pos 1920 0 res 2560x1440
+  {{- end }}
+{{- end }}
+
 # Prevent hotkey steal
 seat * shortcuts_inhibitor disable
 
