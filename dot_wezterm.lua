@@ -11,7 +11,7 @@ config.color_scheme = "Catppuccin Macchiato"
 
 config.font = wezterm.font("FiraMono Nerd Font", { weight = "Medium" })
 
-config.font_size = 12
+config.font_size = 18
 config.window_decorations = "NONE"
 
 -- Enable proper window resizing
