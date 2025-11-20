@@ -72,7 +72,7 @@ M.mason = {
     "bash-language-server",
     "json-lsp",
     "nil",
-    "nixpkgs-fmt",
+    "nixfmt",
     "protols",
     "shfmt",
     "sqruff",
