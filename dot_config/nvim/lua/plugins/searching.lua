@@ -18,7 +18,8 @@ return {
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    build =
+    "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
   {
     "piersolenski/telescope-import.nvim",
@@ -26,6 +27,27 @@ return {
     event = "VeryLazy",
     config = function()
       require("telescope").load_extension "import"
+    end,
+  },
+  {
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function()
+      require("dressing").setup {
+        select = {
+          -- Use telescope for all select prompts
+          backend = { "telescope", "builtin" },
+
+          telescope = require("telescope.themes").get_dropdown {
+            -- You can customize the appearance
+            layout_config = {
+              width = 0.8,
+              height = 0.4,
+            },
+          },
+        },
+      }
     end,
   },
 }

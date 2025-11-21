@@ -2,6 +2,8 @@ local on_attach = require "configs.lsp_stuff.on_attach"
 local lsputil = require "utils.lsp"
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
+require "configs.lsp_stuff.js"
+
 lsputil.config {
   "ansiblels",
   "astro",
@@ -19,6 +21,8 @@ lsputil.config {
   "gleam",
   "rust_analyzer",
   "tailwindcss",
+  "vtsls",
+  "vue_ls",
   "zls",
   jsonls = {
     on_attach = on_attach.on_attach,

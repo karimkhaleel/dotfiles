@@ -1,61 +1,50 @@
 return {
   {
-    "ggandor/flit.nvim",
-    enabled = true,
+    "folke/flash.nvim",
     event = "VeryLazy",
-    keys = function()
-      local ret = {}
-      for _, key in ipairs { "f", "F", "t", "T" } do
-        ret[#ret + 1] = { key, mode = { "n", "x", "o" }, desc = key }
-      end
-      return ret
-    end,
-    opts = { labeled_modes = "nx" },
-  },
-
-  {
-    "ggandor/leap.nvim",
-    enabled = true,
-    event = "VeryLazy",
-    config = function(_, opts)
-      local leap = require "leap"
-      for k, v in pairs(opts) do
-        leap.opts[k] = v
-      end
-      vim.api.nvim_set_hl(0, "LeapLabelPrimary", { bg = "red", fg = "white" })
-      vim.api.nvim_set_hl(0, "LeapLabelSecondary", { bg = "purple", fg = "white" })
-    end,
-  },
-
-  {
-    "ggandor/leap-spooky.nvim",
-    dependencies = { "ggandor/leap.nvim" },
-    enabled = true,
-    event = "VeryLazy",
-    config = function()
-      require("leap-spooky").setup()
-    end,
-  },
-
-  {
-    "ziontee113/syntax-tree-surfer",
-    enabled = true,
-    event = "VeryLazy",
-    config = function()
-      require("syntax-tree-surfer").setup()
-    end,
-  },
-
-  {
-    "cbochs/portal.nvim",
-    enabled = true,
-    event = "VeryLazy",
-    -- Optional dependencies
-    dependencies = {
-      "cbochs/grapple.nvim",
-      "ThePrimeagen/harpoon",
+    ---@type Flash.Config
+    opts = {},
+    keys = {
+      {
+        "s",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
+      {
+        "S",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
+      },
+      {
+        "r",
+        mode = "o",
+        function()
+          require("flash").remote()
+        end,
+        desc = "Remote Flash",
+      },
+      {
+        "R",
+        mode = { "o", "x" },
+        function()
+          require("flash").treesitter_search()
+        end,
+        desc = "Treesitter Search",
+      },
+      {
+        "<c-s>",
+        mode = { "c" },
+        function()
+          require("flash").toggle()
+        end,
+        desc = "Toggle Flash Search",
+      },
     },
   },
-
-  { "chrisgrieser/nvim-spider", enabled = true, event = "VeryLazy" },
 }

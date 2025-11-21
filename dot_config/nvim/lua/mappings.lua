@@ -100,16 +100,6 @@ map("n", "<leader>df", "<cmd> DiffviewFileHistory %<CR>", { noremap = true, sile
 map("n", "<leader>do", "<cmd> DiffviewOpen <CR>", { desc = "Open diff view" })
 map("n", "<leader>dq", "<cmd> DiffviewClose <CR>", { desc = "Close diff view" })
 
--- Spider
-map({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-map({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-map({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-
--- Leap
-map({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
-map({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
-map("n", "gs", "<Plug>(leap-from-window)")
-
 -- Gitsigns
 local gs = require "gitsigns"
 map("n", "<leader>gsb", gs.stage_buffer, { desc = "Stage buffer" })
@@ -125,8 +115,3 @@ map("n", "]h", gs.next_hunk, { desc = "Next hunk" })
 -- Spectre
 local spectre = require "spectre"
 map("n", "<leader>fr", spectre.open, { desc = "Start spectre" })
-
--- DB
-map("n", "<leader>du", function()
-  require("dbee").toggle()
-end, { desc = "Toggle DBee interface" })
