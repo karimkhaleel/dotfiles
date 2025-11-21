@@ -8,8 +8,6 @@ autocmd("VimResized", {
   command = "tabdo wincmd =",
 })
 
-require "custom_commands"
-
 local opt = vim.opt
 
 opt.relativenumber = true

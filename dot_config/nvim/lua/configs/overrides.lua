@@ -30,6 +30,7 @@ M.treesitter = {
     "tsx",
     "typescript",
     "vim",
+    "vue",
     "yaml",
     "zig",
   },

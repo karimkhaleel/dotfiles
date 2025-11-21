@@ -37,7 +37,6 @@ M.mason = {
     "rustywind",
     "svelte-language-server",
     "tailwindcss-language-server",
-    "typescript-language-server",
     "htmx-lsp",
 
     -- c/cpp stuff
