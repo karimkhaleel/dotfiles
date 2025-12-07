@@ -225,6 +225,12 @@ exec --no-startup-id dbus-update-activation-environment --systemd DBUS_SESSION_B
 # set displays
 output eDP-1 pos 0 360 res 1920x1080
 output HDMI-A-1 pos 1920 0 res 2560x1440
+  {{- else if eq $chassisType "desktop" }}
+# set displays
+# 1. Main Monitor: DP-1 (2560x1440, Primary, Positioned at 0,0)
+output DP-1 enable mode 2560x1440 pos 0 0
+# 2. Vertical Monitor: HDMI-A-2 (Rotated 270 degrees, Positioned to the right of DP-1)
+output HDMI-A-2 enable mode 1920x1080 pos 2560 0 transform 270
   {{- end }}
 {{- end }}
 
