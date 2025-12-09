@@ -19,7 +19,9 @@ lsputil.config {
   },
   ty = {
     settings = {
-      ty = {},
+      ty = {
+        disableLanguageServices = true,
+      },
     },
   },
   pyright = {
