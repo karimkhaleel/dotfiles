@@ -47,7 +47,7 @@ M.mason = {
     "djlint",
     "isort",
     "ty",
-    "pyright",
+    "basedpyright",
     "ruff",
 
     -- go
