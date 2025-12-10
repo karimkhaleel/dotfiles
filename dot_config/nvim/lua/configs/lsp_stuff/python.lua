@@ -24,7 +24,7 @@ lsputil.config {
       },
     },
   },
-  pyright = {
+  basedpyright = {
     on_attach = on_attach.on_attach,
     capabilities = vim.tbl_deep_extend("force", capabilities, python_capabilities),
     settings = {
@@ -32,11 +32,6 @@ lsputil.config {
         analysis = {
           autoImportCompletions = true,
           disableOrganizeImports = true,
-          typeCheckingMode = "off",
-          autoSearchPaths = true,
-          useLibraryCodeForTypes = true,
-          diagnosticMode = "openFilesOnly",
-          stubPath = vim.fn.stdpath "data" .. "/lazy/python-type-stubs/stubs",
         },
       },
     },
