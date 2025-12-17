@@ -56,14 +56,14 @@ map("n", "<leader>lr", "<cmd> LspRestart <CR>", { desc = "Restart LSP" })
 map("n", "<leader>lf", vim.diagnostic.open_float, { desc = "Open float" })
 
 -- Completions
-local cmp = require "cmp"
-local ls = require "luasnip"
-map("i", "<C-l>", cmp.mapping.complete(), { desc = "Enter" })
-map("i", "<C-l>", cmp.mapping.complete(), { desc = "Next snippet" })
-map("i", "<esc>", function()
-  ls.unlink_current()
-  return "<esc>"
-end, { desc = "Clear active snippets", expr = true })
+-- local cmp = require "cmp"
+-- local ls = require "luasnip"
+-- map("i", "<C-l>", cmp.mapping.complete(), { desc = "Enter" })
+-- map("i", "<C-l>", cmp.mapping.complete(), { desc = "Next snippet" })
+-- map("i", "<esc>", function()
+--   ls.unlink_current()
+--   return "<esc>"
+-- end, { desc = "Clear active snippets", expr = true })
 
 -- DAP mappings
 map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line" })

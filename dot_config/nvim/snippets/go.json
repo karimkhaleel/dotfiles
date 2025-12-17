@@ -1,0 +1,10 @@
+{
+  "Go struct yaml tags": {
+    "prefix": ["ytag"],
+    "body": ["`yaml:\"$1\"`"]
+  },
+  "Go struct request tags": {
+    "prefix": ["rtag"],
+    "body": ["`json:\"$1\" form:\"$1\" query:\"$1\"`"]
+  }
+}
