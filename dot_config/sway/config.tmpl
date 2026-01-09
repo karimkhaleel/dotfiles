@@ -223,7 +223,7 @@ exec --no-startup-id dbus-update-activation-environment --systemd DBUS_SESSION_B
 {{- $chassisType = (output "hostnamectl" "--json=short" | mustFromJson).Chassis }}
   {{- if eq $chassisType "laptop" }}
 # set displays
-output eDP-1 pos 0 360 res 1920x1080
+output eDP-1 pos 0 -1080 res 1920x1080
 output HDMI-A-1 pos 1920 0 res 2560x1440
   {{- else if eq $chassisType "desktop" }}
 # set displays
