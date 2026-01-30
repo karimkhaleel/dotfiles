@@ -62,3 +62,12 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     vim.bo.textwidth = 120
   end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function(args)
+    if require("flags").format_on_save then
+      require("conform").format { bufnr = args.buf }
+    end
+  end,
+})

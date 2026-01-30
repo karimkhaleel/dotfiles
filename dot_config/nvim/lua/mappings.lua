@@ -54,6 +54,8 @@ end, { desc = "Close other buffers" })
 -- LSP mappings
 map("n", "<leader>lr", "<cmd> LspRestart <CR>", { desc = "Restart LSP" })
 map("n", "<leader>lf", vim.diagnostic.open_float, { desc = "Open float" })
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
+map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
 
 -- Completions
 -- local cmp = require "cmp"
@@ -71,8 +73,8 @@ map("n", "<leader>dr", "<cmd> DapContinue <CR>", { desc = "Run or continue the d
 map("n", "<leader>ds", "<cmd> DapTerminate <CR>", { desc = "Stop debugger" })
 map("n", "<leader>dc", "<cmd> DapStepOver <CR>", { desc = "Step over" })
 map("n", "<leader>di", "<cmd> DapStepInto <CR>", { desc = "Step into" })
-map("n", "<leader>do", "<cmd> DapStepOut Into CR>", { desc = "Step out" })
-map("n", "<leader>dj", "<cmd> DapLoadLaunchJSON CR>", { desc = "DAP Launch JSON" })
+map("n", "<leader>do", "<cmd> DapStepOut Into <CR>", { desc = "Step out" })
+map("n", "<leader>dj", "<cmd> DapLoadLaunchJSON <CR>", { desc = "DAP Launch JSON" })
 
 -- Telescope mappings
 map("n", "<leader>fs", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "Find document symbols" })

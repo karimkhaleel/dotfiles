@@ -15,6 +15,7 @@ lsputil.config {
   "nimls",
   "sqlls",
   "svelte",
+  "lua_ls",
   "templ",
   "protols",
   "buf_ls",

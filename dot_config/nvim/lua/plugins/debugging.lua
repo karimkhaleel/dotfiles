@@ -1,3 +1,6 @@
+
+local map = vim.keymap.set
+
 return {
   {
     "rcarriga/nvim-dap-ui",

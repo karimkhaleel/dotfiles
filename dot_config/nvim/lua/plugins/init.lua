@@ -68,8 +68,4 @@ return {
     "rktjmp/playtime.nvim",
     event = "VeryLazy",
   },
-  {
-    "stevearc/conform.nvim",
-    enabled = false,
-  },
 }

@@ -32,6 +32,7 @@ lsputil.config {
         analysis = {
           autoImportCompletions = true,
           disableOrganizeImports = true,
+          typeCheckingMode = "off",
         },
       },
     },

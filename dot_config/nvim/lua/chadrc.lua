@@ -49,6 +49,7 @@ M.mason = {
     "ty",
     "basedpyright",
     "ruff",
+    "pyproject-fmt",
 
     -- go
     "gofumpt",
