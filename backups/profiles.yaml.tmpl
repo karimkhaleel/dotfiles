@@ -1,0 +1,169 @@
+---
+# yaml-language-server: $schema=https://creativeprojects.github.io/resticprofile/jsonschema/config-1.json
+version: "1"
+
+default:
+  repository: {{ onepasswordRead "op://Private/Backup Bucket/Bucket URL" }}
+  initialize: true
+
+  env:
+    RESTIC_PASSWORD: {{ onepasswordRead "op://Private/Backup Bucket/Restic Password" }}
+    AWS_DEFAULT_REGION: {{ onepasswordRead "op://Private/Backup Bucket/Default Region" }}
+    AWS_ACCESS_KEY_ID: {{ onepasswordRead "op://Private/Backup Bucket/Access Key" }}
+    AWS_SECRET_ACCESS_KEY: {{ onepasswordRead "op://Private/Backup Bucket/Secret Key" }}
+
+  backup:
+    source:
+      - ~/.config/
+      - ~/Aegis_2FA/
+      - ~/Desktop/
+      - ~/Dev/
+      - ~/Documents/
+      - ~/KeePass/
+      - ~/Lab/
+      - ~/Music/
+      - ~/Pictures/
+      - ~/Public/
+      - ~/Videos/
+      - ~/backups
+      - ~/obsidian/
+      - ~/projects/
+      - ~/scripts/
+      - ~/work/
+
+    exclude:
+      # Directories
+      - "~/Downloads/"
+      - "~/bin/"
+      - "~/.local/bin"
+      - "~/.local/state"
+
+      # Python
+      - "**/.venv/"
+      - "**/venv/"
+      - "**/__pycache__/"
+      - "**/*.pyc"
+      - "**/.pytest_cache/"
+      - "**/.mypy_cache/"
+      - "**/.ruff_cache/"
+
+      # Node.js
+      - "**/node_modules/"
+      - "**/.npm/"
+      - "**/.yarn/"
+      - "**/.pnp/"
+      - "**/.pnp.js"
+      - "~/.deno"
+      - "~/.next"
+
+      # Go
+      - "~/go/pkg/"
+      - "**/.go-build/"
+
+      # Rust
+      - "**/target/"
+      - "~/.cargo/registry/"
+      - "~/.cargo/git/"
+      - "~/.rustup"
+
+      # Docker
+      - "~/.docker/"
+      - "~/.local/share/docker/"
+      - "~/.helm"
+
+      # General caches
+      - "~/.cache/"
+      - "~/.local/share/"
+      - "**/Cache/"
+      - "**/cache/"
+      - "**/.DS_Store"
+
+      # Build artifacts
+      - "**/build/"
+      - "**/dist/"
+      - "**/*.o"
+      - "**/*.a"
+      - "**/*.so"
+
+      # IDE/Editor
+      - "**/.idea/"
+      - "**/.vscode/"
+      - "**/.vs/"
+      - "**/*.swp"
+      - "**/*.swo"
+      - "**/*~"
+      - "~/.cursor/"
+
+      # Temporary files
+      - "**/tmp/"
+      - "**/temp/"
+      - "**/.tmp/"
+      - "**/*.tmp"
+      - "**/*.log"
+
+      # Large media caches
+      - "~/.thumbnails/"
+
+      # Container/VM images
+      - "**/*.qcow2"
+      - "**/*.vdi"
+      - "**/*.vmdk"
+      - "**/*.iso"
+
+      # Application data/caches
+      - "~/.config/chromium/Default/Cache/"
+      - "~/.config/chromium/Default/Code Cache/"
+      - "~/.config/Cursor/Cache/"
+      - "~/.config/Cursor/CachedData/"
+      - "~/.config/Cursor/Code Cache/"
+
+      # Browsers
+      - "~/.config/chromium/"
+      - "~/.config/google-chrome/"
+      - "~/.config/brave/"
+      - "~/.config/BraveSoftware/"
+      - "~/.mozilla/firefox/"
+      - "~/.config/firefox/"
+      - "~/.zen"
+
+      # Communication apps
+      - "~/.config/discord/"
+      - "~/.config/Discord/"
+      - "~/.config/slack/"
+      - "~/.config/Slack/"
+      - "~/.config/teams/"
+      - "~/.config/Teams/"
+      - "~/.config/zoom/"
+
+      # Electron app caches
+      - "**/.config/*/Cache/"
+      - "**/.config/*/Code Cache/"
+      - "**/.config/*/GPUCache/"
+      - "**/.config/*/Service Worker/"
+
+      # Flatpak
+      - "~/.var/app"
+
+    exclude-caches: true
+    exclude-if-present:
+      - .nobackup
+      - CACHEDIR.TAG
+
+    one-file-system: true
+
+    schedule-permission: system
+    schedule-log: "profile-backup.log"
+    schedule: "*-*-* 00,06,12,18:00:00"
+
+  forget:
+    keep-hourly: 24
+    keep-daily: 14
+    keep-weekly: 8
+    keep-monthly: 12
+    keep-yearly: 3
+
+    prune: true
+
+    schedule-permission: system
+    schedule-log: "profile-forget.log"
+    schedule: "*-*-* 00,06,12,18:30:00"
