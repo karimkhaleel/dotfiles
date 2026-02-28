@@ -117,3 +117,6 @@ map("n", "]h", gs.next_hunk, { desc = "Next hunk" })
 -- Spectre
 local spectre = require "spectre"
 map("n", "<leader>fr", spectre.open, { desc = "Start spectre" })
+
+-- Surround
+map("v", "<leader>Z", "<Plug>((nvim-surround-visual))")
