@@ -11,7 +11,6 @@ return {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "RRethy/nvim-treesitter-endwise",
       "windwp/nvim-ts-autotag",
-      "nvim-treesitter/playground",
     },
     opts = overrides.treesitter,
   },
