@@ -1,7 +1,7 @@
 {
-  "currentThemeName": "custom",
-  "currentThemeCategory": "registry",
-  "customThemeFile": "/home/karim/.config/DankMaterialShell/themes/flexoki/theme.json",
+  "currentThemeName": "dynamic",
+  "currentThemeCategory": "dynamic",
+  "customThemeFile": "/home/karim/.config/DankMaterialShell/themes/tokyoNight/theme.json",
   "registryThemeVariants": {
     "catppuccin": {
       "dark": {
@@ -11,7 +11,7 @@
     },
     "flexoki": "orange"
   },
-  "matugenScheme": "scheme-tonal-spot",
+  "matugenScheme": "scheme-vibrant",
   "runUserMatugenTemplates": true,
   "matugenTargetMonitor": "",
   "popupTransparency": 1,
@@ -175,9 +175,14 @@
   "browserPickerViewMode": "grid",
   "browserUsageHistory": {
     "firefox": {
-      "count": 2,
-      "lastUsed": 1772251698407,
+      "count": 7,
+      "lastUsed": 1772325688687,
       "name": "Firefox"
+    },
+    "librewolf": {
+      "count": 3,
+      "lastUsed": 1772471362944,
+      "name": "LibreWolf"
     }
   },
   "appPickerViewMode": "grid",
@@ -194,9 +199,9 @@
   "dankLauncherV2BorderColor": "primary",
   "dankLauncherV2ShowFooter": true,
   "dankLauncherV2UnloadOnClose": false,
-  "useAutoLocation": false,
+  "useAutoLocation": true,
   "weatherEnabled": true,
-  "networkPreference": "auto",
+  "networkPreference": "ethernet",
   "iconTheme": "System Default",
   "cursorSettings": {
     "theme": "System Default",
@@ -236,8 +241,8 @@
   "soundNewNotification": true,
   "soundVolumeChanged": true,
   "soundPluggedIn": true,
-  "acMonitorTimeout": 0,
-  "acLockTimeout": 0,
+  "acMonitorTimeout": 1800,
+  "acLockTimeout": 3600,
   "acSuspendTimeout": 0,
   "acSuspendBehavior": 0,
   "acProfileName": "",
@@ -356,7 +361,7 @@
   "osdPowerProfileEnabled": true,
   "osdAudioOutputEnabled": true,
   "powerActionConfirm": true,
-  "powerActionHoldDuration": 0.5,
+  "powerActionHoldDuration": 0.25,
   "powerMenuActions": [
     "reboot",
     "logout",
@@ -380,7 +385,11 @@
   "displayNameMode": "system",
   "screenPreferences": {},
   "showOnLastDisplay": {},
-  "niriOutputSettings": {},
+  "niriOutputSettings": {
+    "HDMI-A-1": {
+      "focusAtStartup": true
+    }
+  },
   "hyprlandOutputSettings": {},
   "displayProfiles": {},
   "activeDisplayProfile": {},
@@ -403,9 +412,26 @@
         "focusedWindow"
       ],
       "centerWidgets": [
-        "music",
-        "clock",
-        "weather"
+        {
+          "id": "music",
+          "enabled": true
+        },
+        {
+          "id": "clock",
+          "enabled": true
+        },
+        {
+          "id": "weather",
+          "enabled": true
+        },
+        {
+          "id": "dankKDEConnect",
+          "enabled": true
+        },
+        {
+          "id": "dankPomodoroTimer",
+          "enabled": true
+        }
       ],
       "rightWidgets": [
         "systemTray",
