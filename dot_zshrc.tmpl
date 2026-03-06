@@ -300,6 +300,9 @@ esac
 # bun completions
 [ -s "{{ .chezmoi.homeDir }}/.bun/_bun" ] && source "{{ .chezmoi.homeDir }}/.bun/_bun"
 
+# fnm
+eval "$(fnm env --use-on-cd --shell zsh)"
+
 {{- if not (eq .chezmoi.os "darwin") }}
 # 1password completion
 eval "$(op completion zsh)"; compdef _op op
