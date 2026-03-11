@@ -5,5 +5,6 @@
 local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "enter command mode", nowait = true })
-map("n", "zR", require("ufo").openAllFolds)
-map("n", "zM", require("ufo").closeAllFolds)
+map("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds", nowait = true })
+map("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds", nowait = true })
+map("v", "p", "P", { desc = "paste" })
