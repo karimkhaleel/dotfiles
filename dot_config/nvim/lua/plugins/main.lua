@@ -87,4 +87,38 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
   },
+  {
+    "nickjvandyke/opencode.nvim",
+    version = "v0.8.2", -- Latest stable release
+    dependencies = {
+      {
+        ---@module "snacks"
+        "folke/snacks.nvim",
+        optional = true,
+        opts = {
+          input = {},
+          picker = {
+            actions = {
+              opencode_send = function(...)
+                return require("opencode").snacks_picker_send(...)
+              end,
+            },
+            win = {
+              input = {
+                keys = {
+                  ["<a-a>"] = { "opencode_send", mode = { "n", "i" } },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    config = function()
+      ---@type opencode.Opts
+      vim.g.opencode_opts = {}
+
+      vim.o.autoread = true
+    end,
+  },
 }
