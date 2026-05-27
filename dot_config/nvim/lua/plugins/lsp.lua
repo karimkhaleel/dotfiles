@@ -3,23 +3,15 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        basedpyright = {
-          settings = {
-            python = {
-              analysis = {
-                autoImportCompletions = true,
-                disableOrganizeImports = true,
-              },
-            },
-          },
-        },
-        ty = {
-          settings = {
-            ty = {
-              disableLanguageServices = true,
-            },
-          },
-        },
+        pyrefly = {},
+      },
+    },
+  },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        python = { "ruff_organize_imports", "ruff_format" },
       },
     },
   },

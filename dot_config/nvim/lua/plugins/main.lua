@@ -53,15 +53,12 @@ return {
     "mason-org/mason.nvim",
     opts = {
       ensure_installed = {
-        "basedpyright",
         "debugpy",
         "flake8",
         "flake8",
-        "ruff",
         "shellcheck",
         "shfmt",
         "stylua",
-        "ty",
       },
     },
   },
