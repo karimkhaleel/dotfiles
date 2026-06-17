@@ -249,10 +249,9 @@ alias cat="bat"
 alias cat="batcat"
 {{- end }}
 
-{{- if eq .chezmoi.osRelease.id "linux-fedora" }}
-alias open='xdg-open'
+{{- if eq .chezmoi.os "darwin" }}
 alias clipboard='xclip -selection clipboard'
-{{- else if eq .chezmoi.os "darwin" }}
+{{- else if eq .chezmoi.osRelease.id "linux-fedora" }}
 alias clipboard='pbcopy'
 {{- end }}
 alias lg="lazygit"
@@ -274,10 +273,6 @@ connect_sesh() {
       --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)'
   ) || true
 }
-
-{{- if eq .chezmoi.os "darwin" }}
-source {{ .chezmoi.homeDir }}/.config/op/plugins.sh
-{{- end}}
 
 {{- if eq .chezmoi.os "darwin" }}
 # pnpm
