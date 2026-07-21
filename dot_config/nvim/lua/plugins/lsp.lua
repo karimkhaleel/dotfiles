@@ -4,6 +4,7 @@ return {
     opts = {
       servers = {
         pyrefly = {},
+        ols = {},
       },
     },
   },
