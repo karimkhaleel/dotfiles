@@ -46,6 +46,7 @@ export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 {{- if eq .chezmoi.os "linux" }}
 export PATH=/var/lib/flatpak/exports/bin:$PATH               # Flatpak path
 export PATH=$HOME/.local/share/flatpak/exports/bin:$PATH     # Flatpak path user
+export PATH=$HOME/Dev/Odin:$PATH
 {{-  end}}
 export PATH=$HOME/progs/:$PATH           # Misc Progs
 
